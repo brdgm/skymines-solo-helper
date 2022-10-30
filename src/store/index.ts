@@ -27,7 +27,7 @@ export const store = createStore<State>({
     language: "en",
     baseFontSize: 1.0,
     setup: {
-      difficultyLevel: DifficultyLevel.AUTOMALEIN
+      difficultyLevel: DifficultyLevel.STANDARD_2
     }
   },
   mutations: {
