@@ -3,11 +3,7 @@
 
   <p>...</p>
 
-  <router-link to="/round/1/turn/1" class="btn btn-primary btn-lg mt-4">
-    {{t('action.next')}}
-  </router-link>
-
-  <FooterButtons backButtonRouteTo="/setupGame" endGameButtonType="abortGame"/>
+  <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="endGame"/>
 </template>
 
 <script lang="ts">
@@ -23,6 +19,12 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     return { t }
+  },
+  computed: {
+    backButtonRouteTo() : string {
+      // TODO: calculate back route
+      return `/setupGame`
+    }
   }
 })
 </script>

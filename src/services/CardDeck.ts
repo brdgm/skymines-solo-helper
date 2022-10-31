@@ -80,6 +80,13 @@ export default class CardDeck {
   }
 
   /**
+   * Has cards drawn.
+   */
+  public get hasCardsDrawn() : boolean {
+    return this._slots.length > 0
+  }
+
+  /**
    * Draw next card from pile.
    * If pile is empty, reshuffle dicard.
    * @returns Next card
@@ -168,7 +175,7 @@ export default class CardDeck {
    * Get actions from card in next filled slot.
    * Discards the card after playing it. If it is the last card, discard on of the majority cards as well.
    */
-  public getNextActions() : CardAction[] {
+  public getNextActions() : readonly CardAction[] {
     const nextSlot = this._slots.find(slot => !slot.flipped)
     if (!nextSlot) {
       throw new Error('No next action.')

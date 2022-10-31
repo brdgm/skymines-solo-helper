@@ -18,7 +18,8 @@ describe('services/CardDeck', () => {
     expect(cardDeck.slots.length, 'slots size').to.eq(0)
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
     expect(cardDeck.availableSlots, 'available slots').to.eql([Slot.B,Slot.C,Slot.D])
-    expect(cardDeck.grade2CardsInUse, 'grade2 in use').to.eql(0)
+    expect(cardDeck.grade2CardsInUse, 'grade2 in use').to.eq(0)
+    expect(cardDeck.hasCardsDrawn, 'has cards drawn').to.false
   })
 
   it('drawAllDiscardAll', () => {
@@ -36,6 +37,7 @@ describe('services/CardDeck', () => {
     expect(getSlotCardId(cardDeck.slots, Slot.D), 'slot D').to.eq('I-5')
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
     expect(cardDeck.availableSlots, 'available slots').to.eql([Slot.B,Slot.C,Slot.D])
+    expect(cardDeck.hasCardsDrawn, 'has cards drawn').to.true
 
     cardDeck.discardAll()
 
@@ -45,6 +47,7 @@ describe('services/CardDeck', () => {
     expect(cardDeck.rightMajoritySlot, 'right majority slots').to.undefined
     expect(cardDeck.slots.length, 'slots size').to.eq(0)
     expect(cardDeck.discard.length, 'discard size').to.eq(5)
+    expect(cardDeck.hasCardsDrawn, 'has cards drawn').to.false
   })
 
   it('drawAll4Slots', () => {

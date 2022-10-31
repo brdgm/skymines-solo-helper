@@ -25,6 +25,7 @@ import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/util/RouteCalculator'
 import BotStatus from '@/components/turn/BotStatus.vue'
 import BotActions from '@/components/turn/BotActions.vue'
+import LunaState from '@/services/LunaState'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -48,8 +49,9 @@ export default defineComponent({
     const bot = navigationState.bot
     const playerColor = navigationState.playerColor
     const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, bot)
+    const lunaState = navigationState.lunaState as LunaState
 
-    return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState }
+    return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState, lunaState }
   },
   computed: {
     backButtonRouteTo() : string {
@@ -58,7 +60,14 @@ export default defineComponent({
   },
   methods: {
     next() : void {
-      this.$store.commit('turnBot',{round:this.round,turn:this.turn,bot:this.bot})
+      this.lunaState.applyActions(this.navigationState.lunaActions)
+      let passed : boolean|undefined
+      if (!this.lunaState.cardDeck.hasNextActions) {
+        this.lunaState.cardDeck.discardAll()
+        passed = true
+      }
+      this.$store.commit('turnBot',{round:this.round,turn:this.turn,bot:this.bot,
+        passed:passed,lunaState:this.lunaState.toPersistence()})
       this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
     }
   }

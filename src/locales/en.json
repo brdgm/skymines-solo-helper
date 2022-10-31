@@ -40,6 +40,12 @@
   "turnBot": {
     "title": "Luna | Luna {bot}"
   },
+  "endOfRound": {
+    "title": "End of Round {round}"
+  },
+  "endOfGame": {
+    "title": "End of Game"
+  },
   "difficultyLevel": {
     "0": "Level 0 - Easy",
     "1": "Level 1 - Easy",

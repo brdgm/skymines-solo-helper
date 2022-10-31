@@ -130,26 +130,31 @@ export default class LunaState {
    * @param actions Action
    * @return Number of coins earned because max. helium or research limit was reached
    */
-  public applyActions(actions : CardAction[]) : number {
-    let coins = 0    
-    actions.forEach(action => { 
-      coins += this.applyAction(action)
-    })
-    return coins
+  public applyActions(actions : readonly CardAction[]) : number {
+    return this.addHelium(this.getHeliumCountFromActions(actions))
+        + this.advanceResearch(this.getResearchStepsFromActions(actions))
   }
 
-  private applyAction(action : CardAction) : number {
-    if (action.count) {
-      switch (action.action) {
-        case Action.GAIN_HELIUM:
-          return this.addHelium(action.count)
-        case Action.ADVANCE_RESEARCH:
-          return this.advanceResearch(action.count)
-        default:
-          // ignore all other actions
-      }
-    }
-    return 0
+  /**
+   * Get sum of helium added with given actions
+   * @param actions Actions
+   * @returns Helium count
+   */
+  public getHeliumCountFromActions(actions : readonly CardAction[]) : number {
+    return actions
+        .filter(item => item.action==Action.GAIN_HELIUM)
+        .reduce((sum,item) => sum + (item.count ?? 0), 0)
+  }
+
+  /**
+   * Get sum of research added with given actions
+   * @param actions Actions
+   * @returns Research steps
+   */
+  public getResearchStepsFromActions(actions : readonly CardAction[]) : number {
+    return actions
+        .filter(item => item.action==Action.ADVANCE_RESEARCH)
+        .reduce((sum,item) => sum + (item.count ?? 0), 0)
   }
 
   /**
