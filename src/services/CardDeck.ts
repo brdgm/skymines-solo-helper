@@ -213,6 +213,17 @@ export default class CardDeck {
   }
 
   /**
+   * Add grade 2 card on top of draw pile.
+   */
+  public addGrade2CardToPile() : void {
+    const card = this._grade2.shift()
+    if (!card) {
+      return
+    }
+    this._pile.unshift(card)
+  }
+
+  /**
    * Gets persistence view of card deck.
    */
   public toPersistence() : CardDeckPersistence {

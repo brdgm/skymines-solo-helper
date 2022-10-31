@@ -209,6 +209,17 @@ describe('CardDeck', () => {
     expect(cardDeck.rightMajoritySlot, 'card-4 rightMajoritySlot').to.not.undefined
   })
 
+  it('addGrade2CardToPile', () => {
+    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4'],['II-1','II-2'],['I-5'])
+  
+    cardDeck.addGrade2CardToPile()
+  
+    expect(cardDeck.pile.length, 'deck size').to.eq(5)
+    expect(cardDeck.pile[0].id, 'deck 1st card').to.eq('II-1')
+    expect(cardDeck.grade2.length, 'grade2 size').to.eq(1)
+    expect(cardDeck.discard.length, 'discard size').to.eq(1)
+  })
+
 })
 
 function newWithPiles(cardIds : string[], grade2 : string[], discard : string[],

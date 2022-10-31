@@ -1,22 +1,56 @@
 import { LunaStatePersistence } from "@/store"
 import CardDeck from "./CardDeck"
 import DifficultyLevel from "./enum/DifficultyLevel"
+import Slot from "./enum/Slot"
 
 /**
  * Luna State
  */
 export default class LunaState {
 
+  private static readonly HELIUM_SLOT_A_TRESHOLD = 8
+  private static readonly RESEARCH_SLOT_E_TRESHOLD = 4
+
   private _cardDeck : CardDeck
   private _heliumCount : number
   private _researchSteps : number
-  private _difficultyLevel : DifficultyLevel
+  private _heliumCardTresholds : number[]
+  private _researchCardTresholds : number[]
 
   public constructor(cardDeck : CardDeck, heliumCount : number, researchSteps : number, difficultyLevel : DifficultyLevel) {
     this._cardDeck = cardDeck
     this._heliumCount = heliumCount
     this._researchSteps = researchSteps
-    this._difficultyLevel = difficultyLevel
+    switch (difficultyLevel) {
+      case DifficultyLevel.ADVANCED_3:
+        this._heliumCardTresholds = [11,19]
+        this._researchCardTresholds = [5,10]
+        break;
+      case DifficultyLevel.ADVANCED_4:
+        this._heliumCardTresholds = [9,16]
+        this._researchCardTresholds = [4,8]
+        break;
+      case DifficultyLevel.ADVANCED_5:
+        this._heliumCardTresholds = [7,13]
+        this._researchCardTresholds = [2,7]
+        break;
+      case DifficultyLevel.ADVANCED_6:
+        this._heliumCardTresholds = [6,13]
+        this._researchCardTresholds = [4,8]
+        break;
+      case DifficultyLevel.ADVANCED_7:
+        this._heliumCardTresholds = [7,10]
+        this._researchCardTresholds = [5,7]
+        break;
+      case DifficultyLevel.ADVANCED_8:
+        this._heliumCardTresholds = [8,11]
+        this._researchCardTresholds = [5,7]
+        break;
+      default:
+        this._heliumCardTresholds = []
+        this._researchCardTresholds = []
+        break;
+    }
   }
 
   public get cardDeck() : CardDeck {
@@ -29,6 +63,123 @@ export default class LunaState {
 
   public get researchSteps() : number {
     return this._researchSteps
+  }
+
+  /**
+   * Add helium, regarding thresholds to add Slot A and grade 2 cards on advanced difficulty levels.
+   * @param count Helium count
+   * @return Number of coins earned because max. helium limit was reached
+   */
+  public addHelium(count : number) : number {
+    let coins = 0
+    for (let i=0; i<count; i++) {
+      coins += this.addHeliumSingle()
+    }
+    return coins
+  }
+
+  private addHeliumSingle() : number {
+    if (this._heliumCount == 28) {
+      // max. helium reached
+      return 2
+    }
+    this._heliumCount++
+    if (this._heliumCount == LunaState.HELIUM_SLOT_A_TRESHOLD) {
+      this._cardDeck.addAvailableSlot(Slot.A)
+    }
+    if (this._heliumCardTresholds.includes(this._heliumCount)) {
+      this._cardDeck.addGrade2CardToPile()
+    }
+    return 0
+  }
+
+  /**
+   * Advance research, regarding thresholds to add Slot E and grade 2 cards on advanced difficulty levels.
+   * @param steps Research steps
+   * @return Number of coins earned because max. research limit was reached
+   */
+  public advanceResearch(steps : number) : number {
+    let coins = 0
+    for (let i=0; i<steps; i++) {
+      coins += this.advanceResearchSingle()
+    }
+    return coins
+  }
+
+  private advanceResearchSingle() : number {
+    if (this._researchSteps == 15) {
+      // max. research reached
+      return 2
+    }
+    this._researchSteps++
+    if (this._researchSteps == LunaState.RESEARCH_SLOT_E_TRESHOLD) {
+      this._cardDeck.addAvailableSlot(Slot.E)
+    }
+    if (this._researchCardTresholds.includes(this._researchSteps)) {
+      this._cardDeck.addGrade2CardToPile()
+    }
+    return 0
+  }
+
+  /**
+   * Returns the equivalent of coins for the stored helium.
+   * @returns Coins
+   */
+   public getHeliumInCoins() : number {
+    if (this._heliumCount >= 28) {
+      return 60
+    }
+    else if (this._heliumCount >= 25) {
+      return 50
+    }
+    else if (this._heliumCount >= 23) {
+      return 45
+    }
+    else if (this._heliumCount >= 20) {
+      return 40
+    }
+    else if (this._heliumCount >= 16) {
+      return 30
+    }
+    else if (this._heliumCount >= 13) {
+      return 25
+    }
+    else if (this._heliumCount >= 9) {
+      return 15
+    }
+    else if (this._heliumCount >= 6) {
+      return 10
+    }
+    return 0
+  }
+
+  /**
+   * Returns the equivalent of coins for the advanced research.
+   * @returns Coins
+   */
+   public getResearchInCoins() : number {
+    if (this._researchSteps >= 15) {
+      return 60
+    }
+    else if (this._researchSteps >= 13) {
+      return 50
+    }
+    else if (this._researchSteps >= 11) {
+      return 40
+    }
+    else if (this._researchSteps >= 9) {
+      return 30
+    }
+    else if (this._researchSteps >= 7) {
+      return 20
+    }
+    else if (this._researchSteps >= 5) {
+      return 15
+    }
+    else if (this._researchSteps >= 3) {
+      return 10
+    }
+    return 0
   }
 
   /**
@@ -46,26 +197,32 @@ export default class LunaState {
    * Creates a new luna state and card deck.
    */
   public static new(difficultyLevel : DifficultyLevel) : LunaState {
-    let initialHeliumCount = 0
-    let initialResearchSteps = 0
-    if (difficultyLevel == DifficultyLevel.ADVANCED_6) {
-      initialHeliumCount = 1
-      initialResearchSteps = 1
-    }
-    else if (difficultyLevel == DifficultyLevel.ADVANCED_7) {
-      initialHeliumCount = 3
-      initialResearchSteps = 2
-    }
-    else if (difficultyLevel == DifficultyLevel.ADVANCED_8) {
-      initialHeliumCount = 5
-      initialResearchSteps = 3
+    let initialHeliumCount
+    let initialResearchSteps
+    switch (difficultyLevel) {
+      case DifficultyLevel.ADVANCED_6:
+        initialHeliumCount = 1
+        initialResearchSteps = 1
+        break;
+      case DifficultyLevel.ADVANCED_7:
+        initialHeliumCount = 3
+        initialResearchSteps = 2
+        break;
+      case DifficultyLevel.ADVANCED_8:
+        initialHeliumCount = 5
+        initialResearchSteps = 3
+        break;
+      default:
+        initialHeliumCount = 0
+        initialResearchSteps = 0
+        break;
     }
     return new LunaState(
       CardDeck.new(difficultyLevel),
-      initialHeliumCount,
-      initialResearchSteps,
-      difficultyLevel)
-  }
+        initialHeliumCount,
+        initialResearchSteps,
+        difficultyLevel)
+}
 
   /**
    * Re-creates luna state from persistence.
@@ -73,10 +230,9 @@ export default class LunaState {
   public static fromPersistence(persistence : LunaStatePersistence, difficultyLevel : DifficultyLevel) : LunaState {
     return new LunaState(
       CardDeck.fromPersistence(persistence.cardDeck, difficultyLevel),
-      persistence.heliumCount,
-      persistence.researchSteps,
-      difficultyLevel
-    )
+        persistence.heliumCount,
+        persistence.researchSteps,
+        difficultyLevel)
   }
 
 }
