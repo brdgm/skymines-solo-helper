@@ -34,7 +34,8 @@
     "finalNotes": "Der Bot benötigt keine Laborablage, die App verwaltet die Automa-Karten und berechnet automatisch den Helium- und Forschungs-Fortschritt. Lass auch die Start-Aktionskarten und übrige Einzel-Energiekarten in der Schachtel."
   },
   "turnPlayer": {
-    "title": "Spieler | Spieler {player}"
+    "title": "Spieler | Spieler {player}",
+    "makeTurn": "Führe deinen Zug aus."
   },
   "turnBot": {
     "title": "Luna | Luna {bot}"

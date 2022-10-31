@@ -34,7 +34,8 @@
     "finalNotes": "The bot does not need a player board, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box."
   },
   "turnPlayer": {
-    "title": "Player | Player {player}"
+    "title": "Player | Player {player}",
+    "makeTurn": "Make your turn."
   },
   "turnBot": {
     "title": "Luna | Luna {bot}"

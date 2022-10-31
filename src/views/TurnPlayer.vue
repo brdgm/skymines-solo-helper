@@ -4,11 +4,14 @@
     {{t('turnPlayer.title',{player:player},playerCount)}}
   </h1>
 
-  <p>...</p>
+  <p v-html="t('turnPlayer.makeTurn')" class="mt-4 mb-4"></p>
 
-  <router-link :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-4">
+  <button class="btn btn-primary btn-lg mt-4" @click="next()">
     {{t('action.next')}}
-  </router-link>
+  </button>
+  <button class="btn btn-secondary btn-sm mt-4 ms-2" @click="pass()">
+    {{t('action.pass')}}
+  </button>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
@@ -62,6 +65,16 @@ export default defineComponent({
       else {
         return `/round/${this.round}/turn/${this.turn-1}/bot/${this.botCount}`
       }
+    }
+  },
+  methods: {
+    next() : void {
+      this.$store.commit('turnPlayer',{round:this.round,turn:this.turn,player:this.player})
+      this.$router.push(this.nextButtonRouteTo)
+    },
+    pass() : void {
+      this.$store.commit('turnPlayer',{round:this.round,turn:this.turn,player:this.player,passed:true})
+      this.$router.push(this.nextButtonRouteTo)
     }
   }
 })

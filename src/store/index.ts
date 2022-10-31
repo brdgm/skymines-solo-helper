@@ -93,6 +93,28 @@ export const store = createStore<State>({
     setupDifficultyLevel(state : State, level: number) {
       state.setup.difficultyLevel = level
     },
+    turnPlayer(state : State, turn: Turn) {
+      const round = getOrCreatedRound(state, turn.round)
+      round.turns = round.turns.filter(item => item.round==turn.round
+          && (item.turn!=turn.turn || item.player!=turn.player))
+      round.turns.push(turn)
+      if (turn.passed) {
+        // if passed: remove all stored later turns for this player
+        round.turns = round.turns.filter(item => item.round==turn.round
+            && (item.turn<=turn.turn || item.player!=turn.player))
+      }
+    },
+    turnBot(state : State, turn: Turn) {
+      const round = getOrCreatedRound(state, turn.round)
+      round.turns = round.turns.filter(item => item.round==turn.round
+          && (item.turn!=turn.turn || item.bot!=turn.bot))
+      round.turns.push(turn)
+      if (turn.passed) {
+        // if passed: remove all stored later turns for this bot
+        round.turns = round.turns.filter(item => item.round==turn.round
+            && (item.turn<=turn.turn || item.bot!=turn.bot))
+      }
+    },
     endGame(state : State) {
       state.rounds = []
     },
@@ -110,4 +132,13 @@ store.subscribe((_mutation, state) => {
 // define your own `useStore` composition function
 export function useStore() : Store<State> {
   return baseUseStore(key)
+}
+
+function getOrCreatedRound(state: State, roundNo: number) : Round {
+  let round = state.rounds.find(item => item.round==roundNo)
+  if (!round) {
+    round = {round: roundNo, turns: []}
+    state.rounds.push(round)
+  }
+  return round
 }
