@@ -3,6 +3,10 @@ import Home from '@/views/Home.vue'
 import NotFound from '@/views/NotFound.vue'
 import SetupGame from '@/views/SetupGame.vue'
 import SetupLuna from '@/views/SetupLuna.vue'
+import TurnPlayer from '@/views/TurnPlayer.vue'
+import TurnBot from '@/views/TurnBot.vue'
+import EndOfRound from '@/views/EndOfRound.vue'
+import EndOfGame from '@/views/EndOfGame.vue'
 
 const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "route"
 
@@ -21,6 +25,26 @@ const routes: Array<RouteRecordRaw> = [
     path: '/setupLuna',
     name: 'SetupLuna',
     component: SetupLuna
+  },
+  {
+    path: '/round/:round/turn/:turn/player/:player',
+    name: 'TurnPlayer',
+    component: TurnPlayer
+  },
+  {
+    path: '/round/:round/turn/:turn/bot/:bot',
+    name: 'TurnBot',
+    component: TurnBot
+  },
+  {
+    path: '/round/:round/end',
+    name: 'EndOfRound',
+    component: EndOfRound
+  },
+  {
+    path: '/endOfGame',
+    name: 'EndOfGame',
+    component: EndOfGame
   },
   {
     path: '/:pathMatch(.*)*',

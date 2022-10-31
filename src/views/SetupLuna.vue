@@ -10,7 +10,7 @@
   </ol>
   <p v-html="t('setupLuna.finalNotes')"></p>
 
-  <router-link to="/round/0" class="btn btn-primary btn-lg mt-4">
+  <router-link to="/round/1/turn/1/player/1" class="btn btn-primary btn-lg mt-4">
     {{t('action.startGame')}}
   </router-link>
 
@@ -23,7 +23,7 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 
 export default defineComponent({
-  name: 'SetupGame',
+  name: 'SetupLuna',
   components: {
     FooterButtons
   },

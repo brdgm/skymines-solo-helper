@@ -1,5 +1,5 @@
 <template>
-  <svg width="200" height="200" viewBox="-10 -10 215 215">
+  <svg width="200" height="200" viewBox="-10 -10 220 220">
     <polygon v-if="playerColor=='red'" points="100,0 200,100 100,200 0,100" :style="styleString"/>
     <path v-else-if="playerColor=='orange'" d="m100,4 24,68h72l-56,44 20,68-60-40-60,40 20-68-56-44h72z" :style="styleString"/>
     <polygon v-else-if="playerColor=='blue'" points="100,0 0,200 200,200" :style="styleString"/>

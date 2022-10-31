@@ -23,13 +23,15 @@ export interface PlayerSetup {
 }
 export interface Round {
   round: number
-  botTurns: BotTurn[]
+  turns: Turn[]
 }
-export interface BotTurn {
-  bot: number
+export interface Turn {
   round: number
   turn: number
-  lunaState: LunaStatePersistence
+  player?: number
+  bot?: number
+  passed?: boolean
+  lunaState?: LunaStatePersistence
 }
 export interface LunaStatePersistence {
   cardDeck: CardDeckPersistence

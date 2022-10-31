@@ -33,6 +33,12 @@
     "startingBonus": "Take one of the spare <b>starting research tokens</b> at random and apply its starting bonus to the track markers. Then return that starting research token to the game box.",
     "finalNotes": "The bot does not need a player board, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box."
   },
+  "turnPlayer": {
+    "title": "Player | Player {player}"
+  },
+  "turnBot": {
+    "title": "Luna | Luna {bot}"
+  },
   "difficultyLevel": {
     "0": "Level 0 - Easy",
     "1": "Level 1 - Easy",

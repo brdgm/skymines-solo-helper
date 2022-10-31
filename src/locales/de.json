@@ -33,6 +33,12 @@
     "startingBonus": "Nimm von den übrig gebliebenen <b>Start-Forschungsplättchen</b> ein zufälliges und wende dessen Startbonus auf die Anteilsmarker an. Lege danach das Start-Forschungsplättchen in die Schachtel zurück.",
     "finalNotes": "Der Bot benötigt keine Laborablage, die App verwaltet die Automa-Karten und berechnet automatisch den Helium- und Forschungs-Fortschritt. Lass auch die Start-Aktionskarten und übrige Einzel-Energiekarten in der Schachtel."
   },
+  "turnPlayer": {
+    "title": "Spieler | Spieler {player}"
+  },
+  "turnBot": {
+    "title": "Luna | Luna {bot}"
+  },
   "difficultyLevel": {
     "0": "Level 0 - Leicht",
     "1": "Level 1 - Leicht",
