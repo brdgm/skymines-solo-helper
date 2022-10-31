@@ -24,6 +24,7 @@ import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import NavigationState from '@/util/NavigationState'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
+import RouteCalculator from '@/util/RouteCalculator'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -42,39 +43,25 @@ export default defineComponent({
     const round = navigationState.round
     const turn = navigationState.turn
     const player = navigationState.player
+    const bot = navigationState.bot
     const playerColor = navigationState.playerColor
+    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, bot)
 
-    return { t, playerColor, playerCount, botCount, round, turn, player }
+    return { t, playerCount, round, turn, player, playerColor, routeCalculator }
   },
   computed: {
-    nextButtonRouteTo() : string {
-      if (this.player < this.playerCount) {
-        return `/round/${this.round}/turn/${this.turn}/player/${this.player+1}`
-      }
-      else {
-        return `/round/${this.round}/turn/${this.turn}/bot/1`
-      }
-    },
     backButtonRouteTo() : string {
-      if (this.round == 1 && this.turn == 1 && this.player == 1) {
-        return ''
-      }
-      else if (this.player > 1) {
-        return `/round/${this.round}/turn/${this.turn}/player/${this.player-1}`
-      }
-      else {
-        return `/round/${this.round}/turn/${this.turn-1}/bot/${this.botCount}`
-      }
+      return this.routeCalculator.getBackRouteTo(this.$store.state)
     }
   },
   methods: {
     next() : void {
       this.$store.commit('turnPlayer',{round:this.round,turn:this.turn,player:this.player})
-      this.$router.push(this.nextButtonRouteTo)
+      this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
     },
     pass() : void {
       this.$store.commit('turnPlayer',{round:this.round,turn:this.turn,player:this.player,passed:true})
-      this.$router.push(this.nextButtonRouteTo)
+      this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
     }
   }
 })

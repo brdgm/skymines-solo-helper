@@ -7,7 +7,7 @@ import Slot from '@/services/enum/Slot'
 import { CardSlotPersistence } from '@/store'
 import { expect } from 'chai'
 
-describe('CardDeck', () => {
+describe('services/CardDeck', () => {
   it('new', () => {
     const cardDeck = CardDeck.new(DifficultyLevel.L2_STANDARD)
 

@@ -6,9 +6,9 @@
 
   <p>...</p>
 
-  <router-link :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-4">
+  <button class="btn btn-primary btn-lg mt-4" @click="next()">
     {{t('action.next')}}
-  </router-link>
+  </button>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
@@ -21,6 +21,7 @@ import NavigationState from '@/util/NavigationState'
 import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
+import RouteCalculator from '@/util/RouteCalculator'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -38,27 +39,22 @@ export default defineComponent({
     const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn
+    const player = navigationState.player
     const bot = navigationState.bot
     const playerColor = navigationState.playerColor
+    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, bot)
 
-    return { t, playerColor, playerCount, botCount, round, turn, bot, navigationState }
+    return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState }
   },
   computed: {
-    nextButtonRouteTo() : string {
-      if (this.bot < this.botCount) {
-        return `/round/${this.round}/turn/${this.turn}/bot/${this.bot+1}`
-      }
-      else {
-        return `/round/${this.round}/turn/${this.turn+1}/player/1`
-      }
-    },
     backButtonRouteTo() : string {
-      if (this.bot > 1) {
-        return `/round/${this.round}/turn/${this.turn}/bot/${this.bot-1}`
-      }
-      else {
-        return `/round/${this.round}/turn/${this.turn}/player/${this.playerCount}`
-      }
+      return this.routeCalculator.getBackRouteTo(this.$store.state)
+    }
+  },
+  methods: {
+    next() : void {
+      this.$store.commit('turnBot',{round:this.round,turn:this.turn,bot:this.bot})
+      this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
     }
   }
 })

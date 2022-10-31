@@ -3,7 +3,7 @@ import Slot from '@/services/enum/Slot'
 import LunaState from '@/services/LunaState'
 import { expect } from 'chai'
 
-describe('LunaState', () => {
+describe('services/LunaState', () => {
   it('new-STANDARD_2', () => {
     const lunaState = LunaState.new(DifficultyLevel.L2_STANDARD)
 
