@@ -68,7 +68,7 @@ export const store = createStore<State>({
       playerSetup: {
         playerCount: 1,
         botCount: 1,
-        playerColors: [PlayerColor.BLUE,PlayerColor.GREEN,PlayerColor.ORANGE,PlayerColor.RED]
+        playerColors: [PlayerColor.RED,PlayerColor.ORANGE,PlayerColor.BLUE,PlayerColor.GREEN]
       },
       difficultyLevel: DifficultyLevel.L2_STANDARD
     },

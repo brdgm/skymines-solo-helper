@@ -65,7 +65,7 @@ export default defineComponent({
     return {
       playerCount: this.$store.state.setup.playerSetup?.playerCount || 1,
       botCount: this.$store.state.setup.playerSetup?.botCount || 1,
-      playerColors: this.$store.state.setup.playerSetup?.playerColors || [PlayerColor.BLUE,PlayerColor.GREEN,PlayerColor.ORANGE,PlayerColor.RED]
+      playerColors: this.$store.state.setup.playerSetup?.playerColors || [PlayerColor.RED,PlayerColor.ORANGE,PlayerColor.BLUE,PlayerColor.GREEN]
     }
   },
   computed: {

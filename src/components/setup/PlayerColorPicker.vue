@@ -1,17 +1,19 @@
 <template>
-  <svg v-for="playerColor in playerColors" :key="playerColor" width="1.5rem" height="1.5rem" class="color"
-      :class="{selected:playerColor==selectedColor}" @click="selectColor(playerColor)">
-    <rect width="1rem" height="1rem" :style="`fill:${getColorCode(playerColor)};'`"/>
-  </svg>
+  <PlayerColorIcon v-for="playerColor in playerColors" :key="playerColor" :player-color="playerColor"
+      class="color" :class="{selected:playerColor==selectedColor}" @click="selectColor(playerColor)"/>
 </template>
 
 <script lang="ts">
 import PlayerColor from '@/services/enum/PlayerColor'
 import { defineComponent } from 'vue'
 import getPlayerColorCode from '@/util/getPlayerColorCode'
+import PlayerColorIcon from '../structure/PlayerColorIcon.vue'
 
 export default defineComponent({
   name: 'PlayerColorPicker',
+  components: {
+    PlayerColorIcon
+  },
   emits: ['update:modelValue'],
   props: {
     modelValue: {
@@ -26,18 +28,21 @@ export default defineComponent({
     }
   },
   methods: {
-    getColorCode(color : PlayerColor) : string {
+    getColorCode(color: PlayerColor): string {
       return getPlayerColorCode(color)
     },
-    selectColor(color : PlayerColor) : void {
+    selectColor(color: PlayerColor): void {
       this.selectedColor = color
       this.$emit('update:modelValue', color)
     }
   }
 })
 </script>
+
 <style lang="scss" scoped>
 .color {
+  width: 2rem;
+  height: 2rem;
   margin-right: 0.5rem;
   border: 4px solid transparent;
   border-radius: 0.25rem;
