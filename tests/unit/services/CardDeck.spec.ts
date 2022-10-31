@@ -9,7 +9,7 @@ import { expect } from 'chai'
 
 describe('CardDeck', () => {
   it('new', () => {
-    const cardDeck = CardDeck.new(DifficultyLevel.STANDARD_2)
+    const cardDeck = CardDeck.new(DifficultyLevel.L2_STANDARD)
 
     expect(cardDeck.pile.length, 'deck size').to.eq(12)
     expect(cardDeck.grade2.length, 'grade2 size').to.eq(7)
@@ -87,7 +87,7 @@ describe('CardDeck', () => {
   })
 
   it('drawAll5Slots-EASY_0-ignore', () => {
-    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4','I-5','I-6','I-7','I-8'],[],[],DifficultyLevel.EASY_0)
+    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4','I-5','I-6','I-7','I-8'],[],[],DifficultyLevel.L0_EASY)
 
     cardDeck.addAvailableSlot(Slot.A)
     cardDeck.addAvailableSlot(Slot.E)
@@ -119,7 +119,7 @@ describe('CardDeck', () => {
   })
 
   it('drawAllWithReshuffle_EASY_1_nograde2', () => {
-    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4'],['II-1','II-2'],['I-5'],DifficultyLevel.EASY_1)
+    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4'],['II-1','II-2'],['I-5'],DifficultyLevel.L1_EASY)
   
     cardDeck.drawAll()
   
@@ -223,7 +223,7 @@ describe('CardDeck', () => {
 })
 
 function newWithPiles(cardIds : string[], grade2 : string[], discard : string[],
-    difficultyLevel: DifficultyLevel = DifficultyLevel.STANDARD_2) : CardDeck {
+    difficultyLevel: DifficultyLevel = DifficultyLevel.L2_STANDARD) : CardDeck {
   return CardDeck.fromPersistence({
     pile: cardIds,
     grade2: grade2,
@@ -236,7 +236,7 @@ function newWithPiles(cardIds : string[], grade2 : string[], discard : string[],
 }
 
 function newWithSlots(leftMajoritySlot : string|undefined, rightMajoritySlot : string|undefined, slots: CardSlotPersistence[],
-    difficultyLevel: DifficultyLevel = DifficultyLevel.STANDARD_2) : CardDeck {
+    difficultyLevel: DifficultyLevel = DifficultyLevel.L2_STANDARD) : CardDeck {
   const availableSlots = slots.map(item => item.slot)
   availableSlots.sort()
   return CardDeck.fromPersistence({

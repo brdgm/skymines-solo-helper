@@ -1,4 +1,5 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import PlayerColor from '@/services/enum/PlayerColor'
 import Slot from '@/services/enum/Slot'
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
@@ -9,9 +10,26 @@ export interface State {
   language: string
   baseFontSize: number
   setup: Setup
+  rounds: Round[]
 }
 export interface Setup {
+  playerSetup: PlayerSetup
   difficultyLevel: DifficultyLevel
+}
+export interface PlayerSetup {
+  playerCount: number
+  botCount: number
+  playerColors: PlayerColor[]
+}
+export interface Round {
+  round: number
+  botTurns: BotTurn[]
+}
+export interface BotTurn {
+  bot: number
+  round: number
+  turn: number
+  lunaState: LunaStatePersistence
 }
 export interface LunaStatePersistence {
   cardDeck: CardDeckPersistence
@@ -47,8 +65,14 @@ export const store = createStore<State>({
     language: "en",
     baseFontSize: 1.0,
     setup: {
-      difficultyLevel: DifficultyLevel.STANDARD_2
-    }
+      playerSetup: {
+        playerCount: 1,
+        botCount: 1,
+        playerColors: [PlayerColor.BLUE,PlayerColor.GREEN,PlayerColor.ORANGE,PlayerColor.RED]
+      },
+      difficultyLevel: DifficultyLevel.L2_STANDARD
+    },
+    rounds: []
   },
   mutations: {
     // reload state from local storage
@@ -61,8 +85,14 @@ export const store = createStore<State>({
     language(state : State, language: string) {
       state.language = language
     },
+    setupPlayer(state : State, playerSetup: PlayerSetup) {
+      state.setup.playerSetup = playerSetup
+    },
     setupDifficultyLevel(state : State, level: number) {
       state.setup.difficultyLevel = level
+    },
+    endGame(state : State) {
+      state.rounds = []
     },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize

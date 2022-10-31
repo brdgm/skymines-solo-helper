@@ -6,6 +6,44 @@
     "play2": "This helper application replaces the Automa cards and the Luna player board.",
     "feedback": "Discussion and Feedback:"
   },
+  "setup": {
+    "title": "Setup Game",
+    "players": {
+      "title": "Player",
+      "playerCount": "Human Players",
+      "playerCountItem": "{count} Player | {count} Players",
+      "playerColor": "Player Color | Player {index} Color",
+      "playerBonusMarkers": "Each human player gets <b>{count} bonus markers</b>.",
+      "botCount": "Luna Bots",
+      "botCountItem": "{count} Luna Bot | {count} Luna Bots",
+      "botColor": "Luna Color | Luna {index} Color"
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    }
+  },
+  "setupLuna": {
+    "title": "Setup Luna",
+    "forEach": "For each Luna Bot, prepare a dedicated area with:",
+    "playerToken": "The <b>player token</b> with the bot's color.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> and <b>all 5 Bonus Markers</b>.",
+    "trackMarkers": "Take the <b>4 track markers</b> and add one to space 0 of each company track.",
+    "startingBonus": "Take one of the spare <b>starting research tokens</b> at random and apply its starting bonus to the track markers. Then return that starting research token to the game box.",
+    "finalNotes": "The bot does not need a player board, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box."
+  },
+  "difficultyLevel": {
+    "0": "Level 0 - Easy",
+    "1": "Level 1 - Easy",
+    "2": "Level 2 - Standard",
+    "3": "Level 3 - Advanced",
+    "4": "Level 4 - Advanced",
+    "5": "Level 5 - Advanced",
+    "6": "Level 6 - Advanced",
+    "7": "Level 7 - Advanced",
+    "8": "Level 8 - Advanced"
+  },
   "notfound": {
     "title": "Not Found"
   },

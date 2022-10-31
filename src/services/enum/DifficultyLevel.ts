@@ -2,14 +2,14 @@
  * Difficulty level
  */
 enum DifficultyLevel {
-  EASY_0 = 0,
-  EASY_1 = 1,
-  STANDARD_2 = 2,
-  ADVANCED_3 = 3,
-  ADVANCED_4 = 4,
-  ADVANCED_5 = 5,
-  ADVANCED_6 = 6,
-  ADVANCED_7 = 7,
-  ADVANCED_8 = 8
+  L0_EASY = 0,
+  L1_EASY = 1,
+  L2_STANDARD = 2,
+  L3_ADVANCED = 3,
+  L4_ADVANCED = 4,
+  L5_ADVANCED = 5,
+  L6_ADVANCED = 6,
+  L7_ADVANCED = 7,
+  L8_ADVANCED = 8
 }
 export default DifficultyLevel

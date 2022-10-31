@@ -22,27 +22,27 @@ export default class LunaState {
     this._heliumCount = heliumCount
     this._researchSteps = researchSteps
     switch (difficultyLevel) {
-      case DifficultyLevel.ADVANCED_3:
+      case DifficultyLevel.L3_ADVANCED:
         this._heliumCardTresholds = [11,19]
         this._researchCardTresholds = [5,10]
         break;
-      case DifficultyLevel.ADVANCED_4:
+      case DifficultyLevel.L4_ADVANCED:
         this._heliumCardTresholds = [9,16]
         this._researchCardTresholds = [4,8]
         break;
-      case DifficultyLevel.ADVANCED_5:
+      case DifficultyLevel.L5_ADVANCED:
         this._heliumCardTresholds = [7,13]
         this._researchCardTresholds = [2,7]
         break;
-      case DifficultyLevel.ADVANCED_6:
+      case DifficultyLevel.L6_ADVANCED:
         this._heliumCardTresholds = [6,13]
         this._researchCardTresholds = [4,8]
         break;
-      case DifficultyLevel.ADVANCED_7:
+      case DifficultyLevel.L7_ADVANCED:
         this._heliumCardTresholds = [7,10]
         this._researchCardTresholds = [5,7]
         break;
-      case DifficultyLevel.ADVANCED_8:
+      case DifficultyLevel.L8_ADVANCED:
         this._heliumCardTresholds = [8,11]
         this._researchCardTresholds = [5,7]
         break;
@@ -200,15 +200,15 @@ export default class LunaState {
     let initialHeliumCount
     let initialResearchSteps
     switch (difficultyLevel) {
-      case DifficultyLevel.ADVANCED_6:
+      case DifficultyLevel.L6_ADVANCED:
         initialHeliumCount = 1
         initialResearchSteps = 1
         break;
-      case DifficultyLevel.ADVANCED_7:
+      case DifficultyLevel.L7_ADVANCED:
         initialHeliumCount = 3
         initialResearchSteps = 2
         break;
-      case DifficultyLevel.ADVANCED_8:
+      case DifficultyLevel.L8_ADVANCED:
         initialHeliumCount = 5
         initialResearchSteps = 3
         break;

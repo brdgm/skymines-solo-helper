@@ -6,6 +6,44 @@
     "play2": "Diese Applikation ersetzt die Automa-Karten und die Luna Laborablage.",
     "feedback": "Discussion and Feedback:"
   },
+  "setup": {
+    "title": "Spielaufbau",
+    "players": {
+      "title": "Spieler",
+      "playerCount": "Menschliche Spieler",
+      "playerCountItem": "{count} Spieler",
+      "playerColor": "Spieler-Farbe | Spieler {index} Farbe",
+      "playerBonusMarkers": "Jeder menschliche Spieler erhält <b>{count} Bonusmarker</b>.",
+      "botCount": "Luna Bots",
+      "botCountItem": "{count} Luna Bot | {count} Luna Bots",
+      "botColor": "Luna-Farbe | Luna {index} Farbe"
+    },
+    "difficultyLevel": {
+      "title": "Schwierigkeitsgrad",
+      "easy": "Leicht",
+      "hard": "Schwer"
+    }
+  },
+  "setupLuna": {
+    "title": "Luna Spielaufbau",
+    "forEach": "Bereite für jeden Luna Bot einen separaten Bereich vor mit:",
+    "playerToken": "Einen <b>Farbmarker</b> mit der Farbe des Bots.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> und <b>alle 5 Bonusmarker</b>.",
+    "trackMarkers": "Nimm die <b>4 Anteilsmarker</b> und lege je einen davon auf Feld 0 jeder der 4 Unternehmensleisten.",
+    "startingBonus": "Nimm von den übrig gebliebenen <b>Start-Forschungsplättchen</b> ein zufälliges und wende dessen Startbonus auf die Anteilsmarker an. Lege danach das Start-Forschungsplättchen in die Schachtel zurück.",
+    "finalNotes": "Der Bot benötigt keine Laborablage, die App verwaltet die Automa-Karten und berechnet automatisch den Helium- und Forschungs-Fortschritt. Lass auch die Start-Aktionskarten und übrige Einzel-Energiekarten in der Schachtel."
+  },
+  "difficultyLevel": {
+    "0": "Level 0 - Leicht",
+    "1": "Level 1 - Leicht",
+    "2": "Level 2 - Standard",
+    "3": "Level 3 - Fortgeschritten",
+    "4": "Level 4 - Fortgeschritten",
+    "5": "Level 5 - Fortgeschritten",
+    "6": "Level 6 - Fortgeschritten",
+    "7": "Level 7 - Fortgeschritten",
+    "8": "Level 8 - Fortgeschritten"
+  },
   "notfound": {
     "title": "Nicht Gefunden"
   },

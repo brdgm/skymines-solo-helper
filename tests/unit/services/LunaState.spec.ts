@@ -5,7 +5,7 @@ import { expect } from 'chai'
 
 describe('LunaState', () => {
   it('new-STANDARD_2', () => {
-    const lunaState = LunaState.new(DifficultyLevel.STANDARD_2)
+    const lunaState = LunaState.new(DifficultyLevel.L2_STANDARD)
 
     assertState({lunaState: lunaState, label: 'initial',
         heliumCount: 0, researchSteps: 0,
@@ -13,28 +13,28 @@ describe('LunaState', () => {
   })
 
   it('new_ADVANCED_6', () => {
-    const lunaState = LunaState.new(DifficultyLevel.ADVANCED_6)
+    const lunaState = LunaState.new(DifficultyLevel.L6_ADVANCED)
 
     expect(lunaState.heliumCount).to.eq(1)
     expect(lunaState.researchSteps).to.eq(1)
   })
 
   it('new_ADVANCED_7', () => {
-    const lunaState = LunaState.new(DifficultyLevel.ADVANCED_7)
+    const lunaState = LunaState.new(DifficultyLevel.L7_ADVANCED)
 
     expect(lunaState.heliumCount).to.eq(3)
     expect(lunaState.researchSteps).to.eq(2)
   })
 
   it('new_ADVANCED_8', () => {
-    const lunaState = LunaState.new(DifficultyLevel.ADVANCED_8)
+    const lunaState = LunaState.new(DifficultyLevel.L8_ADVANCED)
 
     expect(lunaState.heliumCount).to.eq(5)
     expect(lunaState.researchSteps).to.eq(3)
   })
 
   it('addHelium-STANDARD_2', () => {
-    const lunaState = LunaState.new(DifficultyLevel.STANDARD_2)
+    const lunaState = LunaState.new(DifficultyLevel.L2_STANDARD)
 
     expect(lunaState.addHelium(5), 'add 5 - coins').to.eq(0)
     assertState({lunaState: lunaState, label: 'add 5',
@@ -53,7 +53,7 @@ describe('LunaState', () => {
   })
 
   it('addHelium-ADVANCED_4', () => {
-    const lunaState = LunaState.new(DifficultyLevel.ADVANCED_4)
+    const lunaState = LunaState.new(DifficultyLevel.L4_ADVANCED)
 
     expect(lunaState.addHelium(5), 'add 5 - coins').to.eq(0)
     assertState({lunaState: lunaState, label: 'add 5',
@@ -72,7 +72,7 @@ describe('LunaState', () => {
   })
 
   it('advanceResearch-STANDARD_2', () => {
-    const lunaState = LunaState.new(DifficultyLevel.STANDARD_2)
+    const lunaState = LunaState.new(DifficultyLevel.L2_STANDARD)
 
     expect(lunaState.advanceResearch(1), 'advance 1 - coins').to.eq(0)
     assertState({lunaState: lunaState, label: 'advance 1',
@@ -96,7 +96,7 @@ describe('LunaState', () => {
   })
 
   it('advanceResearch-ADVANCED_7', () => {
-    const lunaState = LunaState.new(DifficultyLevel.ADVANCED_7)
+    const lunaState = LunaState.new(DifficultyLevel.L7_ADVANCED)
 
     expect(lunaState.advanceResearch(1), 'advance 1 - coins').to.eq(0)
     assertState({lunaState: lunaState, label: 'advance 1',

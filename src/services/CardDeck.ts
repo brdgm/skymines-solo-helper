@@ -94,7 +94,7 @@ export default class CardDeck {
     this._pile.push(...this._discard)
     this._discard = []
     // in STANDARD and ADVANCED difficulty levels: add new grade 2 card on discard shuffle
-    if (this._difficultyLevel != DifficultyLevel.EASY_0 && this._difficultyLevel != DifficultyLevel.EASY_1) {
+    if (this._difficultyLevel != DifficultyLevel.L0_EASY && this._difficultyLevel != DifficultyLevel.L1_EASY) {
       const grade2Card = this._grade2.shift()
       if (grade2Card)  {
         this._pile.push(grade2Card)
@@ -138,7 +138,7 @@ export default class CardDeck {
    * @param slot Slot
    */
   public addAvailableSlot(slot : Slot) : void {
-    if (this._difficultyLevel == DifficultyLevel.EASY_0) {
+    if (this._difficultyLevel == DifficultyLevel.L0_EASY) {
       // ignore slot upgrades on difficulty level 0
       return
     }
