@@ -11,7 +11,7 @@ import Slot from "./enum/Slot";
 const cards = [
   {
     id: 'I-1',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 0,
     majorityCountRight: 3,
     scientistCount: 1,
@@ -34,7 +34,7 @@ const cards = [
   },
   {
     id: 'I-2',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 4,
     majorityCountRight: 0,
     actions: [
@@ -57,7 +57,7 @@ const cards = [
   },
   {
     id: 'I-3',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 3,
     majorityCountRight: 0,
     scientistCount: 1,
@@ -83,7 +83,7 @@ const cards = [
   },
   {
     id: 'I-4',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 0,
     majorityCountRight: 3,
     scientistCount: 1,
@@ -112,7 +112,7 @@ const cards = [
   },
   {
     id: 'I-5',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 3,
     majorityCountRight: 3,
     scientistCount: 1,
@@ -141,7 +141,7 @@ const cards = [
   },
   {
     id: 'I-6',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 4,
     majorityCountRight: 0,
     actions: [
@@ -159,7 +159,7 @@ const cards = [
   },
   {
     id: 'I-7',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 0,
     majorityCountRight: 4,
     actions: [
@@ -177,7 +177,7 @@ const cards = [
   },
   {
     id: 'I-8',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 3,
     majorityCountRight: 3,
     scientistCount: 1,
@@ -206,7 +206,7 @@ const cards = [
   },
   {
     id: 'I-9',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 0,
     majorityCountRight: 3,
     scientistCount: 1,
@@ -229,7 +229,7 @@ const cards = [
   },
   {
     id: 'I-10',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 0,
     majorityCountRight: 4,
     actions: [
@@ -251,7 +251,7 @@ const cards = [
   },
   {
     id: 'I-11',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 3,
     majorityCountRight: 0,
     scientistCount: 1,
@@ -275,7 +275,7 @@ const cards = [
   },
   {
     id: 'I-12',
-    grade: Grade.GRADE_I,
+    grade: Grade.GRADE_1,
     majorityCountLeft: 3,
     majorityCountRight: 0,
     scientistCount: 1,
@@ -312,7 +312,7 @@ const cards = [
   },
   {
     id: 'II-1',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 4,
     majorityCountRight: 6,
     scientistCount: 1,
@@ -339,7 +339,7 @@ const cards = [
   },
   {
     id: 'II-2',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 6,
     majorityCountRight: 4,
     scientistCount: 1,
@@ -366,7 +366,7 @@ const cards = [
   },
   {
     id: 'II-3',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 3,
     majorityCountRight: 6,
     scientistCount: 2,
@@ -389,7 +389,7 @@ const cards = [
   },
   {
     id: 'II-4',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 4,
     majorityCountRight: 6,
     scientistCount: 1,
@@ -418,7 +418,7 @@ const cards = [
   },
   {
     id: 'II-5',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 6,
     majorityCountRight: 6,
     scientistCount: 1,
@@ -453,7 +453,7 @@ const cards = [
   },
   {
     id: 'II-6',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 6,
     majorityCountRight: 4,
     scientistCount: 2,
@@ -482,7 +482,7 @@ const cards = [
   },
   {
     id: 'II-7',
-    grade: Grade.GRADE_II,
+    grade: Grade.GRADE_2,
     majorityCountLeft: 6,
     majorityCountRight: 3,
     scientistCount: 2,

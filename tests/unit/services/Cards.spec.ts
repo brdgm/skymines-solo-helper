@@ -11,8 +11,8 @@ describe('Cards', () => {
   })
 
   it('getAll', () => {
-    const cardsGradeI = Cards.getAll(Grade.GRADE_I)
-    const cardsGradeII = Cards.getAll(Grade.GRADE_II)
+    const cardsGradeI = Cards.getAll(Grade.GRADE_1)
+    const cardsGradeII = Cards.getAll(Grade.GRADE_2)
 
     expect(cardsGradeI.length).eq(12)
     expect(cardsGradeII.length).eq(7)

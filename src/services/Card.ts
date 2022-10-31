@@ -21,8 +21,8 @@ export interface CardAction {
   count?: number
   companySelection?: CompanySelection
   cardSelection?: CardSelection
-  sectorSelection?: SectorSelection
   cardSelectionMatrix?: Slot[][][]
+  sectorSelection?: SectorSelection
   bonusMarkerSelectionMatrix?: Slot[][][]
   researchPlanSelection?: ResearchPlanSelection
   researchPlanRow?: Slot[][]

@@ -1,4 +1,5 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import Slot from '@/services/enum/Slot'
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 
@@ -11,6 +12,20 @@ export interface State {
 }
 export interface Setup {
   difficultyLevel: DifficultyLevel
+}
+export interface CardDeckPersistence {
+  pile: string[]
+  grade2: string[]
+  leftMajoritySlot?: string
+  rightMajoritySlot?: string
+  slots: CardSlotPersistence[]
+  discard: string[],
+  availableSlots: Slot[]
+}
+export interface CardSlotPersistence {
+  slot: Slot
+  card: string
+  flipped: boolean
 }
 
 declare module '@vue/runtime-core' {

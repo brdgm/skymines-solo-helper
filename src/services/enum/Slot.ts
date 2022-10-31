@@ -6,7 +6,6 @@ enum Slot {
   B = 'b',
   C = 'c',
   D = 'd',
-  E = 'e',
-  F = 'f'
+  E = 'e'
 }
 export default Slot
