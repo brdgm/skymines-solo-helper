@@ -1,5 +1,8 @@
 import { State } from "@/store"
 
+/**
+ * Calculate routes for next/back respecting "passed" state of players/bots.
+ */
 export default class RouteCalculator {
 
   readonly playerCount : number
@@ -18,30 +21,6 @@ export default class RouteCalculator {
     this.bot = bot > 0 ? bot : undefined
   }
 
-  /**
-   * Generate list of all player/bot steps - leaving out steps after player/bot has passed.
-   */
-  private generateSteps(state: State) : Step[] {
-    const round = state.rounds.find(item => item.round=this.round)
-    const turns = round?.turns || []
-    const steps = []
-    for (let turn=1; turn<=this.turn+1; turn++) {
-      for (let player=1; player<=this.playerCount; player++) {
-        const hasPassed = turns.find(item => item.round==this.round && item.turn<turn && item.player==player && item.passed) != undefined
-        if (!hasPassed) {
-          steps.push({round:this.round,turn:turn,player:player})
-        }
-      }
-      for (let bot=1; bot<=this.botCount; bot++) {
-        const hasPassed = turns.find(item => item.round==this.round && item.turn<turn && item.bot==bot && item.passed) != undefined
-        if (!hasPassed) {
-          steps.push({round:this.round,turn:turn,bot:bot})
-        }
-      }
-    }
-    return steps
-  }
-
   public getNextRouteTo(state: State) : string {
     const steps = this.generateSteps(state)
     const currentStepIndex = steps.findIndex(item => item.round==this.round && item.turn==this.turn
@@ -58,7 +37,7 @@ export default class RouteCalculator {
         return `/round/${this.round}/end`
       }
     }
-    return this.routeTo(nextStep)
+    return RouteCalculator.routeTo(nextStep)
   }
 
   public getBackRouteTo(state: State) : string {
@@ -77,10 +56,34 @@ export default class RouteCalculator {
         return ''
       }
     }
-    return this.routeTo(previousStep)
+    return RouteCalculator.routeTo(previousStep)
   }
 
-  private routeTo(step: Step) : string {
+  /**
+   * Generate list of all player/bot steps - leaving out steps after player/bot has passed.
+   */
+  private generateSteps(state: State) : Step[] {
+    const currentRound = state.rounds.find(item => item.round=this.round)
+    const turns = currentRound?.turns || []
+    const steps = []
+    for (let turnNo=1; turnNo<=this.turn+1; turnNo++) {
+      for (let playerNo=1; playerNo<=this.playerCount; playerNo++) {
+        const hasPassed = turns.find(item => item.round==this.round && item.turn<turnNo && item.player==playerNo && item.passed) != undefined
+        if (!hasPassed) {
+          steps.push({round:this.round,turn:turnNo,player:playerNo})
+        }
+      }
+      for (let botNo=1; botNo<=this.botCount; botNo++) {
+        const hasPassed = turns.find(item => item.round==this.round && item.turn<turnNo && item.bot==botNo && item.passed) != undefined
+        if (!hasPassed) {
+          steps.push({round:this.round,turn:turnNo,bot:botNo})
+        }
+      }
+    }
+    return steps
+  }
+
+  private static routeTo(step: Step) : string {
     if (step.bot) {
       return `/round/${step.round}/turn/${step.turn}/bot/${step.bot}`
     }

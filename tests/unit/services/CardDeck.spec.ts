@@ -18,6 +18,7 @@ describe('services/CardDeck', () => {
     expect(cardDeck.slots.length, 'slots size').to.eq(0)
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
     expect(cardDeck.availableSlots, 'available slots').to.eql([Slot.B,Slot.C,Slot.D])
+    expect(cardDeck.grade2CardsInUse, 'grade2 in use').to.eql(0)
   })
 
   it('drawAllDiscardAll', () => {
@@ -116,6 +117,7 @@ describe('services/CardDeck', () => {
     expect(cardDeck.rightMajoritySlot, 'right majority slots').to.not.undefined
     expect(cardDeck.slots.length, 'slots size').to.eq(3)
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
+    expect(cardDeck.grade2CardsInUse, 'grade2 in use').to.eql(1)
   })
 
   it('drawAllWithReshuffle_EASY_1_nograde2', () => {
@@ -129,6 +131,7 @@ describe('services/CardDeck', () => {
     expect(cardDeck.rightMajoritySlot, 'right majority slots').to.not.undefined
     expect(cardDeck.slots.length, 'slots size').to.eq(3)
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
+    expect(cardDeck.grade2CardsInUse, 'grade2 in use').to.eql(0)
   })
 
   it('majorityCardsBoth', () => {
@@ -218,6 +221,7 @@ describe('services/CardDeck', () => {
     expect(cardDeck.pile[0].id, 'deck 1st card').to.eq('II-1')
     expect(cardDeck.grade2.length, 'grade2 size').to.eq(1)
     expect(cardDeck.discard.length, 'discard size').to.eq(1)
+    expect(cardDeck.grade2CardsInUse, 'grade2 in use').to.eql(1)
   })
 
 })

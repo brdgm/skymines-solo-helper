@@ -62,6 +62,14 @@ export default class CardDeck {
     return this._availableSlots
   }
 
+  public get grade2CardsInUse() : number {
+    return this._pile.filter(item => item.grade==Grade.GRADE_2).length
+        + (this._leftMajoritySlot?.grade==Grade.GRADE_2 ? 1 : 0)
+        + (this._rightMajoritySlot?.grade==Grade.GRADE_2 ? 1 : 0)
+        + this._slots.filter(item => item.card.grade==Grade.GRADE_2).length
+        + this._discard.filter(item => item.grade==Grade.GRADE_2).length
+  }
+
   /**
    * Draw all cards for new round.
    */

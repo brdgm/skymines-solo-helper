@@ -1,3 +1,4 @@
+import Action from '@/services/enum/Action'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import Slot from '@/services/enum/Slot'
 import LunaState from '@/services/LunaState'
@@ -111,6 +112,18 @@ describe('services/LunaState', () => {
     expect(lunaState.advanceResearch(5), 'advance 5 - coins').to.eq(0)
     assertState({lunaState: lunaState, label: 'advance 5',
         heliumCount: 3, researchSteps: 11,
+        availableSlots: [Slot.B,Slot.C,Slot.D,Slot.E], pileSize: 14, grade2Size: 5})
+  })
+
+  it('applyActions-ADVANCED_6', () => {
+    const lunaState = LunaState.new(DifficultyLevel.L6_ADVANCED)
+
+    expect(lunaState.applyActions([
+      {action:Action.GAIN_HELIUM,count:5},
+      {action:Action.ADVANCE_RESEARCH,count:4},
+      {action:Action.GAIN_COIN,count:3}]), 'helium+5, research+4 - coins').to.eq(0)
+    assertState({lunaState: lunaState, label: 'advance 1',
+        heliumCount: 6, researchSteps: 5,
         availableSlots: [Slot.B,Slot.C,Slot.D,Slot.E], pileSize: 14, grade2Size: 5})
   })
 })

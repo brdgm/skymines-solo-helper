@@ -1,5 +1,7 @@
 import { LunaStatePersistence } from "@/store"
+import { CardAction } from "./Card"
 import CardDeck from "./CardDeck"
+import Action from "./enum/Action"
 import DifficultyLevel from "./enum/DifficultyLevel"
 import Slot from "./enum/Slot"
 
@@ -8,6 +10,8 @@ import Slot from "./enum/Slot"
  */
 export default class LunaState {
 
+  private static readonly HELIUM_MAX = 28
+  private static readonly RESEARCH_MAX = 15
   private static readonly HELIUM_SLOT_A_TRESHOLD = 8
   private static readonly RESEARCH_SLOT_E_TRESHOLD = 4
 
@@ -79,7 +83,7 @@ export default class LunaState {
   }
 
   private addHeliumSingle() : number {
-    if (this._heliumCount == 28) {
+    if (this._heliumCount == LunaState.HELIUM_MAX) {
       // max. helium reached
       return 2
     }
@@ -107,7 +111,7 @@ export default class LunaState {
   }
 
   private advanceResearchSingle() : number {
-    if (this._researchSteps == 15) {
+    if (this._researchSteps == LunaState.RESEARCH_MAX) {
       // max. research reached
       return 2
     }
@@ -122,11 +126,38 @@ export default class LunaState {
   }
 
   /**
+   * Apply card actions that direcly affect the Luna state (advance helium + research).
+   * @param actions Action
+   * @return Number of coins earned because max. helium or research limit was reached
+   */
+  public applyActions(actions : CardAction[]) : number {
+    let coins = 0    
+    actions.forEach(action => { 
+      coins += this.applyAction(action)
+    })
+    return coins
+  }
+
+  private applyAction(action : CardAction) : number {
+    if (action.count) {
+      switch (action.action) {
+        case Action.GAIN_HELIUM:
+          return this.addHelium(action.count)
+        case Action.ADVANCE_RESEARCH:
+          return this.advanceResearch(action.count)
+        default:
+          // ignore all other actions
+      }
+    }
+    return 0
+  }
+
+  /**
    * Returns the equivalent of coins for the stored helium.
    * @returns Coins
    */
-   public getHeliumInCoins() : number {
-    if (this._heliumCount >= 28) {
+  public getHeliumInCoins() : number {
+    if (this._heliumCount >= LunaState.HELIUM_MAX) {
       return 60
     }
     else if (this._heliumCount >= 25) {
@@ -157,8 +188,8 @@ export default class LunaState {
    * Returns the equivalent of coins for the advanced research.
    * @returns Coins
    */
-   public getResearchInCoins() : number {
-    if (this._researchSteps >= 15) {
+  public getResearchInCoins() : number {
+    if (this._researchSteps >= LunaState.RESEARCH_MAX) {
       return 60
     }
     else if (this._researchSteps >= 13) {
@@ -222,7 +253,7 @@ export default class LunaState {
         initialHeliumCount,
         initialResearchSteps,
         difficultyLevel)
-}
+  }
 
   /**
    * Re-creates luna state from persistence.

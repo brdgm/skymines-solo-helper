@@ -4,7 +4,8 @@
     {{t('turnBot.title',{bot:bot},botCount)}}
   </h1>
 
-  <p>...</p>
+  <BotStatus :navigation-state="navigationState"/>
+  <BotActions :navigation-state="navigationState"/>
 
   <button class="btn btn-primary btn-lg mt-4" @click="next()">
     {{t('action.next')}}
@@ -22,12 +23,16 @@ import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/util/RouteCalculator'
+import BotStatus from '@/components/turn/BotStatus.vue'
+import BotActions from '@/components/turn/BotActions.vue'
 
 export default defineComponent({
   name: 'TurnBot',
   components: {
     FooterButtons,
-    PlayerColorIcon
+    PlayerColorIcon,
+    BotStatus,
+    BotActions
   },
   setup() {
     const { t } = useI18n()
