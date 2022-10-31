@@ -13,6 +13,11 @@ export interface State {
 export interface Setup {
   difficultyLevel: DifficultyLevel
 }
+export interface LunaStatePersistence {
+  cardDeck: CardDeckPersistence
+  heliumCount: number
+  researchSteps: number
+}
 export interface CardDeckPersistence {
   pile: string[]
   grade2: string[]

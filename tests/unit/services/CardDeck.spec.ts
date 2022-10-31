@@ -1,6 +1,7 @@
 import CardDeck from '@/services/CardDeck'
 import CardSlot from '@/services/CardSlot'
 import Action from '@/services/enum/Action'
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import MajorityType from '@/services/enum/MajorityType'
 import Slot from '@/services/enum/Slot'
 import { CardSlotPersistence } from '@/store'
@@ -8,7 +9,7 @@ import { expect } from 'chai'
 
 describe('CardDeck', () => {
   it('new', () => {
-    const cardDeck = CardDeck.new()
+    const cardDeck = CardDeck.new(DifficultyLevel.STANDARD_2)
 
     expect(cardDeck.pile.length, 'deck size').to.eq(12)
     expect(cardDeck.grade2.length, 'grade2 size').to.eq(7)
@@ -85,6 +86,25 @@ describe('CardDeck', () => {
     expect(cardDeck.availableSlots, 'available slots').to.eql([Slot.A,Slot.B,Slot.C,Slot.D,Slot.E])
   })
 
+  it('drawAll5Slots-EASY_0-ignore', () => {
+    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4','I-5','I-6','I-7','I-8'],[],[],DifficultyLevel.EASY_0)
+
+    cardDeck.addAvailableSlot(Slot.A)
+    cardDeck.addAvailableSlot(Slot.E)
+    cardDeck.drawAll()
+
+    expect(cardDeck.pile.length, 'deck size').to.eq(3)
+    expect(cardDeck.grade2.length, 'grade2 size').to.eq(0)
+    expect(cardDeck.leftMajoritySlot?.id, 'left majority slots').to.eq('I-1')
+    expect(cardDeck.rightMajoritySlot?.id, 'right majority slots').to.eq('I-2')
+    expect(cardDeck.slots.length, 'slots size').to.eq(3)
+    expect(getSlotCardId(cardDeck.slots, Slot.B), 'slot B').to.eq('I-3')
+    expect(getSlotCardId(cardDeck.slots, Slot.C), 'slot C').to.eq('I-4')
+    expect(getSlotCardId(cardDeck.slots, Slot.D), 'slot D').to.eq('I-5')
+    expect(cardDeck.discard.length, 'discard size').to.eq(0)
+    expect(cardDeck.availableSlots, 'available slots').to.eql([Slot.B,Slot.C,Slot.D])
+  })
+
   it('drawAllWithReshuffle', () => {
     const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4'],['II-1','II-2'],['I-5'])
   
@@ -97,7 +117,20 @@ describe('CardDeck', () => {
     expect(cardDeck.slots.length, 'slots size').to.eq(3)
     expect(cardDeck.discard.length, 'discard size').to.eq(0)
   })
+
+  it('drawAllWithReshuffle_EASY_1_nograde2', () => {
+    const cardDeck = newWithPiles(['I-1','I-2','I-3','I-4'],['II-1','II-2'],['I-5'],DifficultyLevel.EASY_1)
   
+    cardDeck.drawAll()
+  
+    expect(cardDeck.pile.length, 'deck size').to.eq(0)
+    expect(cardDeck.grade2.length, 'grade2 size').to.eq(2)
+    expect(cardDeck.leftMajoritySlot, 'left majority slots').to.not.undefined
+    expect(cardDeck.rightMajoritySlot, 'right majority slots').to.not.undefined
+    expect(cardDeck.slots.length, 'slots size').to.eq(3)
+    expect(cardDeck.discard.length, 'discard size').to.eq(0)
+  })
+
   it('majorityCardsBoth', () => {
     const cardDeck = newWithSlots('I-4','II-1',[])
   
@@ -178,7 +211,8 @@ describe('CardDeck', () => {
 
 })
 
-function newWithPiles(cardIds : string[], grade2 : string[], discard : string[]) : CardDeck {
+function newWithPiles(cardIds : string[], grade2 : string[], discard : string[],
+    difficultyLevel: DifficultyLevel = DifficultyLevel.STANDARD_2) : CardDeck {
   return CardDeck.fromPersistence({
     pile: cardIds,
     grade2: grade2,
@@ -187,10 +221,11 @@ function newWithPiles(cardIds : string[], grade2 : string[], discard : string[])
     slots: [],
     discard: discard,
     availableSlots: [Slot.B,Slot.C,Slot.D]
-  })
+  }, difficultyLevel)
 }
 
-function newWithSlots(leftMajoritySlot : string|undefined, rightMajoritySlot : string|undefined, slots: CardSlotPersistence[]) : CardDeck {
+function newWithSlots(leftMajoritySlot : string|undefined, rightMajoritySlot : string|undefined, slots: CardSlotPersistence[],
+    difficultyLevel: DifficultyLevel = DifficultyLevel.STANDARD_2) : CardDeck {
   const availableSlots = slots.map(item => item.slot)
   availableSlots.sort()
   return CardDeck.fromPersistence({
@@ -201,7 +236,7 @@ function newWithSlots(leftMajoritySlot : string|undefined, rightMajoritySlot : s
     slots: slots,
     discard: [],
     availableSlots: availableSlots
-  })
+  }, difficultyLevel)
 }
 
 function getSlotCardId(slots: readonly CardSlot[], slot: Slot) : string|undefined {

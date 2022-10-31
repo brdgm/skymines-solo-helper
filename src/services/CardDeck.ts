@@ -3,6 +3,7 @@ import * as _ from "lodash"
 import Card, { CardAction } from "./Card"
 import Cards from "./Cards"
 import CardSlot from "./CardSlot"
+import DifficultyLevel from "./enum/DifficultyLevel"
 import Grade from "./enum/Grade"
 import MajorityType from "./enum/MajorityType"
 import Slot from "./enum/Slot"
@@ -19,9 +20,10 @@ export default class CardDeck {
   private _slots : CardSlot[]
   private _discard : Card[]
   private _availableSlots : Slot[]
+  private _difficultyLevel : DifficultyLevel
 
   public constructor(pile : Card[], grade2 : Card[], leftMajoritySlot : Card|undefined, rightMajoritySlot : Card|undefined,
-      slots : CardSlot[], discard : Card[], availableSlots : Slot[]) {
+      slots : CardSlot[], discard : Card[], availableSlots : Slot[], difficultyLevel : DifficultyLevel) {
     this._pile = pile
     this._grade2 = grade2
     this._leftMajoritySlot = leftMajoritySlot
@@ -29,6 +31,7 @@ export default class CardDeck {
     this._slots = slots
     this._discard = discard
     this._availableSlots = availableSlots
+    this._difficultyLevel = difficultyLevel
   }
 
   public get pile() : readonly Card[] {
@@ -90,9 +93,12 @@ export default class CardDeck {
   private reshuffleDiscard() : void {
     this._pile.push(...this._discard)
     this._discard = []
-    const grade2Card = this._grade2.shift()
-    if (grade2Card)  {
-      this._pile.push(grade2Card)
+    // in STANDARD and ADVANCED difficulty levels: add new grade 2 card on discard shuffle
+    if (this._difficultyLevel != DifficultyLevel.EASY_0 && this._difficultyLevel != DifficultyLevel.EASY_1) {
+      const grade2Card = this._grade2.shift()
+      if (grade2Card)  {
+        this._pile.push(grade2Card)
+      }
     }
     this._pile = _.shuffle(this.pile)
   }
@@ -132,6 +138,10 @@ export default class CardDeck {
    * @param slot Slot
    */
   public addAvailableSlot(slot : Slot) : void {
+    if (this._difficultyLevel == DifficultyLevel.EASY_0) {
+      // ignore slot upgrades on difficulty level 0
+      return
+    }
     if (this._availableSlots.includes(slot)) {
       throw new Array(`Slot ${slot} is already available.`)
     }
@@ -220,19 +230,20 @@ export default class CardDeck {
   /**
    * Creates a shuffled new card deck with initially available slots.
    */
-  public static new() : CardDeck {
+  public static new(difficultyLevel : DifficultyLevel) : CardDeck {
     return new CardDeck(
       _.shuffle(Cards.getAll(Grade.GRADE_1)),
       _.shuffle(Cards.getAll(Grade.GRADE_2)),
       undefined, undefined, [], [],
-      [Slot.B,Slot.C,Slot.D]
+      [Slot.B,Slot.C,Slot.D],
+      difficultyLevel
     )
   }
 
   /**
    * Re-creates a card deck from persistence.
    */
-  public static fromPersistence(persistence : CardDeckPersistence) : CardDeck {
+  public static fromPersistence(persistence : CardDeckPersistence, difficultyLevel : DifficultyLevel) : CardDeck {
     return new CardDeck(
       persistence.pile.map(Cards.get),
       persistence.grade2.map(Cards.get),
@@ -240,7 +251,8 @@ export default class CardDeck {
       persistence.rightMajoritySlot ? Cards.get(persistence.rightMajoritySlot) : undefined,
       persistence.slots.map(item => ({slot:item.slot, card:Cards.get(item.card), flipped:item.flipped})),
       persistence.discard.map(Cards.get),
-      _.clone(persistence.availableSlots)
+      _.clone(persistence.availableSlots),
+      difficultyLevel
     )
   }
 
