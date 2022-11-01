@@ -74,7 +74,7 @@ export default class RouteCalculator {
    * Get route to last turn in round (or empty route if no turn exist).
    */
   public getFirstTurnRouteTo(state: State) : string {
-    const playerOrder = this.determinePlayerOrder()
+    const playerOrder = this.determinePlayerOrder(state)
     return RouteCalculator.routeTo({round:this.round,turn:1,player:playerOrder[0].player,bot:playerOrder[0].bot})
   }
 
@@ -96,7 +96,7 @@ export default class RouteCalculator {
    * Generate list of all player/bot steps - leaving out steps after player/bot has passed.
    */
   private generateSteps(state: State) : Step[] {
-    const playerOrder = this.determinePlayerOrder()
+    const playerOrder = this.determinePlayerOrder(state)
     const currentRound = state.rounds.find(item => item.round==this.round)
     const turns = currentRound?.turns || []
     const steps : Step[] = []
@@ -125,7 +125,7 @@ export default class RouteCalculator {
   /**
    * Determine player order from previous round (human players may claim first player marker).
    */
-  private determinePlayerOrder() : Step[] {
+  private determinePlayerOrder(state: State) : Step[] {
     const playerOrder : Step[] = []
     for (let playerNo=1; playerNo<=this.playerCount; playerNo++) {
       playerOrder.push({player:playerNo})
