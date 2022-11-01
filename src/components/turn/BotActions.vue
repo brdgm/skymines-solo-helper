@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="(action,index) in lunaActions" :key="index">
-      {{action.action}} {{action.count}}
+      {{action.action}} {{action.count}} {{action.revealAction ? '(*)' : ''}}
     </li>
   </ul>
 </template>

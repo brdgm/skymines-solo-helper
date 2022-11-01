@@ -29,7 +29,7 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const rounds = [
-      {round:1, turns: [{round:1, turn:1, player:1, passed:true}]}
+      {round:1, initialLunaStates:[], turns: [{round:1, turn:1, player:1, passed:true}]}
     ]
     expect(routeCalculator.getNextRouteTo(getState(rounds))).to.eq('/round/1/turn/2/bot/1')
     expect(routeCalculator.getBackRouteTo(getState(rounds))).to.eq('/round/1/turn/1/bot/1')
@@ -39,7 +39,7 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const rounds = [
-      {round:1, turns: [{round:1, turn:1, player:1, passed:true},
+      {round:1, initialLunaStates:[], turns: [{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true}]},
     ]
     expect(routeCalculator.getNextRouteTo(getState(rounds))).to.eq('/round/1/turn/2/bot/2')
@@ -50,7 +50,7 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const rounds = [
-      {round:1, turns: [{round:1, turn:1, player:1, passed:true},
+      {round:1, initialLunaStates:[], turns: [{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true},
         {round:1, turn:1, bot:2, passed:true}]},
     ]
@@ -62,7 +62,7 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:7, turn:1, bot:2})
 
     const rounds = [
-      {round:7, turns: [{round:7, turn:1, player:1, passed:true},
+      {round:7, initialLunaStates:[], turns: [{round:7, turn:1, player:1, passed:true},
         {round:7, turn:1, bot:1, passed:true},
         {round:7, turn:1, bot:2, passed:true}]},
     ]
@@ -80,7 +80,7 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
 
     const rounds = [
-      {round:1, turns: [{round:1, turn:1, player:1, passed:true},
+      {round:1, initialLunaStates:[], turns: [{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true},
         {round:1, turn:1, bot:2, passed:true}]},
     ]

@@ -1,6 +1,7 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import PlayerColor from '@/services/enum/PlayerColor'
 import Slot from '@/services/enum/Slot'
+import LunaState from '@/services/LunaState'
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 
@@ -22,7 +23,8 @@ export interface PlayerSetup {
   playerColors: PlayerColor[]
 }
 export interface Round {
-  round: number
+  round: number  
+  initialLunaStates: LunaStatePersistence[]
   turns: Turn[]
 }
 export interface Turn {
@@ -93,8 +95,22 @@ export const store = createStore<State>({
     setupDifficultyLevel(state : State, level: number) {
       state.setup.difficultyLevel = level
     },
+    prepareRound(state : State, round: Round) {      
+      // merge with state already stored in existing round persistence
+      const existingRound = state.rounds.find(item => item.round==round.round)
+      if (existingRound) {
+        if (existingRound.turns.length > 0) {
+          round.turns = existingRound.turns
+        }
+        if (existingRound.initialLunaStates.length > 0) {
+          round.initialLunaStates = existingRound.initialLunaStates
+        }
+      }
+      state.rounds = state.rounds.filter(item => item.round!=round.round)
+      state.rounds.push(round)
+    },
     turnPlayer(state : State, turn: Turn) {
-      const round = getOrCreatedRound(state, turn.round)
+      const round = getRound(state, turn.round)
       round.turns = round.turns.filter(item => item.round==turn.round
           && (item.turn!=turn.turn || item.player!=turn.player))
       round.turns.push(turn)
@@ -105,7 +121,7 @@ export const store = createStore<State>({
       }
     },
     turnBot(state : State, turn: Turn) {
-      const round = getOrCreatedRound(state, turn.round)
+      const round = getRound(state, turn.round)
       round.turns = round.turns.filter(item => item.round==turn.round
           && (item.turn!=turn.turn || item.bot!=turn.bot))
       round.turns.push(turn)
@@ -134,11 +150,11 @@ export function useStore() : Store<State> {
   return baseUseStore(key)
 }
 
-function getOrCreatedRound(state: State, roundNo: number) : Round {
+function getRound(state: State, roundNo: number) : Round {
   let round = state.rounds.find(item => item.round==roundNo)
   if (!round) {
-    round = {round: roundNo, turns: []}
-    state.rounds.push(round)
+    console.log(`Persistence for round ${roundNo} not found.`)
+    round = {round: roundNo, turns: [], initialLunaStates: []}
   }
   return round
 }

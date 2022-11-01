@@ -26,4 +26,6 @@ export interface CardAction {
   bonusMarkerSelectionMatrix?: Slot[][][]
   researchPlanSelection?: ResearchPlanSelection
   researchPlanRow?: Slot[][]
+  /* This is set for reveal actions from majority cards, or for "computed" actions of gained coins from max. helium/research */
+  revealAction?: boolean
 }

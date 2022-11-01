@@ -3,9 +3,9 @@
 
   <p>...</p>
 
-  <router-link :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-4">
+  <button class="btn btn-primary btn-lg mt-4" @click="nextRound()">
     {{t('action.next')}}
-  </router-link>
+  </button>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
@@ -17,6 +17,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import RouteCalculator from '@/util/RouteCalculator'
+import InitialLunaStates from '@/util/InitialLunaStates'
 
 export default defineComponent({
   name: 'EndOfRound',
@@ -35,13 +36,19 @@ export default defineComponent({
     return { t, playerCount, botCount, round }
   },
   computed: {
-    nextButtonRouteTo() : string {
-      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round+1})
-      return routeCalculator.getFirstTurnRouteTo(this.$store.state)
-    },
     backButtonRouteTo() : string {
       const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round})
       return routeCalculator.getLastTurnRouteTo(this.$store.state)
+    }
+  },
+  methods: {
+    nextRound() : void {
+      // prepare luna states for all bots for next round
+      const initialLunaStates = new InitialLunaStates(this.$store)
+      initialLunaStates.prepareRound(this.round+1)
+      // got to first turn of next round
+      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round+1})
+      this.$router.push(routeCalculator.getFirstTurnRouteTo(this.$store.state))
     }
   }
 })

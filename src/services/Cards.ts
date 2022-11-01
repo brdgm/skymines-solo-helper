@@ -89,7 +89,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
@@ -118,7 +119,8 @@ const cards = [
     scientistCount: 1,
     revealAction:{
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
@@ -183,7 +185,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
@@ -281,7 +284,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
@@ -308,7 +312,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.ADVANCE_RESEARCH,
-      count: 1
+      count: 1,
+      revealAction: true
     },
     actions: [
       {
@@ -335,7 +340,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.ADVANCE_RESEARCH,
-      count: 1
+      count: 1,
+      revealAction: true
     },
     actions: [
       {
@@ -362,7 +368,8 @@ const cards = [
     scientistCount: 2,
     revealAction: {
       action: Action.ADVANCE_RESEARCH,
-      count: 1
+      count: 1,
+      revealAction: true
     },
     actions: [
       {
@@ -385,7 +392,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.ADVANCE_RESEARCH,
-      count: 1
+      count: 1,
+      revealAction: true
     },
     actions: [
       {
@@ -414,7 +422,8 @@ const cards = [
     scientistCount: 1,
     revealAction: {
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
@@ -449,7 +458,8 @@ const cards = [
     scientistCount: 2,
     revealAction: {
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
@@ -478,7 +488,8 @@ const cards = [
     scientistCount: 2,
     revealAction: {
       action: Action.GAIN_HELIUM,
-      count: 2
+      count: 2,
+      revealAction: true
     },
     actions: [
       {
