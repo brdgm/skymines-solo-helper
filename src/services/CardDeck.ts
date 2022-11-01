@@ -116,7 +116,7 @@ export default class CardDeck {
         this._pile.push(grade2Card)
       }
     }
-    this._pile = _.shuffle(this.pile)
+    this._pile = _.shuffle(this._pile)
   }
 
   /**
@@ -137,20 +137,25 @@ export default class CardDeck {
    * Discard all remaining cards.
    */
   public discardAll() : void {
+    this.discardLeftMajoritySlot()
+    this.discardRightMajoritySlot()
+    this.discardSlotCards()
+  }
+
+  private discardLeftMajoritySlot() : void {
     if (this._leftMajoritySlot) {
       this._discard.push(this._leftMajoritySlot)      
       this._leftMajoritySlot = undefined
     }
+  }
+
+  private discardRightMajoritySlot() : void {
     if (this._rightMajoritySlot) {
       this._discard.push(this._rightMajoritySlot)      
       this._rightMajoritySlot = undefined
     }
-    this.discardSlotCards()
   }
 
-  /**
-   * Discard slot cards.
-   */
   private discardSlotCards() : void {
     this._discard.push(...this._slots.map(item => item.card))
     this._slots = []
@@ -203,10 +208,10 @@ export default class CardDeck {
     this._discard = _.shuffle(this._discard)
     const discardCard = this._discard[0]
     if (discardCard.majorityCountLeft > discardCard.majorityCountRight) {
-      this._leftMajoritySlot = undefined
+      this.discardLeftMajoritySlot()
     }
     else if (discardCard.majorityCountRight > discardCard.majorityCountLeft) {
-      this._rightMajoritySlot = undefined
+      this.discardRightMajoritySlot()
     }
   }
 
