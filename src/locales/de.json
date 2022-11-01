@@ -48,6 +48,35 @@
       "helium": "Helium",
       "research": "Forschung",
       "slot": "Slot {slot}"
+    },
+    "action": {
+      "lunaGains": "Luna erhält:",
+      "advanceCompany": {
+        "most-valuable": "beim <b>wertvollsten</b> Unternehmen",
+        "most-valuable-two-each": "bei jedem der <b>2 wertvollsten</b> Unternehmen",
+        "second-most-valuable": "beim <b>zweit-wertvollsten</b> Unternehmen",
+        "least-valuable": "beim Unternehmen, das am <b>wenigsten wert</b> ist",
+        "lead-biggest-margin": "beim Unternehmen, auf dessen Leiste Luna den <b>größten Vorsprung</b> hat",
+        "lead-biggest-margin-two-each": "bei jedem der <b>2 Unternehmen</b>, auf deren Leisten Luna den <b>größten Vorsprung</b> hat",
+        "all-four-each": "bei <b>jedem der 4 Unternehmen</b>"
+      },
+      "discardResearchPlan": {
+        "discard": "Luna entfernt den <b>{plan}-Forschungsplan</b>:",
+        "discardFirstCol": "Luna entfernt den <b>{plan}-Forschungsplan</b>; liegen auf dem Zuschussfeld noch CrypCoin, erhält sie diese:",
+        "discardSpecial": "Luna entfernt den <b>neuesten offenen Sonder-Forschungsplan</b>."
+      },
+      "expandCompany": {
+        "expand": "Dann breitet sich dieses Unternehmen aus:",
+        "min": "MIN",
+        "max": "MAX"
+      },
+      "gainCard": {
+        "matchSlot": "Luna erhält aus der Auslage diese Karten:",
+        "mostValuableShare": "Luna erhält aus der Auslage die Karte mit dem <b>wertvollsten Anteil</b> (gibt es mehrere, vom Feld mit der kleinsten Nummer)."
+      },
+      "placeBonusMarker": {
+        "place": "Luna setzt einen Bonusmarker:"
+      }
     }
   },
   "endOfRound": {

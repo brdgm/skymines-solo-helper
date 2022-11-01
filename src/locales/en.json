@@ -48,6 +48,35 @@
       "helium": "Helium",
       "research": "Research",
       "slot": "Slot {slot}"
+    },
+    "action": {
+      "lunaGains": "Luna gains:",
+      "advanceCompany": {
+        "most-valuable": "on the <b>most valuable</b> company track",
+        "most-valuable-two-each": "on each of the <b>2 most valuable</b> company tracks",
+        "second-most-valuable": "on the <b>second most valuable</b> company track",
+        "least-valuable": "on the <b>least valuable</b> company track",
+        "lead-biggest-margin": "on the company track on which Luna leads by the <b>biggest margin</b>",
+        "lead-biggest-margin-two-each": "on each of the <b>2 company tracks</b> on which Luna leads by the <b>biggest margin</b>",
+        "all-four-each": "on each of the <b>4 company tracks</b>"
+      },
+      "discardResearchPlan": {
+        "discard": "Luna discards a <b>{plan}-research plan</b>:",
+        "discardFirstCol": "Luna discards a <b>{plan}-research plan</b>; she also gains any CrypCoin on the supplement space:",
+        "discardSpecial": "Luna discards the <b>latest face-up special research plan</b>."
+      },
+      "expandCompany": {
+        "expand": "Then she expands that company:",
+        "min": "MIN",
+        "max": "MAX"
+      },
+      "gainCard": {
+        "matchSlot": "Luna gains each of the displayed cards:",
+        "mostValuableShare": "Luna gains the card with the <b>most valuable share</b> (if there are more than one, the one from the space with the lowest number)."
+      },
+      "placeBonusMarker": {
+        "place": "Luna places a bonus marker:"
+      }
     }
   },
   "endOfRound": {

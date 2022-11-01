@@ -1,5 +1,5 @@
 <template>
-  <div class="float-end">
+  <div class="position-absolute top-0 end-0 me-3 mt-5">
     <p v-html="t('turnPlayer.playerStatus.turn',{round:round,turn:turn})"></p>
     <div class="majorities">
       <div v-html="t('turnPlayer.playerStatus.majorities')"></div>

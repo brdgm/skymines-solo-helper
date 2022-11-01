@@ -42,14 +42,7 @@ export default class BotNavigationState extends AbstractNavigationState {
     // check if helium/research gain exceeds maximum level and results in extra coin gains
     const gainedCoins = this.lunaState.calculateHeliumResearchExceedCoins(actions)
     if (gainedCoins > 0) {
-      // try to add coins to existing gain coins actions - or add new one
-      const existingGainCoinsAction = actions.find(item => item.action==Action.GAIN_COIN)
-      if (existingGainCoinsAction && existingGainCoinsAction.count) {
-        existingGainCoinsAction.count += gainedCoins
-      }
-      else {
-        actions.unshift({action:Action.GAIN_COIN, count:gainedCoins, revealAction: true})
-      }
+      actions.unshift({action:Action.GAIN_COIN, count:gainedCoins, revealAction: true})
     }
 
     return actions

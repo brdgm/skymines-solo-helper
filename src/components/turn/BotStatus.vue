@@ -1,5 +1,5 @@
 <template>
-  <div class="float-end">
+  <div class="position-absolute top-0 end-0 me-3 mt-5">
     <p v-html="t('turnBot.botStatus.turn',{round:round,turn:turn})"></p>
     <div class="status">
       <table>
@@ -42,6 +42,9 @@
       <Icon name="luna-card" v-for="(slot,index) in cardSlots" :key="index"
           class="card" :class="{flipped:slot.flipped}"
           :title="t('turnBot.botStatus.slot',{slot:slot.slot})"/>
+    </div>
+    <div>
+      <div v-for="(cardId,index) in cardIds" :key="index" class="cardId text-muted">{{cardId}}</div>
     </div>
   </div>
 </template>
@@ -99,6 +102,11 @@ export default defineComponent({
     },
     cardSlots() : readonly CardSlot[] {
       return this.lunaState.cardDeck.slots
+    },
+    cardIds() : string[] {
+      return this.cardSlots
+          .filter(item => item.flipped)
+          .map(item => item.card.id)
     }
   }
 })
@@ -142,12 +150,19 @@ export default defineComponent({
 .cardSlots {
   margin-top: 1rem;
   .card {
-    display: inline;
+    display: inline-block;
     width: 1.5rem;
     margin-left: 0.25rem;
     &.flipped {
       filter: invert(100%);
     }
   }
+}
+.cardId {
+  display: inline-block;
+  width: 1.5rem;
+  margin-left: 0.25rem;
+  text-align: center;
+  font-size: 0.7rem;
 }
 </style>
