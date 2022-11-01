@@ -4,6 +4,7 @@ import PlayerColor from "@/services/enum/PlayerColor"
 import LunaState from "@/services/LunaState"
 import { CardAction } from "@/services/Card"
 import AbstractNavigationState from "./AbstractNavigationState"
+import Action from "@/services/enum/Action"
 
 export default class BotNavigationState extends AbstractNavigationState {
 
@@ -72,15 +73,32 @@ export default class BotNavigationState extends AbstractNavigationState {
    */
   private getLunaActions() : CardAction[] {
     const actions : CardAction[] = []
+    
+    // draw cards if first turn in round
     if (!this.lunaState.cardDeck.hasCardsDrawn) {
       this.lunaState.cardDeck.drawAll()
       // add helium/research from majority card reveal actions
       actions.push(...this.lunaState.cardDeck.majorityCardActions)
     }
+
+    // add action from next slot card
     if (this.lunaState.cardDeck.hasNextActions) {
-      // add action from next slot card
       actions.push(...this.lunaState.cardDeck.getNextActions())
     }
+
+    // check if helium/research gain exceeds maximum level and results in extra coin gains
+    const gainedCoins = this.lunaState.calculateHeliumResearchExceedCoins(actions)
+    if (gainedCoins > 0) {
+      // try to add coins to existing gain coins actions - or add new one
+      const existingGainCoinsAction = actions.find(item => item.action==Action.GAIN_COIN)
+      if (existingGainCoinsAction && existingGainCoinsAction.count) {
+        existingGainCoinsAction.count += gainedCoins
+      }
+      else {
+        actions.unshift({action:Action.GAIN_COIN, count:gainedCoins})
+      }
+    }
+
     return actions
   }
 

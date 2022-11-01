@@ -71,21 +71,19 @@ export default class LunaState {
 
   /**
    * Add helium, regarding thresholds to add Slot A and grade 2 cards on advanced difficulty levels.
+   * Ignores any helium that exceeds the max. level.
    * @param count Helium count
-   * @return Number of coins earned because max. helium limit was reached
    */
-  public addHelium(count : number) : number {
-    let coins = 0
+  public addHelium(count : number) : void {
     for (let i=0; i<count; i++) {
-      coins += this.addHeliumSingle()
+      this.addHeliumSingle()
     }
-    return coins
   }
 
-  private addHeliumSingle() : number {
+  private addHeliumSingle() : void {
     if (this._heliumCount == LunaState.HELIUM_MAX) {
-      // max. helium reached
-      return 2
+      // ignore further steps: max. helium reached
+      return
     }
     this._heliumCount++
     if (this._heliumCount == LunaState.HELIUM_SLOT_A_TRESHOLD) {
@@ -94,26 +92,23 @@ export default class LunaState {
     if (this._heliumCardTresholds.includes(this._heliumCount)) {
       this._cardDeck.addGrade2CardToPile()
     }
-    return 0
   }
 
   /**
    * Advance research, regarding thresholds to add Slot E and grade 2 cards on advanced difficulty levels.
+   * Ignores any research that exceeds the max. level.
    * @param steps Research steps
-   * @return Number of coins earned because max. research limit was reached
    */
-  public advanceResearch(steps : number) : number {
-    let coins = 0
+  public advanceResearch(steps : number) : void {
     for (let i=0; i<steps; i++) {
-      coins += this.advanceResearchSingle()
+      this.advanceResearchSingle()
     }
-    return coins
   }
 
-  private advanceResearchSingle() : number {
+  private advanceResearchSingle() : void {
     if (this._researchSteps == LunaState.RESEARCH_MAX) {
-      // max. research reached
-      return 2
+      // ignore further steps: max. research reached
+      return
     }
     this._researchSteps++
     if (this._researchSteps == LunaState.RESEARCH_SLOT_E_TRESHOLD) {
@@ -122,17 +117,36 @@ export default class LunaState {
     if (this._researchCardTresholds.includes(this._researchSteps)) {
       this._cardDeck.addGrade2CardToPile()
     }
-    return 0
+  }
+
+  /**
+   * Checks if the helium/research gains from the given actions would leed to an exceed
+   * of max. helium/research level. If this is the case, it calculates 2 coins
+   * for each exceed step and returns the total numer of coins.
+   * @param actions Actions
+   */
+  public calculateHeliumResearchExceedCoins(actions : readonly CardAction[]) : number {
+    let coins = 0
+    const heliumCountTotal = this.heliumCount + this.getHeliumCountFromActions(actions)
+    if (heliumCountTotal > LunaState.HELIUM_MAX) {
+      const exceedSteps = heliumCountTotal - LunaState.HELIUM_MAX
+      coins += exceedSteps * 2
+    }
+    const researchStepsTotal = this.researchSteps + this.getResearchStepsFromActions(actions)
+    if (researchStepsTotal > LunaState.RESEARCH_MAX) {
+      const exceedSteps = researchStepsTotal - LunaState.RESEARCH_MAX
+      coins += exceedSteps * 2
+    }
+    return coins
   }
 
   /**
    * Apply card actions that direcly affect the Luna state (advance helium + research).
-   * @param actions Action
-   * @return Number of coins earned because max. helium or research limit was reached
+   * @param actions Actions
    */
-  public applyActions(actions : readonly CardAction[]) : number {
-    return this.addHelium(this.getHeliumCountFromActions(actions))
-        + this.advanceResearch(this.getResearchStepsFromActions(actions))
+  public applyActions(actions : readonly CardAction[]) : void {
+    this.addHelium(this.getHeliumCountFromActions(actions))
+    this.advanceResearch(this.getResearchStepsFromActions(actions))
   }
 
   /**
