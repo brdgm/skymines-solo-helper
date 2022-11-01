@@ -1,10 +1,11 @@
 <template>
+  <BotStatus :navigation-state="navigationState"/>
+
   <h1>
     <PlayerColorIcon :playerColor="playerColor" class="playerColorIcon"/>
     {{t('turnBot.title',{bot:bot},botCount)}}
   </h1>
 
-  <BotStatus :navigation-state="navigationState"/>
   <BotActions :navigation-state="navigationState"/>
 
   <button class="btn btn-primary btn-lg mt-4" @click="next()">
@@ -63,7 +64,6 @@ export default defineComponent({
       this.lunaState.applyActions(this.navigationState.lunaActions)
       let passed : boolean|undefined
       if (!this.lunaState.cardDeck.hasNextActions) {
-        this.lunaState.cardDeck.discardAll()
         passed = true
       }
       this.$store.commit('turnBot',{round:this.round,turn:this.turn,bot:this.bot,

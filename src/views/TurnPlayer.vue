@@ -1,4 +1,6 @@
 <template>
+  <PlayerStatus :navigation-state="navigationState"/>
+
   <h1>
     <PlayerColorIcon :playerColor="playerColor" class="playerColorIcon"/>
     {{t('turnPlayer.title',{player:player},playerCount)}}
@@ -25,12 +27,14 @@ import { useStore } from '@/store'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/util/RouteCalculator'
 import PlayerNavigationState from '@/util/PlayerNavigationState'
+import PlayerStatus from '@/components/turn/PlayerStatus.vue'
 
 export default defineComponent({
   name: 'TurnPlayer',
   components: {
     FooterButtons,
-    PlayerColorIcon
+    PlayerColorIcon,
+    PlayerStatus
   },
   setup() {
     const { t } = useI18n()
@@ -47,7 +51,7 @@ export default defineComponent({
     const routeCalculator = new RouteCalculator({playerCount:playerCount, botCount:botCount,
         round:round, turn:turn, player:player})
 
-    return { t, playerCount, round, turn, player, playerColor, routeCalculator }
+    return { t, playerCount, round, turn, player, playerColor, routeCalculator, navigationState }
   },
   computed: {
     backButtonRouteTo() : string {

@@ -16,22 +16,6 @@
       <th>Grade 2 cards in use</th>
       <td>{{grade2CardsInUse}}</td>
     </tr>
-    <tr>
-      <th>Majority Titanium</th>
-      <td>{{majorityTitanium}}</td>
-    </tr>
-    <tr>
-      <th>Majority Carbon</th>
-      <td>{{majorityCarbon}}</td>
-    </tr>
-    <tr>
-      <th>Majority Energy</th>
-      <td>{{majorityEnergy}}</td>
-    </tr>
-    <tr>
-      <th>Majority Minerals</th>
-      <td>{{majorityMinerals}}</td>
-    </tr>
   </table>
 </template>
 
@@ -84,18 +68,6 @@ export default defineComponent({
     },
     grade2CardsInUse() : number {
       return this.lunaState.cardDeck.grade2CardsInUse
-    },
-    majorityTitanium() : number {
-      return this.lunaState.cardDeck.getMajorityCount(MajorityType.TITANIUM)
-    },
-    majorityCarbon() : number {
-      return this.lunaState.cardDeck.getMajorityCount(MajorityType.CARBON)
-    },
-    majorityEnergy() : number {
-      return this.lunaState.cardDeck.getMajorityCount(MajorityType.ENERGY)
-    },
-    majorityMinerals() : number {
-      return this.lunaState.cardDeck.getMajorityCount(MajorityType.MINERALS)
     }
   }
 })

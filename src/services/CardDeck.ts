@@ -1,5 +1,6 @@
 import { CardDeckPersistence } from "@/store"
 import * as _ from "lodash"
+import { setTransitionHooks } from "vue"
 import Card, { CardAction } from "./Card"
 import Cards from "./Cards"
 import CardSlot from "./CardSlot"
@@ -144,6 +145,13 @@ export default class CardDeck {
       this._discard.push(this._rightMajoritySlot)      
       this._rightMajoritySlot = undefined
     }
+    this.discardSlotCards()
+  }
+
+  /**
+   * Discard slot cards.
+   */
+  private discardSlotCards() : void {
     this._discard.push(...this._slots.map(item => item.card))
     this._slots = []
   }
@@ -173,7 +181,8 @@ export default class CardDeck {
 
   /**
    * Get actions from card in next filled slot.
-   * Discards the card after playing it. If it is the last card, discard on of the majority cards as well.
+   * Flips the card after playing it.
+   * If this was the last card, discard all slot cards and one of the majority cards.
    */
   public getNextActions() : readonly CardAction[] {
     const nextSlot = this._slots.find(slot => !slot.flipped)
@@ -182,6 +191,7 @@ export default class CardDeck {
     }
     nextSlot.flipped = true
     if (!this.hasNextActions) {
+      this.discardSlotCards()
       this.discardOneMajorityCard()
     }
     return nextSlot.card.actions

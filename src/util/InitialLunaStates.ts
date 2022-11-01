@@ -82,9 +82,10 @@ export default class InitialLunaStates {
 
   private drawCards(lunaState : LunaState) {
     const cardDeck = lunaState.cardDeck
-    if (!cardDeck.hasCardsDrawn) {
-      cardDeck.drawAll()
+    if (cardDeck.hasCardsDrawn) {
+      cardDeck.discardAll()
     }
+    cardDeck.drawAll()
   }
 
 }
