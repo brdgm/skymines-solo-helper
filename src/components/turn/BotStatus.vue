@@ -40,7 +40,8 @@
 
     <div class="cardSlots">
       <Icon name="luna-card" v-for="(slot,index) in cardSlots" :key="index"
-          class="card" :class="{flipped:slot.flipped}"/>
+          class="card" :class="{flipped:slot.flipped}"
+          :title="t('turnBot.botStatus.slot',{slot:slot.slot})"/>
     </div>
   </div>
 </template>
@@ -108,6 +109,7 @@ export default defineComponent({
   color: white;
   background-color: #5b718a;
   border-radius: 0.5rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.2rem #888);
   padding: 1rem;
   td {
     text-align: center;

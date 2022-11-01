@@ -46,7 +46,8 @@
     "botStatus": {
       "turn": "Turn {round}-{turn}",
       "helium": "Helium",
-      "research": "Research"
+      "research": "Research",
+      "slot": "Slot {slot}"
     }
   },
   "endOfRound": {

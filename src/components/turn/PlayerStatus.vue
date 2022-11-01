@@ -87,6 +87,7 @@ export default defineComponent({
   color: white;
   background-color: #5b718a;
   border-radius: 0.5rem;
+  filter: drop-shadow(0.1rem 0.1rem 0.2rem #888);
   padding: 1rem;
   table {
     margin-left: auto;
