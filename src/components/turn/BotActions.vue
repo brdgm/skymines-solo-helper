@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { CardAction } from '@/services/Card'
-import NavigationState from '@/util/NavigationState'
+import BotNavigationState from '@/util/BotNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -16,7 +16,7 @@ export default defineComponent({
   },
   props: {
     navigationState: {
-      type: NavigationState,
+      type: BotNavigationState,
       required: true
     }
   },

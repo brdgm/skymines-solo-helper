@@ -38,7 +38,7 @@
 <script lang="ts">
 import MajorityType from '@/services/enum/MajorityType'
 import LunaState from '@/services/LunaState'
-import NavigationState from '@/util/NavigationState'
+import BotNavigationState from '@/util/BotNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -50,7 +50,7 @@ export default defineComponent({
   },
   props: {
     navigationState: {
-      type: NavigationState,
+      type: BotNavigationState,
       required: true
     }
   },
@@ -62,7 +62,7 @@ export default defineComponent({
       return this.navigationState.turn
     },
     lunaState() : LunaState {
-      return this.navigationState.lunaState as LunaState
+      return this.navigationState.lunaState
     },
     heliumCount() : number {
       return this.lunaState.heliumCount

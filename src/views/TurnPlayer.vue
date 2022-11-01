@@ -22,9 +22,9 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
-import NavigationState from '@/util/NavigationState'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/util/RouteCalculator'
+import PlayerNavigationState from '@/util/PlayerNavigationState'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -37,15 +37,14 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore()
 
-    const navigationState = new NavigationState(route, store.state);
+    const navigationState = new PlayerNavigationState(route, store.state);
     const playerCount = navigationState.playerCount
     const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn
     const player = navigationState.player
-    const bot = navigationState.bot
     const playerColor = navigationState.playerColor
-    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, bot)
+    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, 0)
 
     return { t, playerCount, round, turn, player, playerColor, routeCalculator }
   },

@@ -18,7 +18,6 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
-import NavigationState from '@/util/NavigationState'
 import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
@@ -26,6 +25,7 @@ import RouteCalculator from '@/util/RouteCalculator'
 import BotStatus from '@/components/turn/BotStatus.vue'
 import BotActions from '@/components/turn/BotActions.vue'
 import LunaState from '@/services/LunaState'
+import BotNavigationState from '@/util/BotNavigationState'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -40,15 +40,14 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore()
 
-    const navigationState = new NavigationState(route, store.state);
+    const navigationState = new BotNavigationState(route, store.state);
     const playerCount = navigationState.playerCount
     const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn
-    const player = navigationState.player
     const bot = navigationState.bot
     const playerColor = navigationState.playerColor
-    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, bot)
+    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, 0, bot)
     const lunaState = navigationState.lunaState as LunaState
 
     return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState, lunaState }
