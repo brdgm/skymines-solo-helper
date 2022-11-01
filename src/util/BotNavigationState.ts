@@ -9,21 +9,16 @@ import Action from "@/services/enum/Action"
 export default class BotNavigationState extends AbstractNavigationState {
 
   readonly bot : number
+  readonly playerColor : PlayerColor
   readonly lunaState : LunaState
   readonly lunaActions : readonly CardAction[]
 
   constructor(route : RouteLocation, state : State) {
     super(route, state)
     this.bot = parseInt(route.params['bot'] as string)
+    this.playerColor = this.playerColors[this.playerCount + this.bot - 1] || PlayerColor.RED
     this.lunaState = this.getLunaState(state)
     this.lunaActions = this.getLunaActions()
-  }
-
-  /**
-   * Get player color for bot
-   */
-  protected getPlayerColor(playerColors : PlayerColor[]) : PlayerColor {
-    return playerColors[this.playerCount + this.bot - 1] || PlayerColor.RED
   }
 
   /**

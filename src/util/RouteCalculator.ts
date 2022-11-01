@@ -12,13 +12,14 @@ export default class RouteCalculator {
   readonly player? : number
   readonly bot? : number
 
-  constructor(playerCount: number, botCount: number, round: number, turn: number, player: number, bot: number) {    
-    this.playerCount = playerCount
-    this.botCount = botCount
-    this.round = round
-    this.turn = turn
-    this.player = player > 0 ? player : undefined
-    this.bot = bot > 0 ? bot : undefined
+  constructor(params:{playerCount: number, botCount: number,
+      round: number, turn: number, player?: number, bot?: number}) {    
+    this.playerCount = params.playerCount
+    this.botCount = params.botCount
+    this.round = params.round
+    this.turn = params.turn
+    this.player = params.player
+    this.bot = params.bot
   }
 
   public getNextRouteTo(state: State) : string {
@@ -63,24 +64,35 @@ export default class RouteCalculator {
    * Generate list of all player/bot steps - leaving out steps after player/bot has passed.
    */
   private generateSteps(state: State) : Step[] {
+    const playerOrder = this.determinePlayerOrder()
     const currentRound = state.rounds.find(item => item.round==this.round)
     const turns = currentRound?.turns || []
-    const steps = []
+    const steps : Step[] = []
     for (let turnNo=1; turnNo<=this.turn+1; turnNo++) {
-      for (let playerNo=1; playerNo<=this.playerCount; playerNo++) {
-        const hasPassed = turns.find(item => item.round==this.round && item.turn<turnNo && item.player==playerNo && item.passed) != undefined
+      playerOrder.forEach(playerOrder => {
+        const hasPassed = turns.find(item => item.round==this.round && item.turn<turnNo
+              && item.player==playerOrder.player && item.bot==playerOrder.bot && item.passed) != undefined
         if (!hasPassed) {
-          steps.push({round:this.round,turn:turnNo,player:playerNo})
+          steps.push({round:this.round,turn:turnNo,player:playerOrder.player,bot:playerOrder.bot})
         }
-      }
-      for (let botNo=1; botNo<=this.botCount; botNo++) {
-        const hasPassed = turns.find(item => item.round==this.round && item.turn<turnNo && item.bot==botNo && item.passed) != undefined
-        if (!hasPassed) {
-          steps.push({round:this.round,turn:turnNo,bot:botNo})
-        }
-      }
+      })
     }
     return steps
+  }
+
+  /**
+   * Determine player order from previous round (human players may claim first player marker).
+   */
+  private determinePlayerOrder() : Step[] {
+    const playerOrder : Step[] = []
+    for (let playerNo=1; playerNo<=this.playerCount; playerNo++) {
+      playerOrder.push({player:playerNo})
+    }
+    for (let botNo=1; botNo<=this.botCount; botNo++) {
+      playerOrder.push({bot:botNo})
+    }
+    // TODO: check for first player marker in previous round
+    return playerOrder
   }
 
   private static routeTo(step: Step) : string {

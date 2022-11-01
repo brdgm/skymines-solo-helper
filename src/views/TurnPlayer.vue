@@ -44,7 +44,8 @@ export default defineComponent({
     const turn = navigationState.turn
     const player = navigationState.player
     const playerColor = navigationState.playerColor
-    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, player, 0)
+    const routeCalculator = new RouteCalculator({playerCount:playerCount, botCount:botCount,
+        round:round, turn:turn, player:player})
 
     return { t, playerCount, round, turn, player, playerColor, routeCalculator }
   },

@@ -5,28 +5,28 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 
 describe('util/RouteCalculator', () => {
   it('getNextRouteTo-round1-turn1-player', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 1, 1, 1, 0)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, player:1})
 
     expect(routeCalculator.getNextRouteTo(getState([]))).to.eq('/round/1/turn/1/bot/1')
     expect(routeCalculator.getBackRouteTo(getState([]))).to.eq('')
   })
 
   it('getNextRouteTo-round1-turn1-bot1', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 1, 1, 0, 1)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:1})
 
     expect(routeCalculator.getNextRouteTo(getState([]))).to.eq('/round/1/turn/1/bot/2')
     expect(routeCalculator.getBackRouteTo(getState([]))).to.eq('/round/1/turn/1/player/1')
   })
 
   it('getNextRouteTo_round1-turn1-bot2', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 1, 1, 0, 2)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     expect(routeCalculator.getNextRouteTo(getState([]))).to.eq('/round/1/turn/2/player/1')
     expect(routeCalculator.getBackRouteTo(getState([]))).to.eq('/round/1/turn/1/bot/1')
   })
 
   it('getNextRouteTo_round1-turn1-bot2-playerpassed', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 1, 1, 0, 2)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const rounds = [
       {round:1, turns: [{round:1, turn:1, player:1, passed:true}]}
@@ -36,7 +36,7 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getNextRouteTo_round1-turn1-bot2-playerpassed-bot1passed', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 1, 1, 0, 2)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const rounds = [
       {round:1, turns: [{round:1, turn:1, player:1, passed:true},
@@ -47,7 +47,7 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getNextRouteTo_round1-turn1-bot2-playerpassed-bot1passed-bot2passed', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 1, 1, 0, 2)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const rounds = [
       {round:1, turns: [{round:1, turn:1, player:1, passed:true},
@@ -59,7 +59,7 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getNextRouteTo_round7-turn1-bot2-playerpassed-bot1passed-bot2passed', () => {
-    const routeCalculator = new RouteCalculator(1, 2, 7, 1, 0, 2)
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:7, turn:1, bot:2})
 
     const rounds = [
       {round:7, turns: [{round:7, turn:1, player:1, passed:true},

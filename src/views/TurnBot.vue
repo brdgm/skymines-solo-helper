@@ -47,7 +47,8 @@ export default defineComponent({
     const turn = navigationState.turn
     const bot = navigationState.bot
     const playerColor = navigationState.playerColor
-    const routeCalculator = new RouteCalculator(playerCount, botCount, round, turn, 0, bot)
+    const routeCalculator = new RouteCalculator({playerCount:playerCount, botCount:botCount,
+      round:round, turn:turn, bot:bot})
     const lunaState = navigationState.lunaState as LunaState
 
     return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState, lunaState }

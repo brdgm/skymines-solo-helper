@@ -1,5 +1,9 @@
 <template>
-  <p>BotActions</p>
+  <ul>
+    <li v-for="(action,index) in lunaActions" :key="index">
+      {{action.action}} {{action.count}}
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">
