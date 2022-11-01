@@ -24,7 +24,7 @@ export default class PlayerNavigationState extends AbstractNavigationState {
    */
   private getLunaStates(state : State) : LunaState[] {
     const states : LunaState[] = []
-    for (let bot=1; bot<this.botCount; bot++) {
+    for (let bot=1; bot<=this.botCount; bot++) {
       states.push(getLunaState(state, this.round, this.turn, bot))
     }
     return states
