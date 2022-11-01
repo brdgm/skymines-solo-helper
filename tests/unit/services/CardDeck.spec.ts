@@ -211,6 +211,7 @@ describe('services/CardDeck', () => {
 
     expect(cardDeck.getNextActions().map(item => item.action), 'card-4 actions').to.eql([Action.GAIN_COIN,Action.ADVANCE_COMPANY,Action.PLACE_BONUS_MARKER])
     expect(cardDeck.hasNextActions, 'card-4 hasNextActions').to.false
+    cardDeck.discardSlotCardsAndOneMajorityCard()
     expect(cardDeck.leftMajoritySlot, 'card-4 leftMajoritySlot').to.undefined
     expect(cardDeck.rightMajoritySlot, 'card-4 rightMajoritySlot').to.not.undefined
   })

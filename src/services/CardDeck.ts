@@ -182,7 +182,6 @@ export default class CardDeck {
   /**
    * Get actions from card in next filled slot.
    * Flips the card after playing it.
-   * If this was the last card, discard all slot cards and one of the majority cards.
    */
   public getNextActions() : readonly CardAction[] {
     const nextSlot = this._slots.find(slot => !slot.flipped)
@@ -190,17 +189,14 @@ export default class CardDeck {
       throw new Error('No next action.')
     }
     nextSlot.flipped = true
-    if (!this.hasNextActions) {
-      this.discardSlotCards()
-      this.discardOneMajorityCard()
-    }
     return nextSlot.card.actions
   }
 
   /**
-   * Discards one of the two majority cards.
+   * Discards all slot cards and one of the two majority cards.
    */
-  private discardOneMajorityCard() : void {
+  public discardSlotCardsAndOneMajorityCard() : void {
+    this.discardSlotCards()
     if (!this._leftMajoritySlot || !this._rightMajoritySlot || this._discard.length == 0) {
       return
     }

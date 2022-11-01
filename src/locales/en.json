@@ -35,10 +35,19 @@
   },
   "turnPlayer": {
     "title": "Player | Player {player}",
-    "makeTurn": "Make your turn."
+    "makeTurn": "Make your turn.",
+    "playerStatus": {
+      "turn": "Turn {round}-{turn}",
+      "majorities": "Luna Majorities"
+    }
   },
   "turnBot": {
-    "title": "Luna | Luna {bot}"
+    "title": "Luna | Luna {bot}",
+    "botStatus": {
+      "turn": "Turn {round}-{turn}",
+      "helium": "Helium",
+      "research": "Research"
+    }
   },
   "endOfRound": {
     "title": "End of Round {round}"
@@ -56,6 +65,12 @@
     "6": "Level 6 - Advanced",
     "7": "Level 7 - Advanced",
     "8": "Level 8 - Advanced"
+  },
+  "resource": {
+    "titanium": "Titanium",
+    "carbon": "Carbon",
+    "energy": "Energy",
+    "minerals": "Minerals"
   },
   "notfound": {
     "title": "Not Found"

@@ -64,6 +64,7 @@ export default defineComponent({
       this.lunaState.applyActions(this.navigationState.lunaActions)
       let passed : boolean|undefined
       if (!this.lunaState.cardDeck.hasNextActions) {
+        this.lunaState.cardDeck.discardSlotCardsAndOneMajorityCard()
         passed = true
       }
       this.$store.commit('turnBot',{round:this.round,turn:this.turn,bot:this.bot,
