@@ -1,7 +1,6 @@
 import DifficultyLevel from "@/services/enum/DifficultyLevel"
 import { LunaStatePersistence, State, Turn } from "@/store"
 import { RouteLocation } from "vue-router"
-import { Store } from "vuex"
 import PlayerColor from "@/services/enum/PlayerColor"
 import LunaState from "@/services/LunaState"
 import { CardAction } from "@/services/Card"
@@ -19,8 +18,8 @@ export default class NavigationState {
   readonly lunaState? : LunaState
   readonly lunaActions : readonly CardAction[]
 
-  constructor(route : RouteLocation, store : Store<State>) {    
-    const setup = store.state.setup
+  constructor(route : RouteLocation, state : State) {    
+    const setup = state.setup
     this.difficultyLevel = setup.difficultyLevel
     this.playerCount = setup.playerSetup.playerCount
     this.botCount = setup.playerSetup.botCount
@@ -32,7 +31,7 @@ export default class NavigationState {
     this.playerColor = this.getPlayerColor(setup.playerSetup.playerColors)
     const lunaCombinedActions : CardAction[] = []
     if (this.bot > 0) {
-      this.lunaState = this.getLunaState(store.state)
+      this.lunaState = this.getLunaState(state)
       if (!this.lunaState.cardDeck.hasCardsDrawn) {
         this.lunaState.cardDeck.drawAll()
         // add helium/research from majority card reveal actions
@@ -70,11 +69,11 @@ export default class NavigationState {
           .filter(item => item.round==this.round && item.turn<this.turn && item.bot==this.bot))
       persistence = lastBotTurn?.lunaState
     }
-    else if (this.round > 1) {
+    if (!persistence && this.round > 1) {
       const previousRound = state.rounds.find(item => item.round == this.round-1)
       if (previousRound) {
         const lastBotTurn = NavigationState.getLastTurn(previousRound.turns
-            .filter(item => item.round==this.round && item.bot==this.bot))
+            .filter(item => item.round==this.round-1 && item.bot==this.bot))
         persistence = lastBotTurn?.lunaState
       }
     }
@@ -83,6 +82,9 @@ export default class NavigationState {
       lunaState = LunaState.fromPersistence(persistence, this.difficultyLevel)
     }
     else {
+      if (this.round != 1 || this.turn != 1) {
+        console.log(`No persistence for previous turn found for round ${this.round}, turn ${this.turn}, bot ${this.bot}`)
+      }
       lunaState = LunaState.new(this.difficultyLevel)
     }
     return lunaState

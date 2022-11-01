@@ -63,7 +63,7 @@ export default class RouteCalculator {
    * Generate list of all player/bot steps - leaving out steps after player/bot has passed.
    */
   private generateSteps(state: State) : Step[] {
-    const currentRound = state.rounds.find(item => item.round=this.round)
+    const currentRound = state.rounds.find(item => item.round==this.round)
     const turns = currentRound?.turns || []
     const steps = []
     for (let turnNo=1; turnNo<=this.turn+1; turnNo++) {

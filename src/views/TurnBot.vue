@@ -40,7 +40,7 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore()
 
-    const navigationState = new NavigationState(route, store);
+    const navigationState = new NavigationState(route, store.state);
     const playerCount = navigationState.playerCount
     const botCount = navigationState.botCount
     const round = navigationState.round
