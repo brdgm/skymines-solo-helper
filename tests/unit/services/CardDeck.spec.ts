@@ -212,8 +212,11 @@ describe('services/CardDeck', () => {
     expect(cardDeck.getNextActions().map(item => item.action), 'card-4 actions').to.eql([Action.GAIN_COIN,Action.ADVANCE_COMPANY,Action.PLACE_BONUS_MARKER])
     expect(cardDeck.hasNextActions, 'card-4 hasNextActions').to.false
     cardDeck.discardSlotCardsAndOneMajorityCard()
-    expect(cardDeck.leftMajoritySlot, 'card-4 leftMajoritySlot').to.undefined
-    expect(cardDeck.rightMajoritySlot, 'card-4 rightMajoritySlot').to.not.undefined
+
+    const leftDiscarded = cardDeck.discard[0].majorityCountLeft > cardDeck.discard[0].majorityCountRight
+    const rightDiscarded = cardDeck.discard[0].majorityCountRight > cardDeck.discard[0].majorityCountLeft
+    expect(cardDeck.leftMajoritySlot == undefined, 'card-4 leftMajoritySlot').to.eq(leftDiscarded)
+    expect(cardDeck.rightMajoritySlot == undefined, 'card-4 rightMajoritySlot').to.eq(rightDiscarded)
   })
 
   it('addGrade2CardToPile', () => {

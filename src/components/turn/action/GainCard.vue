@@ -9,7 +9,7 @@
       <table>
         <tr v-for="(row,indexRow) in action.cardSelectionMatrix" :key="indexRow">
           <td v-for="(col,indexCol) in row" :key="indexCol">
-            <span v-if="col.includes(cardSlot as Slot)">X</span>
+            <span v-if="col.includes(slot)">X</span>
           </td>
         </tr>
       </table>
@@ -47,6 +47,9 @@ export default defineComponent({
   computed: {
     isMostValueableShare() : boolean {
       return this.action.cardSelection == CardSelection.MOST_VALUABLE_SHARE
+    },
+    slot() : Slot {
+      return this.cardSlot as Slot
     }
   }
 })
@@ -72,7 +75,7 @@ export default defineComponent({
       text-align: center;
       font-size: 1.1rem;
       font-weight: bold;
-      width: (100%/3);
+      width: calc(100%/3);
       height: calc(100%/4);
     } 
   }

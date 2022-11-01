@@ -1,6 +1,5 @@
 import { CardDeckPersistence } from "@/store"
 import * as _ from "lodash"
-import { setTransitionHooks } from "vue"
 import Card, { CardAction } from "./Card"
 import Cards from "./Cards"
 import CardSlot from "./CardSlot"

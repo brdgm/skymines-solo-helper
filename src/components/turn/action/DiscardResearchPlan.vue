@@ -10,7 +10,7 @@
       <table>
         <tr>
           <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
-            <span v-if="col.includes(cardSlot as Slot)">X</span>
+            <span v-if="col.includes(slot)">X</span>
           </td>
         </tr>
       </table>
@@ -46,6 +46,9 @@ export default defineComponent({
     }
   },
   computed: {
+    slot() : Slot {
+      return this.cardSlot as Slot
+    },
     plan() : string {
       switch (this.action.researchPlanSelection) {
         case ResearchPlanSelection.PLAN_A_MATCH_SLOT:
@@ -60,7 +63,7 @@ export default defineComponent({
     },
     isFirstCol() : boolean {
       const row = this.action.researchPlanRow ?? []
-      return row.length > 0 && row[0].includes(this.cardSlot as Slot)
+      return row.length > 0 && row[0].includes(this.slot)
     },
     isSpecialPlan() : boolean {
       return this.action.researchPlanSelection == ResearchPlanSelection.SPECIAL_RESEARCH
@@ -88,7 +91,7 @@ export default defineComponent({
       text-align: center;
       font-size: 1.1rem;
       font-weight: bold;
-      width: (100%/4);
+      width: calc(100%/4);
       height: 100%;
     } 
   }

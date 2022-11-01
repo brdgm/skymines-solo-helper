@@ -1,7 +1,6 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import PlayerColor from '@/services/enum/PlayerColor'
 import Slot from '@/services/enum/Slot'
-import LunaState from '@/services/LunaState'
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 

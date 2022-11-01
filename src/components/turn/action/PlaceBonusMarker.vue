@@ -5,7 +5,7 @@
     <table>
       <tr v-for="(row,indexRow) in action.bonusMarkerSelectionMatrix" :key="indexRow">
         <td v-for="(col,indexCol) in row" :key="indexCol">
-          <span v-if="col.includes(cardSlot as Slot)">X</span>
+          <span v-if="col.includes(slot)">X</span>
         </td>
       </tr>
     </table>
@@ -37,6 +37,11 @@ export default defineComponent({
       type: String,
       required: true
     }
+  },
+  computed: {
+    slot() : Slot {
+      return this.cardSlot as Slot
+    }
   }
 })
 </script>
@@ -61,7 +66,7 @@ export default defineComponent({
       text-align: center;
       font-size: 1.1rem;
       font-weight: bold;
-      width: (100%/4);
+      width: calc(100%/4);
       height: calc(100%/3);
     } 
   }
