@@ -57,7 +57,7 @@ export default class NavigationState {
   }
 
   /**
-   * Get Luna state from previous bot round (or create new state for first round).
+   * Get Luna state from previous bot turn (or create new state for first round).
    * @param state State
    * @returns Luna state
    */

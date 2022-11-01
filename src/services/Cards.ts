@@ -293,16 +293,6 @@ const cards = [
         cardSelection: CardSelection.MATCH_SLOT,
         cardSelectionMatrix: [
           [[],[],[Slot.A,Slot.B,Slot.C,Slot.D,Slot.E]],
-          [[],[],[]],
-          [[],[],[]],
-          [[],[],[]]
-        ]
-      },
-      {
-        action: Action.GAIN_CARD,
-        cardSelection: CardSelection.MATCH_SLOT,
-        cardSelectionMatrix: [
-          [[],[],[]],
           [[],[Slot.D],[Slot.A]],
           [[],[Slot.E],[Slot.B]],
           [[],[],[Slot.C]]

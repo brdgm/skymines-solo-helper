@@ -161,29 +161,29 @@ export default class LunaState {
    * Returns the equivalent of coins for the stored helium.
    * @returns Coins
    */
-  public getHeliumInCoins() : number {
-    if (this._heliumCount >= LunaState.HELIUM_MAX) {
+  public getHeliumInCoins(heliumCount : number = this._heliumCount) : number {
+    if (heliumCount >= LunaState.HELIUM_MAX) {
       return 60
     }
-    else if (this._heliumCount >= 25) {
+    else if (heliumCount >= 25) {
       return 50
     }
-    else if (this._heliumCount >= 23) {
+    else if (heliumCount >= 23) {
       return 45
     }
-    else if (this._heliumCount >= 20) {
+    else if (heliumCount >= 20) {
       return 40
     }
-    else if (this._heliumCount >= 16) {
+    else if (heliumCount >= 16) {
       return 30
     }
-    else if (this._heliumCount >= 13) {
+    else if (heliumCount >= 13) {
       return 25
     }
-    else if (this._heliumCount >= 9) {
+    else if (heliumCount >= 9) {
       return 15
     }
-    else if (this._heliumCount >= 6) {
+    else if (heliumCount >= 6) {
       return 10
     }
     return 0
@@ -193,26 +193,26 @@ export default class LunaState {
    * Returns the equivalent of coins for the advanced research.
    * @returns Coins
    */
-  public getResearchInCoins() : number {
-    if (this._researchSteps >= LunaState.RESEARCH_MAX) {
+  public getResearchInCoins(researchSteps : number = this._researchSteps) : number {
+    if (researchSteps >= LunaState.RESEARCH_MAX) {
       return 60
     }
-    else if (this._researchSteps >= 13) {
+    else if (researchSteps >= 13) {
       return 50
     }
-    else if (this._researchSteps >= 11) {
+    else if (researchSteps >= 11) {
       return 40
     }
-    else if (this._researchSteps >= 9) {
+    else if (researchSteps >= 9) {
       return 30
     }
-    else if (this._researchSteps >= 7) {
+    else if (researchSteps >= 7) {
       return 20
     }
-    else if (this._researchSteps >= 5) {
+    else if (researchSteps >= 5) {
       return 15
     }
-    else if (this._researchSteps >= 3) {
+    else if (researchSteps >= 3) {
       return 10
     }
     return 0

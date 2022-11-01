@@ -6,20 +6,37 @@
     </tr>
     <tr>
       <th>Helium</th>
-      <td>{{heliumCount}} + {{heliumCountGain}}</td>
+      <td>{{heliumCount}} + {{heliumCountGain}} (={{heliumAsCoins}} coins)</td>
     </tr>
     <tr>
       <th>Research</th>
-      <td>{{researchSteps}} + {{researchStepsGain}}</td>
+      <td>{{researchSteps}} + {{researchStepsGain}} (={{researchAsCoins}} coins)</td>
     </tr>
     <tr>
       <th>Grade 2 cards in use</th>
       <td>{{grade2CardsInUse}}</td>
     </tr>
+    <tr>
+      <th>Majority Titanium</th>
+      <td>{{majorityTitanium}}</td>
+    </tr>
+    <tr>
+      <th>Majority Carbon</th>
+      <td>{{majorityCarbon}}</td>
+    </tr>
+    <tr>
+      <th>Majority Energy</th>
+      <td>{{majorityEnergy}}</td>
+    </tr>
+    <tr>
+      <th>Majority Minerals</th>
+      <td>{{majorityMinerals}}</td>
+    </tr>
   </table>
 </template>
 
 <script lang="ts">
+import MajorityType from '@/services/enum/MajorityType'
 import LunaState from '@/services/LunaState'
 import NavigationState from '@/util/NavigationState'
 import { defineComponent } from 'vue'
@@ -53,14 +70,32 @@ export default defineComponent({
     heliumCountGain() : number {
       return this.lunaState.getHeliumCountFromActions(this.navigationState.lunaActions)
     },
+    heliumAsCoins() : number {
+      return this.lunaState.getHeliumInCoins(this.heliumCount + this.heliumCountGain)
+    },
     researchSteps() : number {
       return this.lunaState.researchSteps
     },
     researchStepsGain() : number {
       return this.lunaState.getResearchStepsFromActions(this.navigationState.lunaActions)
     },
+    researchAsCoins() : number {
+      return this.lunaState.getResearchInCoins(this.researchSteps + this.researchStepsGain)
+    },
     grade2CardsInUse() : number {
       return this.lunaState.cardDeck.grade2CardsInUse
+    },
+    majorityTitanium() : number {
+      return this.lunaState.cardDeck.getMajorityCount(MajorityType.TITANIUM)
+    },
+    majorityCarbon() : number {
+      return this.lunaState.cardDeck.getMajorityCount(MajorityType.CARBON)
+    },
+    majorityEnergy() : number {
+      return this.lunaState.cardDeck.getMajorityCount(MajorityType.ENERGY)
+    },
+    majorityMinerals() : number {
+      return this.lunaState.cardDeck.getMajorityCount(MajorityType.MINERALS)
     }
   }
 })
