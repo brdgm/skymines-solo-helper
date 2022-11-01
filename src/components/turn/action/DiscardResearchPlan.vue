@@ -10,7 +10,7 @@
       <table>
         <tr>
           <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
-            <span v-if="col.includes(cardSlot)">X</span>
+            <span v-if="col.includes(cardSlot as Slot)">X</span>
           </td>
         </tr>
       </table>
@@ -41,7 +41,7 @@ export default defineComponent({
       required: true
     },
     cardSlot: {
-      type: Object as PropType<Slot>,
+      type: String,
       required: true
     }
   },
@@ -60,7 +60,7 @@ export default defineComponent({
     },
     isFirstCol() : boolean {
       const row = this.action.researchPlanRow ?? []
-      return row.length > 0 && row[0].includes(this.cardSlot)
+      return row.length > 0 && row[0].includes(this.cardSlot as Slot)
     },
     isSpecialPlan() : boolean {
       return this.action.researchPlanSelection == ResearchPlanSelection.SPECIAL_RESEARCH

@@ -9,7 +9,7 @@
       <table>
         <tr v-for="(row,indexRow) in action.cardSelectionMatrix" :key="indexRow">
           <td v-for="(col,indexCol) in row" :key="indexCol">
-            <span v-if="col.includes(cardSlot)">X</span>
+            <span v-if="col.includes(cardSlot as Slot)">X</span>
           </td>
         </tr>
       </table>
@@ -40,7 +40,7 @@ export default defineComponent({
       required: true
     },
     cardSlot: {
-      type: Object as PropType<Slot>,
+      type: String,
       required: true
     }
   },

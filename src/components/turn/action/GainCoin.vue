@@ -25,6 +25,10 @@ export default defineComponent({
     action: {
       type: Object as PropType<CardAction>,
       required: true
+    },
+    cardSlot: {
+      type: String,
+      required: true
     }
   }
 })
