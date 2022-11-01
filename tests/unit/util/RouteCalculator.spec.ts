@@ -69,6 +69,29 @@ describe('util/RouteCalculator', () => {
     expect(routeCalculator.getNextRouteTo(getState(rounds))).to.eq('/endOfGame')
     expect(routeCalculator.getBackRouteTo(getState(rounds))).to.eq('/round/7/turn/1/bot/1')
   })
+
+  it('getFirstTurnRouteTo', () => {
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
+
+    expect(routeCalculator.getFirstTurnRouteTo(getState([]))).to.eq('/round/1/turn/1/player/1')
+  })
+
+  it('getLastTurnRouteTo', () => {
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
+
+    const rounds = [
+      {round:1, turns: [{round:1, turn:1, player:1, passed:true},
+        {round:1, turn:1, bot:1, passed:true},
+        {round:1, turn:1, bot:2, passed:true}]},
+    ]
+    expect(routeCalculator.getLastTurnRouteTo(getState(rounds))).to.eq('/round/1/turn/1/bot/2')
+  })
+
+  it('getLastTurnRouteTo-empty', () => {
+    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
+
+    expect(routeCalculator.getLastTurnRouteTo(getState([]))).to.eq('')
+  })
 })
 
 function getState(rounds: Round[]) : State {

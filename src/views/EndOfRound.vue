@@ -15,6 +15,8 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
+import { useStore } from '@/store'
+import RouteCalculator from '@/util/RouteCalculator'
 
 export default defineComponent({
   name: 'EndOfRound',
@@ -24,19 +26,22 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     const route = useRoute()
+    const store = useStore()
 
+    const playerCount = store.state.setup.playerSetup.playerCount
+    const botCount = store.state.setup.playerSetup.botCount
     const round = parseInt(route.params['round'] as string)
 
-    return { t, round }
+    return { t, playerCount, botCount, round }
   },
   computed: {
     nextButtonRouteTo() : string {
-      // TODO: respect player order
-      return `/round/${this.round+1}/turn/1/player/1`
+      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round+1})
+      return routeCalculator.getFirstTurnRouteTo(this.$store.state)
     },
     backButtonRouteTo() : string {
-      // TODO: calculate back route
-      return `/setupGame`
+      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round})
+      return routeCalculator.getLastTurnRouteTo(this.$store.state)
     }
   }
 })
