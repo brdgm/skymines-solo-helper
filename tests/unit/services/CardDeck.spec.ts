@@ -6,6 +6,7 @@ import MajorityType from '@/services/enum/MajorityType'
 import Slot from '@/services/enum/Slot'
 import { CardSlotPersistence } from '@/store'
 import { expect } from 'chai'
+import mockCardDeck from '../testutil/mockCardDeck'
 
 describe('services/CardDeck', () => {
   it('new', () => {
@@ -235,30 +236,25 @@ describe('services/CardDeck', () => {
 
 function newWithPiles(cardIds : string[], grade2 : string[], discard : string[],
     difficultyLevel: DifficultyLevel = DifficultyLevel.L2_STANDARD) : CardDeck {
-  return CardDeck.fromPersistence({
+  return mockCardDeck({
     pile: cardIds,
     grade2: grade2,
-    leftMajoritySlot: undefined,
-    rightMajoritySlot: undefined,
-    slots: [],
     discard: discard,
-    availableSlots: [Slot.B,Slot.C,Slot.D]
-  }, difficultyLevel)
+    difficultyLevel: difficultyLevel
+  })
 }
 
 function newWithSlots(leftMajoritySlot : string|undefined, rightMajoritySlot : string|undefined, slots: CardSlotPersistence[],
     difficultyLevel: DifficultyLevel = DifficultyLevel.L2_STANDARD) : CardDeck {
   const availableSlots = slots.map(item => item.slot)
   availableSlots.sort()
-  return CardDeck.fromPersistence({
-    pile: [],
-    grade2: [],
+  return mockCardDeck({
     leftMajoritySlot: leftMajoritySlot,
     rightMajoritySlot: rightMajoritySlot,
     slots: slots,
-    discard: [],
-    availableSlots: availableSlots
-  }, difficultyLevel)
+    availableSlots: availableSlots,
+    difficultyLevel: difficultyLevel
+  })
 }
 
 function getSlotCardId(slots: readonly CardSlot[], slot: Slot) : string|undefined {

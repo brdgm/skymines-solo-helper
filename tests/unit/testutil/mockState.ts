@@ -2,13 +2,7 @@ import DifficultyLevel from "@/services/enum/DifficultyLevel";
 import PlayerColor from "@/services/enum/PlayerColor";
 import { Round, State } from "@/store";
 
-export default function (params?: {
-      playerCount?: number ,
-      botCount?: number,
-      playerColors?: PlayerColor[],
-      difficultyLevel?: DifficultyLevel,
-      rounds?: Round[]
-    }) : State {  
+export default function (params?: MockStateParams) : State {  
   return {
     language: 'en',
     baseFontSize: 1,
@@ -22,4 +16,12 @@ export default function (params?: {
     },
     rounds: params?.rounds ?? []
   }
+}
+
+export interface MockStateParams {
+  playerCount?: number ,
+  botCount?: number,
+  playerColors?: PlayerColor[],
+  difficultyLevel?: DifficultyLevel,
+  rounds?: Round[]
 }

@@ -32,7 +32,7 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const state = mockState({rounds:[
-      mockRound(1, [{round:1, turn:1, player:1, passed:true}])
+      mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true}]})
     ]})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/2/bot/1')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/1/turn/1/bot/1')
@@ -42,8 +42,8 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const state = mockState({rounds:[
-      mockRound(1, [{round:1, turn:1, player:1, passed:true},
-        {round:1, turn:1, bot:1, passed:true}])
+      mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true},
+        {round:1, turn:1, bot:1, passed:true}]})
     ]})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/2/bot/2')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/1/turn/1/bot/1')
@@ -53,9 +53,9 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
 
     const state = mockState({rounds:[
-      mockRound(1, [{round:1, turn:1, player:1, passed:true},
+      mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true},
-        {round:1, turn:1, bot:2, passed:true}])
+        {round:1, turn:1, bot:2, passed:true}]})
     ]})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/end')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/1/turn/1/bot/1')
@@ -65,9 +65,9 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:7, turn:1, bot:2})
 
     const state = mockState({rounds:[
-      mockRound(7, [{round:7, turn:1, player:1, passed:true},
+      mockRound({round:7, turns:[{round:7, turn:1, player:1, passed:true},
         {round:7, turn:1, bot:1, passed:true},
-        {round:7, turn:1, bot:2, passed:true}])
+        {round:7, turn:1, bot:2, passed:true}]})
     ]})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/endOfGame')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/7/turn/1/bot/1')
@@ -84,9 +84,9 @@ describe('util/RouteCalculator', () => {
     const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
 
     const state = mockState({rounds:[
-      mockRound(1, [{round:1, turn:1, player:1, passed:true},
+      mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true},
-        {round:1, turn:1, bot:2, passed:true}])
+        {round:1, turn:1, bot:2, passed:true}]})
   ]})
     expect(routeCalculator.getLastTurnRouteTo(state)).to.eq('/round/1/turn/1/bot/2')
   })
