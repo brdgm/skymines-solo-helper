@@ -25,7 +25,6 @@ import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import BotStatus from '@/components/turn/BotStatus.vue'
 import BotActions from '@/components/turn/BotActions.vue'
-import LunaState from '@/services/LunaState'
 import BotNavigationState from '@/util/BotNavigationState'
 
 export default defineComponent({

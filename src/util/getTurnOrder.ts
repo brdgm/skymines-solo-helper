@@ -20,19 +20,19 @@ export default function(state: State, round: number, turn: number, startPlayer: 
 
   let invalidTurn = false
   for (let turnNo=1; turnNo<=turn+1; turnNo++) {
-    playerOrder.forEach(playerOrder => {
+    playerOrder.forEach(player => {
       const hasPassed = turns.find(item => item.round==round && item.turn<turnNo
-            && item.player==playerOrder.player && item.bot==playerOrder.bot && item.passed) != undefined
+            && item.player==player.player && item.bot==player.bot && item.passed) != undefined
       if (!hasPassed) {
         if (turnNo > MAX_TURN) {
           // not a valid round as not all have passed in time, return empty list of steps
           invalidTurn = true
         }
-        if (playerOrder.player) {
-          steps.push({round:round, turn:turnNo, player:playerOrder.player})
+        if (player.player) {
+          steps.push({round:round, turn:turnNo, player:player.player})
         }
-        else if (playerOrder.bot) {
-          steps.push({round:round, turn:turnNo, bot:playerOrder.bot})
+        else if (player.bot) {
+          steps.push({round:round, turn:turnNo, bot:player.bot})
         }
       }
     })
