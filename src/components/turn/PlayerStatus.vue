@@ -95,7 +95,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .majorities {
   color: white;
-  background-color: #5b718a;
+  background-color: #143142;
   border-radius: 0.5rem;
   filter: drop-shadow(0.1rem 0.1rem 0.2rem #888);
   padding: 1rem;
