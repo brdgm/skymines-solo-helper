@@ -10,7 +10,7 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
-import RouteCalculator from '@/util/RouteCalculator'
+import RouteCalculator from '@/services/RouteCalculator'
 import { useStore } from '@/store'
 
 export default defineComponent({
@@ -22,15 +22,13 @@ export default defineComponent({
     const { t } = useI18n()
     const store = useStore()
 
-    const playerCount = store.state.setup.playerSetup.playerCount
-    const botCount = store.state.setup.playerSetup.botCount
     const round = 7  // last round
 
-    return { t, playerCount, botCount, round }
+    return { t, round }
   },
   computed: {
     backButtonRouteTo() : string {
-      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round})
+      const routeCalculator = new RouteCalculator({round:this.round})
       return routeCalculator.getLastTurnRouteTo(this.$store.state)
     }
   }

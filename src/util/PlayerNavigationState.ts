@@ -5,18 +5,29 @@ import AbstractNavigationState from "./AbstractNavigationState"
 import LunaState from "@/services/LunaState"
 import getLunaState from "./getLunaState"
 import MajorityType from "@/services/enum/MajorityType"
+import FirstPlayerDetector from "@/services/FirstPlayerDetector"
 
 export default class PlayerNavigationState extends AbstractNavigationState {
 
   readonly player : number
   readonly playerColor : PlayerColor
+  readonly fistPlayer : boolean
   readonly lunaStates : LunaState[]
 
   constructor(route : RouteLocation, state : State) {
     super(route, state)
     this.player = parseInt(route.params['player'] as string)
     this.playerColor = this.playerColors[this.player - 1] || PlayerColor.RED
+    this.fistPlayer = this.isFirstPlayer(state)
     this.lunaStates = this.getLunaStates(state)
+  }
+
+  /**
+   * Determines if the current player currently has the first player token.
+   */
+  private isFirstPlayer(state : State) : boolean {
+    const detector = new FirstPlayerDetector(state)
+    return detector.getFirstPlayer(this.round, this.turn) == this.player
   }
 
   /**

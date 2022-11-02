@@ -21,9 +21,9 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
-import InitialLunaStates from '@/util/InitialLunaStates'
+import InitialLunaStates from '@/services/InitialLunaStates'
 import { useStore } from '@/store'
-import RouteCalculator from '@/util/RouteCalculator'
+import RouteCalculator from '@/services/RouteCalculator'
 
 export default defineComponent({
   name: 'SetupLuna',
@@ -34,10 +34,7 @@ export default defineComponent({
     const { t } = useI18n()
     const store = useStore()
 
-    const playerCount = store.state.setup.playerSetup.playerCount
-    const botCount = store.state.setup.playerSetup.botCount
-
-    return { t, playerCount, botCount }
+    return { t }
   },
   methods: {
     startGame() : void {
@@ -45,7 +42,7 @@ export default defineComponent({
       const initialLunaStates = new InitialLunaStates(this.$store)
       initialLunaStates.prepareRound(1)
       // go to first turn
-      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:1})
+      const routeCalculator = new RouteCalculator({round:1})
       this.$router.push(routeCalculator.getFirstTurnRouteTo(this.$store.state))
     }
   }

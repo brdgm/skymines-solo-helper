@@ -16,8 +16,8 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
-import RouteCalculator from '@/util/RouteCalculator'
-import InitialLunaStates from '@/util/InitialLunaStates'
+import RouteCalculator from '@/services/RouteCalculator'
+import InitialLunaStates from '@/services/InitialLunaStates'
 
 export default defineComponent({
   name: 'EndOfRound',
@@ -29,15 +29,13 @@ export default defineComponent({
     const route = useRoute()
     const store = useStore()
 
-    const playerCount = store.state.setup.playerSetup.playerCount
-    const botCount = store.state.setup.playerSetup.botCount
     const round = parseInt(route.params['round'] as string)
 
-    return { t, playerCount, botCount, round }
+    return { t, round }
   },
   computed: {
     backButtonRouteTo() : string {
-      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round})
+      const routeCalculator = new RouteCalculator({round:this.round})
       return routeCalculator.getLastTurnRouteTo(this.$store.state)
     }
   },
@@ -47,7 +45,7 @@ export default defineComponent({
       const initialLunaStates = new InitialLunaStates(this.$store)
       initialLunaStates.prepareRound(this.round+1)
       // got to first turn of next round
-      const routeCalculator = new RouteCalculator({playerCount:this.playerCount, botCount:this.botCount, round:this.round+1})
+      const routeCalculator = new RouteCalculator({round:this.round+1})
       this.$router.push(routeCalculator.getFirstTurnRouteTo(this.$store.state))
     }
   }

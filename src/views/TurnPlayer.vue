@@ -25,7 +25,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
-import RouteCalculator from '@/util/RouteCalculator'
+import RouteCalculator from '@/services/RouteCalculator'
 import PlayerNavigationState from '@/util/PlayerNavigationState'
 import PlayerStatus from '@/components/turn/PlayerStatus.vue'
 
@@ -43,13 +43,11 @@ export default defineComponent({
 
     const navigationState = new PlayerNavigationState(route, store.state);
     const playerCount = navigationState.playerCount
-    const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn
     const player = navigationState.player
     const playerColor = navigationState.playerColor
-    const routeCalculator = new RouteCalculator({playerCount:playerCount, botCount:botCount,
-        round:round, turn:turn, player:player})
+    const routeCalculator = new RouteCalculator({round:round, turn:turn, player:player})
 
     return { t, playerCount, round, turn, player, playerColor, routeCalculator, navigationState }
   },

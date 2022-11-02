@@ -22,7 +22,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
-import RouteCalculator from '@/util/RouteCalculator'
+import RouteCalculator from '@/services/RouteCalculator'
 import BotStatus from '@/components/turn/BotStatus.vue'
 import BotActions from '@/components/turn/BotActions.vue'
 import LunaState from '@/services/LunaState'
@@ -42,14 +42,12 @@ export default defineComponent({
     const store = useStore()
 
     const navigationState = new BotNavigationState(route, store.state);
-    const playerCount = navigationState.playerCount
     const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn
     const bot = navigationState.bot
     const playerColor = navigationState.playerColor
-    const routeCalculator = new RouteCalculator({playerCount:playerCount, botCount:botCount,
-      round:round, turn:turn, bot:bot})
+    const routeCalculator = new RouteCalculator({round:round, turn:turn, bot:bot})
     const lunaState = navigationState.lunaState as LunaState
 
     return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState, lunaState }

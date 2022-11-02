@@ -1,13 +1,10 @@
 import { LunaStatePersistence, Round, Turn } from "@/store";
 
 export default function (params?: MockRoundParams) : Round {
-  const round = params?.round ?? 1
-  const turns = params?.turns || []
-  turns.forEach(turn => turn.round = round)
   return {
-    round: round,
+    round: params?.round ?? 1,
     initialLunaStates: params?.initialLunaStates || [],
-    turns: turns
+    turns: params?.turns ?? []
   }
 }
 

@@ -1,37 +1,37 @@
-import RouteCalculator from '@/util/RouteCalculator'
+import RouteCalculator from '@/services/RouteCalculator'
 import { expect } from 'chai'
 import mockRound from '../helper/mockRound'
 import mockState from '../helper/mockState'
 
-describe('util/RouteCalculator', () => {
+describe('services/RouteCalculator', () => {
   it('getNextRouteTo-round1-turn1-player', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, player:1})
+    const routeCalculator = new RouteCalculator({round:1, turn:1, player:1})
 
-    const state = mockState()
+    const state = mockState({playerCount:1, botCount:2})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/1/bot/1')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('')
   })
 
   it('getNextRouteTo-round1-turn1-bot1', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:1})
+    const routeCalculator = new RouteCalculator({round:1, turn:1, bot:1})
 
-    const state = mockState()
+    const state = mockState({playerCount:1, botCount:2})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/1/bot/2')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/1/turn/1/player/1')
   })
 
   it('getNextRouteTo_round1-turn1-bot2', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
+    const routeCalculator = new RouteCalculator({round:1, turn:1, bot:2})
     
-    const state = mockState()
+    const state = mockState({playerCount:1, botCount:2})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/2/player/1')
     expect(routeCalculator.getBackRouteTo(state)).to.eq('/round/1/turn/1/bot/1')
   })
 
   it('getNextRouteTo_round1-turn1-bot2-playerpassed', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
+    const routeCalculator = new RouteCalculator({round:1, turn:1, bot:2})
 
-    const state = mockState({rounds:[
+    const state = mockState({playerCount:1, botCount:2, rounds:[
       mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true}]})
     ]})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/2/bot/1')
@@ -39,9 +39,9 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getNextRouteTo_round1-turn1-bot2-playerpassed-bot1passed', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
+    const routeCalculator = new RouteCalculator({round:1, turn:1, bot:2})
 
-    const state = mockState({rounds:[
+    const state = mockState({playerCount:1, botCount:2, rounds:[
       mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true}]})
     ]})
@@ -50,9 +50,9 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getNextRouteTo_round1-turn1-bot2-playerpassed-bot1passed-bot2passed', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1, turn:1, bot:2})
+    const routeCalculator = new RouteCalculator({round:1, turn:1, bot:2})
 
-    const state = mockState({rounds:[
+    const state = mockState({playerCount:1, botCount:2, rounds:[
       mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true},
         {round:1, turn:1, bot:2, passed:true}]})
@@ -62,9 +62,9 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getNextRouteTo_round7-turn1-bot2-playerpassed-bot1passed-bot2passed', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:7, turn:1, bot:2})
+    const routeCalculator = new RouteCalculator({round:7, turn:1, bot:2})
 
-    const state = mockState({rounds:[
+    const state = mockState({playerCount:1, botCount:2, rounds:[
       mockRound({round:7, turns:[{round:7, turn:1, player:1, passed:true},
         {round:7, turn:1, bot:1, passed:true},
         {round:7, turn:1, bot:2, passed:true}]})
@@ -74,16 +74,16 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getFirstTurnRouteTo', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
+    const routeCalculator = new RouteCalculator({round:1})
 
-    const state = mockState()
+    const state = mockState({playerCount:1, botCount:2})
     expect(routeCalculator.getFirstTurnRouteTo(state)).to.eq('/round/1/turn/1/player/1')
   })
 
   it('getLastTurnRouteTo', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
+    const routeCalculator = new RouteCalculator({round:1})
 
-    const state = mockState({rounds:[
+    const state = mockState({playerCount:1, botCount:2, rounds:[
       mockRound({round:1, turns:[{round:1, turn:1, player:1, passed:true},
         {round:1, turn:1, bot:1, passed:true},
         {round:1, turn:1, bot:2, passed:true}]})
@@ -92,8 +92,9 @@ describe('util/RouteCalculator', () => {
   })
 
   it('getLastTurnRouteTo-empty', () => {
-    const routeCalculator = new RouteCalculator({playerCount:1, botCount:2, round:1})
+    const routeCalculator = new RouteCalculator({round:1})
 
-    expect(routeCalculator.getLastTurnRouteTo(mockState())).to.eq('')
+    const state = mockState({playerCount:1, botCount:2})
+    expect(routeCalculator.getLastTurnRouteTo(state)).to.eq('')
   })
 })
