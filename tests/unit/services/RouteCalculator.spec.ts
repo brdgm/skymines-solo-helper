@@ -9,7 +9,7 @@ describe('services/RouteCalculator', () => {
 
     const state = mockState({playerCount:1, botCount:2})
     expect(routeCalculator.getNextRouteTo(state)).to.eq('/round/1/turn/1/bot/1')
-    expect(routeCalculator.getBackRouteTo(state)).to.eq('')
+    expect(routeCalculator.getBackRouteTo(state)).to.eq('/startGame')
   })
 
   it('getNextRouteTo-round1-turn1-bot1', () => {
