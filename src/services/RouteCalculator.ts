@@ -60,7 +60,7 @@ export default class RouteCalculator {
         return `/round/${this.round-1}/end`
       }
       else {
-        return ''
+        return '/startGame'
       }
     }
     return RouteCalculator.routeTo(previousStep)

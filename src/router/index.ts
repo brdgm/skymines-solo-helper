@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import NotFound from '@/views/NotFound.vue'
 import SetupGame from '@/views/SetupGame.vue'
 import SetupLuna from '@/views/SetupLuna.vue'
+import StartGame from '@/views/StartGame.vue'
 import TurnPlayer from '@/views/TurnPlayer.vue'
 import TurnBot from '@/views/TurnBot.vue'
 import EndOfRound from '@/views/EndOfRound.vue'
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/setupLuna',
     name: 'SetupLuna',
     component: SetupLuna
+  },
+  {
+    path: '/startGame',
+    name: 'StartGame',
+    component: StartGame
   },
   {
     path: '/round/:round/turn/:turn/player/:player',

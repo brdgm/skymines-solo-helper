@@ -39,9 +39,8 @@ export default defineComponent({
       // prepare luna states for all bots
       const initialLunaStates = new InitialLunaStates(this.$store)
       initialLunaStates.prepareRound(1)
-      // go to first turn
-      const routeCalculator = new RouteCalculator({round:1})
-      this.$router.push(routeCalculator.getFirstTurnRouteTo(this.$store.state))
+      // go to start game screen
+      this.$router.push("/startGame")
     }
   }
 })
