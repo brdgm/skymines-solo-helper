@@ -6,7 +6,7 @@ import MajorityType from '@/services/enum/MajorityType'
 import Slot from '@/services/enum/Slot'
 import { CardSlotPersistence } from '@/store'
 import { expect } from 'chai'
-import mockCardDeck from '../testutil/mockCardDeck'
+import mockCardDeck from '../helper/mockCardDeck'
 
 describe('services/CardDeck', () => {
   it('new', () => {

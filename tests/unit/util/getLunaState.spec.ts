@@ -1,8 +1,8 @@
 import getLunaState from '@/util/getLunaState'
 import { expect } from 'chai'
-import mockLunaState from '../testutil/mockLunaState'
-import mockRound from '../testutil/mockRound'
-import mockState from '../testutil/mockState'
+import mockLunaState from '../helper/mockLunaState'
+import mockRound from '../helper/mockRound'
+import mockState from '../helper/mockState'
 
 describe('util/getLunaState', () => {
   it('initialLunaState', () => {

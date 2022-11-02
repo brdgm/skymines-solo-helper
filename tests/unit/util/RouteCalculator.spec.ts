@@ -1,7 +1,7 @@
 import RouteCalculator from '@/util/RouteCalculator'
 import { expect } from 'chai'
-import mockRound from '../testutil/mockRound'
-import mockState from '../testutil/mockState'
+import mockRound from '../helper/mockRound'
+import mockState from '../helper/mockState'
 
 describe('util/RouteCalculator', () => {
   it('getNextRouteTo-round1-turn1-player', () => {
