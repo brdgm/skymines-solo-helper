@@ -43,7 +43,6 @@
 </template>
 
 <script lang="ts">
-import CardSlot from '@/services/CardSlot'
 import LunaState from '@/services/LunaState'
 import BotNavigationState from '@/util/BotNavigationState'
 import { defineComponent } from 'vue'

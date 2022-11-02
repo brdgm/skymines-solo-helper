@@ -198,7 +198,7 @@ export default defineComponent({
       const input = event.target as HTMLInputElement
       input.select()
     },
-    toNumber(value? : any) {
+    toNumber(value? : number) {
       if (typeof value == 'string') {
         return 0
       }

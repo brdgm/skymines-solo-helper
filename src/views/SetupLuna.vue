@@ -22,7 +22,6 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import InitialLunaStates from '@/services/InitialLunaStates'
-import RouteCalculator from '@/services/RouteCalculator'
 
 export default defineComponent({
   name: 'SetupLuna',
