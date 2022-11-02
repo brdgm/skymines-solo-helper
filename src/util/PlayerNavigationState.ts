@@ -27,7 +27,7 @@ export default class PlayerNavigationState extends AbstractNavigationState {
    */
   private isFirstPlayer(state : State) : boolean {
     const detector = new FirstPlayerDetector(state)
-    return detector.getFirstPlayer(this.round, this.turn) == this.player
+    return detector.getFirstPlayerThisRound(this.round, this.turn, this.player) == this.player
   }
 
   /**

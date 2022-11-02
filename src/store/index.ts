@@ -32,6 +32,7 @@ export interface Turn {
   player?: number
   bot?: number
   passed?: boolean
+  claimFirstPlayer?: boolean
   lunaState?: LunaStatePersistence
 }
 export interface LunaStatePersistence {

@@ -1,14 +1,12 @@
 import { State } from "@/store"
 import getPlayerOrder from "@/util/getPlayerOrder"
-import getTurnOrder from "@/util/getTurnOrder"
+import getTurnOrder, { MAX_TURN } from "@/util/getTurnOrder"
 import FirstPlayerDetector from "./FirstPlayerDetector"
 
 /**
  * Calculate routes for next/back respecting "passed" state of players/bots.
  */
 export default class RouteCalculator {
-
-  private static readonly MAX_TURN = 99
 
   readonly round : number
   readonly turn : number
@@ -17,7 +15,7 @@ export default class RouteCalculator {
 
   constructor(params:{round: number, turn?: number, player?: number, bot?: number}) {    
     this.round = params.round
-    this.turn = params.turn ?? RouteCalculator.MAX_TURN  // when called in EndOfRound/EndOfGame context
+    this.turn = params.turn ?? MAX_TURN  // when called in EndOfRound/EndOfGame context
     this.player = params.player
     this.bot = params.bot
   }
@@ -98,7 +96,7 @@ export default class RouteCalculator {
    */
   private getFirstPlayer(state: State) : number {
     const detector = new FirstPlayerDetector(state)
-    return detector.getFirstPlayer(this.round, this.turn)
+    return detector.getFirstPlayerRoundStart(this.round)
   }
 
   /**
