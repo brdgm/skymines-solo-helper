@@ -1,21 +1,41 @@
 <template>
-  <template v-if="isSpecialPlan">
-    <span v-html="t('turnBot.action.discardResearchPlan.discardSpecial')"></span>
-  </template>
-  <template v-else>
-    <span v-if="isFirstCol" v-html="t('turnBot.action.discardResearchPlan.discardFirstCol',{plan:plan})"></span>
-    <span v-else v-html="t('turnBot.action.discardResearchPlan.discard',{plan:plan})"></span>
-    <div class="selection">
-      <Icon type="selection" name="research-plan-selection" class="matrix"/>
-      <table>
-        <tr>
-          <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
-            <span v-if="col.includes(slot)">X</span>
-          </td>
-        </tr>
-      </table>
+  <div class="actionBox col" data-bs-toggle="modal" data-bs-target="#modalDiscardResearchPlanHelp">
+    <template v-if="isSpecialPlan">
+      <span v-html="t('turnBot.action.discardResearchPlan.discardSpecial')"></span>
+    </template>
+    <template v-else>
+      <span v-if="isFirstCol" v-html="t('turnBot.action.discardResearchPlan.discardFirstCol',{plan:plan})"></span>
+      <span v-else v-html="t('turnBot.action.discardResearchPlan.discard',{plan:plan})"></span>
+      <div class="selection">
+        <Icon type="selection" name="research-plan-selection" class="matrix"/>
+        <table>
+          <tr>
+            <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
+              <span v-if="col.includes(slot)">X</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </template>
+  </div>
+
+  <div class="modal" tabindex="-1" id="modalDiscardResearchPlanHelp">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{t('turnBot.action.discardResearchPlan.help.title')}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
+        </div>
+        <div class="modal-body">
+          <p v-html="t('turnBot.action.discardResearchPlan.help.instruction')"></p>
+          <p v-html="t('turnBot.action.discardResearchPlan.help.specialResearchPlan')"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
+        </div>
+      </div>
     </div>
-  </template>
+  </div>
 </template>
 
 <script lang="ts">

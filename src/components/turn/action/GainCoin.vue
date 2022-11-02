@@ -1,8 +1,27 @@
 <template>
-  <div>{{t('turnBot.action.lunaGains')}}</div>
-  <div class="action">
-    <span>{{action.count}}</span>
-    <Icon type="action" name="gain-coin" class="icon"/>
+  <div class="actionBox col" data-bs-toggle="modal" data-bs-target="#modalGainCoinHelp">
+    <div>{{t('turnBot.action.lunaGains')}}</div>
+    <div class="action">
+      <span>{{action.count}}</span>
+      <Icon type="action" name="gain-coin" class="icon"/>
+    </div>
+  </div>
+
+  <div class="modal" tabindex="-1" id="modalGainCoinHelp">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{t('turnBot.action.gainCoin.help.title')}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
+        </div>
+        <div class="modal-body">
+          <p v-html="t('turnBot.action.gainCoin.help.instruction')"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

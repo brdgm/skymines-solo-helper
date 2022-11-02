@@ -64,24 +64,89 @@
         "least-valuable": "beim Unternehmen, das am <b>wenigsten wert</b> ist",
         "lead-biggest-margin": "beim Unternehmen, auf dessen Leiste Luna den <b>größten Vorsprung</b> hat",
         "lead-biggest-margin-two-each": "bei jedem der <b>2 Unternehmen</b>, auf deren Leisten Luna den <b>größten Vorsprung</b> hat",
-        "all-four-each": "bei <b>jedem der 4 Unternehmen</b>"
+        "all-four-each": "bei <b>jedem der 4 Unternehmen</b>",
+        "help": {
+          "title": "Anteilsmarker auf Unternehmensleiste",
+          "instruction": "Ziehe meinen Anteilsmarker die angegebene Anzahl Felder auf derjenigen Leiste vorwärts, dessen Unternehmen auf der Lunakarte benannt wird <i>(siehe unten)</i>.",
+          "rulesHint": "Dabei sind folgende Regeln zu beachten:",
+          "hint1": "Immer wenn ein Anteilsmarker eine Bonusschwelle überquert, wird deren CrypCoin-Belohnung wie üblich ausgeschüttet (das gilt für mich wie für euch).",
+          "hint2": "Immer wenn einer meiner Anteilsmarker über eine Pflichteinzahlung zieht, werden deren Kosten mit CrypCoin aus meinem Lager bezahlt. Falls ich nicht genug CrypCoin dafür habe, wird so viel bezahlt, wie ich habe, und dann der Marker dennoch weitergezogen.",
+          "hint3": "Sobald einer meiner Anteilsmarker das Ende seiner Leiste erreicht hat, erhalte ich fortan 2 CrypCoin aus der Bank für jedes Feld, das er normalerweise vorwärts rücken würde.",
+          "hint4": "Sämtliche Leistenboni werden für mich ignoriert.",
+          "mostValuable": "Das <b>wertvollste Unternehmen</b> ist dasjenige, in dessen Station die meisten Münzsymbole sichtbar sind.",
+          "tied": "Herrscht Gleichstand bei der Wertigkeit, gilt das Unternehmen als wertvoller, dessen Station mehr freie Stationsfelder aufweist. Löst auch das nicht den Gleichstand auf, gilt davon dasjenige als wertvoller, dessen Leisten-Kennzeichnung in alphabetischer Reihenfolge zuerst kommt.",
+          "biggestMargin": "Ich habe den <b>größten Vorsprung</b> auf derjenigen Unternehmensleiste, auf der zwischen meinem Anteilsmarker und dem nächsten, dahinter folgenden Anteilsmarker die insgesamt meisten Felder liegen (Pflichteinzahlungen sind keine Felder). Liege ich auf keiner Leiste vorne, ist es diejenige, auf der ich mir die Führung teile. Liege ich auf allen Leisten hinten, ist es diejenige, auf der zwischen meinem Marker und dem führenden die wenigsten Felder liegen. Gleichstände werden zugunsten des wertvolleren Unternehmens aufgelöst.",
+          "farthestBehind": "Ich habe den <b>größten Rückstand</b> auf derjenigen Unternehmensleiste, auf der zwischen meinem Anteilsmarker und dem führenden die insgesamt meisten Felder liegen. Falls ich auf keiner Leiste zurückliege, ist es diejenige, wo ich mir die Führung teile bzw. den geringsten Vorsprung habe. Gleichstände werden zugunsten des wertvolleren Unternehmens aufgelöst."
+        }
       },
       "discardResearchPlan": {
         "discard": "Luna entfernt den <b>{plan}-Forschungsplan</b>:",
         "discardFirstCol": "Luna entfernt den <b>{plan}-Forschungsplan</b>; liegen auf dem Zuschussfeld noch CrypCoin, erhält sie diese:",
-        "discardSpecial": "Luna entfernt den <b>neuesten offenen Sonder-Forschungsplan</b>."
+        "discardSpecial": "Luna entfernt den <b>neuesten offenen Sonder-Forschungsplan</b>.",
+        "help": {
+          "title": "Forschungsplan entfernen",
+          "instruction": "Immer wenn die Aktion einer Lunakarte angibt, dass ich Forschungspläne entferne, musst du die spezifizierten Forschungspläne aus der Forschungsauslage nehmen und sie in die Schachtel zurücklegen. Fülle anschließend jedes leere Buchstabenfeld der Forschungsauslage mit einem offenen Forschungsplan auf, den du vom Forschungsplan-Vorrat des entsprechenden Buchstabens ziehst.",
+          "specialResearchPlan": "Wenn es heißt, dass ich den neuesten offen <b>Sonder-Forschungsplan</b> entferne, bedeutet das: Von den auf der Rundenleiste offenliegenden Sonder-Forschungsplänen, musst du denjenigen in die Schachtel zurücklegen, der zuletzt aufgedeckt wurde. Falls keiner offen auf der Rundenleiste liegt, wird auch keiner entfernt."
+        }
       },
       "expandCompany": {
         "expand": "Dann breitet sich dieses Unternehmen aus:",
         "min": "MIN",
-        "max": "MAX"
+        "max": "MAX",
+        "help": {
+          "title": "Unternehmen ausbreiten",
+          "instruction": "Immer wenn die Aktion einer Lunakarte angibt, dass sich ein bestimmtes Unternehmen ausbreitet, ist auch angegeben, mit wie vielen Ausbreitungspunkten es dies tut. Je nach Spielplanseite wird die Ausbreitung unterschiedlich abgehandelt <i>(siehe unten)</i>.",
+          "rulesHint": "Einige wichtige Hinweise vorab:",
+          "hint1": "Der Klarheit halber wird in jeder Station eine sogenannte <b>Haupt-Außenposten-Spalte</b> definiert: Dabei handelt es sich jeweils um die Spalte, welche momentan die meisten freien Stationsfelder aufweist, aber dessen hinterstes Stationsfeld (dasjenige mit 2 Münzsymbolen) in jedem Fall noch immer mit einem Außenposten besetzt ist. Nur wenn die hintersten Stationsfelder aller Spalten unbesetzt sind, ist es stattdessen diejenige Spalte mit den meisten freien Stationsfeldern, in der insgesamt die wenigsten Münzsymbole sichtbar sind. Gleichstände werden zugunsten der Spalte aufgelöst, die näher an ihrem Unternehmenslogo liegt.",
+          "hint2": "Ich erhalte niemals irgendwelche Belohnungen, wenn in meinem Spielzug Sektoren eingenommen bzw. Setzfelder besetzt werden.",
+          "hint3": "Falls ein Unternehmen nicht weiter ausgebreitet werden kann (weil keine Außenposten bzw. Shuttle aus seiner Station mehr regelkonform gesetzt werden können), verfallen dessen restliche Ausbreitungspunkte.",
+          "moon": {
+            "title": "Mondseite",
+            "rulesHint": "Setze pro Ausbreitungspunkt jeweils 1 Außenposten des auszubreitenden Unternehmens auf dem Mond ein:",
+            "hint1": "Nimm hierzu den vordersten Außenposten aus der Haupt-Außenposten-Spalte des Unternehmens und setze ihn in den folgenden <b>erreichbaren</b> Zielsektor (egal ob dieser über eine Einzel- oder Doppellinie erreichbar ist):",
+            "hint2": "Zeigt das Ausbreitungssymbol ein MIN, muss es derjenige erreichbare <b>unbesetzte</b> Sektor mit der kleinsten Sektorennummer sein.",
+            "hint3": "Zeigt das Ausbreitungssymbol ein MAX, muss es derjenige erreichbare <b>unbesetzte</b> Sektor mit der größten Sektorennummer sein.",
+            "hint4": "",
+            "hint5": "Falls keiner der erreichbaren Sektoren unbesetzt ist, muss es derjenige erreichbare Sektor mit der kleinsten (MIN) bzw. größten (MAX) Sektorennummer sein, in dem ein Außenposten desjenigen erreichbaren Unternehmens steht, auf dessen Leiste ich den größten Rückstand habe. Der dort vorhandene Außenposten wird wie üblich verdrängt und auf das hinterste freie Stationsfeld seiner Haupt-Außenposten-Spalte gestellt."
+          },
+          "belt": {
+            "title": "Asteroidenseite",
+            "rulesHint": "Setze pro Ausbreitungspunkt jeweils 1 Außenposten bzw. Shuttle des auszubreitenden Unternehmens auf einem Setzfeld ein:",
+            "hint1": "Bestimme hierzu zunächst das für das Unternehmen nächste erreichbare <b>freie</b> Ziel. Dieses Ziel muss entweder ein unbesetztes Shuttlefeld sein oder ein Asteroid, auf dem das Unternehmen noch keinen Außenposten hat und auf dem noch mindestens ein Setzfeld frei ist.",
+            "hint2": "Bestimme von den in Frage kommenden Zielen dasjenige, das die kleinste Zielnummer aufweist, falls das Ausbreitungssymbol ein MIN zeigt. Falls es ein MAX zeigt, bestimme dasjenige Ziel mit der größten Zielnummer.",
+            "hint3": "Hast du als Ziel ein Shuttlefeld bestimmt, nimm das vorderste Shuttle aus der Station des Unternehmens und setze es auf dieses Shuttlefeld. (Falls in der Station keine Shuttle mehr verfügbar ist, muss das Ziel ein Asteroid sein.)",
+            "hint4": "Hast du als Ziel einen Asteroiden bestimmt, nimm den vordersten Außenposten aus der Haupt-Außenposten-Spalte des Unternehmens und setze ihn auf ein freies Außenpostenfeld dieses Asteroiden.",
+            "hint5": "Falls es kein Ziel gibt, das diesen Kriterien entspricht, setze den Außenposten auf ein freies Außenpostenfeld desjenigen erreichbaren Asteroiden mit der kleinsten (MIN) bzw. größten (MAX) Zielnummer, auf dem das Unternehmen bereits mit einem oder mehreren Außenposten vertreten ist.",
+            "hint6": "Falls es kein einziges freies erreichbares Setzfeld gibt, bestimme welche Setzfelder erreichbar sind, auf denen sich Außenposten bzw. Shuttles desjenigen erreichbaren Unternehmens befinden, auf dessen Leiste ich den größten Rückstand habe. Bestimme von diesen Setzfeldern schließlich dasjenige mit der kleinsten (MIN) bzw. größten (MAX) Zielnummer und verdränge das entsprechende Shuttle bzw. einen entsprechenden Außenposten auf die übliche Art und Weise. Verdrängte Außenposten kommen wie üblich auf das jeweils hinterste freie Stationsfeld ihrer Haupt-Außenposten-Spalte."
+          }
+        }
+      },
+      "gainCoin": {
+        "help": {
+          "title": "Erhalte CrypCoin",
+          "instruction": "Lege den angegebenen CrypCoin-Betrag aus der Bank in mein Lager."
+        }
       },
       "gainCard": {
         "matchSlot": "Luna erhält aus der Auslage diese Karten:",
-        "mostValuableShare": "Luna erhält aus der Auslage die Karte mit dem <b>wertvollsten Anteil</b> (gibt es mehrere, vom Feld mit der kleinsten Nummer)."
+        "mostValuableShare": "Luna erhält aus der Auslage die Karte mit dem <b>wertvollsten Anteil</b> (gibt es mehrere, vom Feld mit der kleinsten Nummer).",
+        "help": {
+          "title": "Karten erhalten",
+          "instruction": "Immer wenn die Aktion einer Lunakarte angibt, dass ich Karten erhalte, musst du die spezifizierte(n) Karte(n) aus der Kartenauslage nehmen und sie in mein Lager legen, wo ich sie als verdeckten Stapel sammle.",
+          "hint1": "Ich erhalte die spezifizierten Karten immer kostenlos.",
+          "hint2": "Falls ein spezifiziertes Kartenfeld bereits leer ist, bekomme ich dessen Karte nicht.",
+          "hint3": "Die gesammelten Aktionskarten verbleiben unbesehen in meinem Lager bis zur Schlusswertung.",
+          "hint4": "Wenn es heißt, dass ich die Karte mit dem <b>wertvollsten Anteil</b> erhalte, bedeutet das: Ich bekomme die Karte aus der Auslage, auf der ein zusätzlicher Anteil desjenigen Unternehmens abgebildet ist, welches - unter allen in der Kartenauslage vertretenen Unternehmen - das wertvollste ist. Gibt es mehrere Karten dieses Unternehmens, bekomme ich davon diejenige Karte, die auf dem Feld mit der kleinsten Nummer liegt. Falls keine der Karten in der Auslage einen zusätzlichen Anteil aufweist, bekomme ich keine Karte."
+        }
       },
       "placeBonusMarker": {
-        "place": "Luna setzt einen Bonusmarker:"
+        "place": "Luna setzt einen Bonusmarker:",
+        "help": {
+          "title": "Bonusmarker setzen",
+          "instruction": "Immer wenn die Aktion einer Lunakarte angibt, dass ich einen Bonusmarker setze, musst du Folgendes tun: Nimm einen Bonusmarker aus meinem Lager und setze ihn auf das Bonusfeld, das durch diese Lunakarte spezifiziert wird.",
+          "hint1": "Das Platzieren kostet mich nichts und gibt mir auch keine Belohnung.",
+          "hint2": "Falls das spezifizierte Bonusfeld bereits besetzt ist, wird kein Bonusmarker gesetzt."
+        }
       }
     }
   },

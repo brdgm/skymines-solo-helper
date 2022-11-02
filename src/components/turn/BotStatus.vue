@@ -1,5 +1,5 @@
 <template>
-  <div class="position-absolute top-0 end-0 me-3 mt-5">
+  <div class="float-end ms-3">
     <p v-html="t('turnBot.botStatus.turn',{round:round,turn:turn})"></p>
     <div class="status">
       <table>

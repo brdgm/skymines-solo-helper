@@ -1,9 +1,7 @@
 <template>
-  <div class="container-fluid">
-    <div class="row" v-for="(action,index) in lunaActions" :key="index">
-      <div class="actionBox col-8 col-md-6 col-lg-4 mt-2 mb-2">
-        <component :is="action.action" :action="action" :cardSlot="cardSlot"/>
-      </div>
+  <div class="actionList container-fluid m-0">
+    <div class="row mt-3 mb-3" v-for="(action,index) in lunaActions" :key="index">
+      <component :is="action.action" :action="action" :cardSlot="cardSlot"/>
     </div>
   </div>
 </template>
@@ -60,12 +58,20 @@ export default defineComponent({
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
+.actionList {
+  max-width: 30rem;
+  padding-right: 10rem;
+}
 .actionBox {
   color: white;
   background-color: #5b718a;
   border-radius: 0.5rem;
   filter: drop-shadow(0.1rem 0.1rem 0.2rem #888);
   padding: 1rem;
+  cursor: pointer;
+}
+.modal.show {
+  z-index: 10000;  /* fix: show above footer buttons */
 }
 </style>
