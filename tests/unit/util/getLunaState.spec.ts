@@ -20,7 +20,7 @@ describe('util/getLunaState', () => {
 
     const bot2LunaState = getLunaState(state, 1, 1, 2)
     expect(bot2LunaState.heliumCount, 'bot 2 helium initial').to.eq(2)
-  }),
+  })
 
   it('lastTurn', () => {
     const state = mockState({
@@ -28,7 +28,7 @@ describe('util/getLunaState', () => {
         mockRound({round:1, initialLunaStates:[
           mockLunaState({heliumCount:1}).toPersistence(),
           mockLunaState({heliumCount:2}).toPersistence()
-        ],turns:[
+        ], turns:[
           {round:1,turn:1,bot:1,lunaState: mockLunaState({heliumCount:11}).toPersistence()},
           {round:1,turn:1,bot:2,lunaState: mockLunaState({heliumCount:12}).toPersistence()},
           {round:1,turn:2,bot:1,lunaState: mockLunaState({heliumCount:21}).toPersistence()},

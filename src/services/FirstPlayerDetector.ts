@@ -91,8 +91,7 @@ export default class FirstPlayerDetector {
     const round = this.state.rounds.find(item => item.round==roundNo)
     if (round) {
       const turnOrder = this.getTurnOrderUpToCurrentPlayerTurn(roundNo, turnNo, player, firstPlayer)
-      for (let i=0; i<turnOrder.length; i++) {
-        const item = turnOrder[i]
+      for (const item of turnOrder) {
         if (round.turns.find(turn => turn.round == roundNo && turn.turn == item.turn
               && turn.player == item.player && turn.claimFirstPlayer)) {
           return item.player
@@ -117,8 +116,7 @@ export default class FirstPlayerDetector {
     
     const turnOrder = getTurnOrder(this.state, roundNo, turnNo, firstPlayer)
         .filter(item => item.player)
-    for (let i=0; i<turnOrder.length; i++) {
-      const item = turnOrder[i]
+    for (const item of turnOrder) {
       // stop looking on current turn of current player
       if (item.round == roundNo && item.turn == turnNo && item.player == player) {
         break

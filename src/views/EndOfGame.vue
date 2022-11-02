@@ -11,7 +11,6 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import RouteCalculator from '@/services/RouteCalculator'
-import { useStore } from '@/store'
 import FinalScoring from '@/components/scoring/FinalScoring.vue'
 
 export default defineComponent({
@@ -22,7 +21,6 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
 
     const round = 7  // last round
 

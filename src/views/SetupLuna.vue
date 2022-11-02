@@ -22,7 +22,6 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import InitialLunaStates from '@/services/InitialLunaStates'
-import { useStore } from '@/store'
 import RouteCalculator from '@/services/RouteCalculator'
 
 export default defineComponent({
@@ -32,7 +31,6 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
 
     return { t }
   },
