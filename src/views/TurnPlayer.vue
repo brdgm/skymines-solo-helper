@@ -1,5 +1,5 @@
 <template>
-  <PlayerStatus :navigation-state="navigationState"/>
+  <PlayerStatus :navigation-state="navigationState" @first-player-claimed="firstPlayerClaimed()"/>
 
   <h1>
     <PlayerColorIcon :playerColor="playerColor" class="playerColorIcon"/>
@@ -51,6 +51,11 @@ export default defineComponent({
 
     return { t, playerCount, round, turn, player, playerColor, routeCalculator, navigationState }
   },
+  data() {
+    return {
+      claimFirstPlayer: false
+    }
+  },
   computed: {
     backButtonRouteTo() : string {
       return this.routeCalculator.getBackRouteTo(this.$store.state)
@@ -58,12 +63,23 @@ export default defineComponent({
   },
   methods: {
     next() : void {
-      this.$store.commit('turnPlayer',{round:this.round,turn:this.turn,player:this.player})
-      this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
+      this.nextWithPassed(false)
     },
     pass() : void {
-      this.$store.commit('turnPlayer',{round:this.round,turn:this.turn,player:this.player,passed:true})
+      this.nextWithPassed(true)
+    },
+    nextWithPassed(passed : boolean) {
+      this.$store.commit('turnPlayer', {
+        round:this.round,
+        turn:this.turn,
+        player:this.player,
+        claimFirstPlayer: this.claimFirstPlayer ? true : undefined,
+        passed: passed ? true : undefined
+      })
       this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
+    },
+    firstPlayerClaimed() : void {
+      this.claimFirstPlayer = true
     }
   }
 })

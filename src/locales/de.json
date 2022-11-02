@@ -43,7 +43,8 @@
       "titanium": "Titan",
       "carbon": "Kohlenstoff",
       "energy": "Energie",
-      "minerals": "Mineralien"  
+      "minerals": "Mineralien",
+      "claimFirstPlayer": "Startspieler<br/>beanspruchen"
     }
   },
   "turnBot": {

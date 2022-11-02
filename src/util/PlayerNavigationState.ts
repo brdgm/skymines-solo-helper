@@ -12,22 +12,19 @@ export default class PlayerNavigationState extends AbstractNavigationState {
   readonly player : number
   readonly playerColor : PlayerColor
   readonly fistPlayer : boolean
+  readonly canClaimFirstPlayer : boolean
   readonly lunaStates : LunaState[]
 
   constructor(route : RouteLocation, state : State) {
     super(route, state)
     this.player = parseInt(route.params['player'] as string)
     this.playerColor = this.playerColors[this.player - 1] || PlayerColor.RED
-    this.fistPlayer = this.isFirstPlayer(state)
-    this.lunaStates = this.getLunaStates(state)
-  }
 
-  /**
-   * Determines if the current player currently has the first player token.
-   */
-  private isFirstPlayer(state : State) : boolean {
     const detector = new FirstPlayerDetector(state)
-    return detector.getFirstPlayerThisRound(this.round, this.turn, this.player) == this.player
+    this.fistPlayer = detector.getFirstPlayerThisRound(this.round, this.turn, this.player) == this.player
+    this.canClaimFirstPlayer = !detector.isClaimedThisRound(this.round, this.turn, this.player)
+
+    this.lunaStates = this.getLunaStates(state)
   }
 
   /**

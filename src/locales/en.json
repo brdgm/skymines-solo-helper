@@ -43,7 +43,8 @@
       "titanium": "Titanium",
       "carbon": "Carbon",
       "energy": "Energy",
-      "minerals": "Minerals"
+      "minerals": "Minerals",
+      "claimFirstPlayer": "Claim First Player"
     }
   },
   "turnBot": {

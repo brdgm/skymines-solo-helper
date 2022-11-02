@@ -41,6 +41,12 @@
         </tr>
       </table>
     </div>
+
+    <div class="firstPlayerToken" v-if="showFirstPlayer">
+      <Icon name="first-player-marker" class="icon" v-if="isFirstPlayer"/>
+      <button class="btn btn-secondary btn-sm" v-if="canClaimFirstPlayer" @click="firstPlayerClaimed()" v-html="t('turnPlayer.playerStatus.claimFirstPlayer')"></button>
+    </div>
+
   </div>
 </template>
 
@@ -56,6 +62,7 @@ export default defineComponent({
   components: {
     Icon
   },
+  emits: ['firstPlayerClaimed'],
   setup() {
     const { t } = useI18n()
     return { t }
@@ -64,6 +71,11 @@ export default defineComponent({
     navigationState: {
       type: PlayerNavigationState,
       required: true
+    }
+  },
+  data() {
+    return {
+      claimFirstPlayer : false
     }
   },
   computed: {
@@ -87,6 +99,21 @@ export default defineComponent({
     },
     majorityMinerals(): number {
       return this.navigationState.getConsolidatedMajorityCount(MajorityType.MINERALS);
+    },
+    showFirstPlayer() : boolean {
+      return this.navigationState.playerCount > 1
+    },
+    isFirstPlayer() : boolean {
+      return this.navigationState.fistPlayer || this.claimFirstPlayer
+    },
+    canClaimFirstPlayer() : boolean {
+      return !this.isFirstPlayer && this.navigationState.canClaimFirstPlayer
+    }
+  },
+  methods: {
+    firstPlayerClaimed() : void {
+      this.claimFirstPlayer = true
+      this.$emit('firstPlayerClaimed')
     }
   }
 })
@@ -118,6 +145,16 @@ export default defineComponent({
     font-size: 2rem;
     font-weight: bold;
     min-width: 2.5rem;
+  }
+}
+.firstPlayerToken {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+  .icon {
+    width: 3rem;
+    filter: drop-shadow(0.05rem 0.05rem 0.1rem #888);
   }
 }
 </style>

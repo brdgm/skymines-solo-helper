@@ -10,6 +10,48 @@ import mockRouteLocation from '../helper/mockRouteLocation'
 import mockState from '../helper/mockState'
 
 describe('util/PlayerNavigationState', () => {
+  it('initial-player1', () => {
+    const state = mockState({
+      playerCount: 2,
+      botCount: 1,
+      rounds: [
+        mockRound({round:1, initialLunaStates:[
+          mockLunaState().toPersistence()
+        ]})
+      ]
+    })
+    const route = mockRouteLocation({params:{'round':'1','turn':'1','player':'1'}})
+    const navigationState = new PlayerNavigationState(route, state)
+
+    expect(navigationState.round, 'round').to.eq(1)
+    expect(navigationState.turn, 'turn').to.eq(1)
+    expect(navigationState.player, 'player').to.eq(1)
+    expect(navigationState.playerColor, 'playerColor').to.eq(PlayerColor.RED)
+    expect(navigationState.fistPlayer, 'firstPlayer').to.true
+    expect(navigationState.canClaimFirstPlayer, 'canClaimFirstPlayer').to.true
+  })
+
+  it('initial-player2', () => {
+    const state = mockState({
+      playerCount: 2,
+      botCount: 1,
+      rounds: [
+        mockRound({round:1, initialLunaStates:[
+          mockLunaState().toPersistence()
+        ]})
+      ]
+    })
+    const route = mockRouteLocation({params:{'round':'1','turn':'1','player':'2'}})
+    const navigationState = new PlayerNavigationState(route, state)
+
+    expect(navigationState.round, 'round').to.eq(1)
+    expect(navigationState.turn, 'turn').to.eq(1)
+    expect(navigationState.player, 'player').to.eq(2)
+    expect(navigationState.playerColor, 'playerColor').to.eq(PlayerColor.ORANGE)
+    expect(navigationState.fistPlayer, 'firstPlayer').to.false
+    expect(navigationState.canClaimFirstPlayer, 'canClaimFirstPlayer').to.true
+  })
+
   it('getConsolidatedMajorityCount', () => {
     const bot1CardDeck = mockCardDeck({
       leftMajoritySlot: 'I-4',
@@ -40,11 +82,6 @@ describe('util/PlayerNavigationState', () => {
     })
     const route = mockRouteLocation({params:{'round':'1','turn':'1','player':'1'}})
     const navigationState = new PlayerNavigationState(route, state)
-
-    expect(navigationState.round, 'round').to.eq(1)
-    expect(navigationState.turn, 'turn').to.eq(1)
-    expect(navigationState.player, 'player').to.eq(1)
-    expect(navigationState.playerColor, 'playerColor').to.eq(PlayerColor.RED)
 
     expect(navigationState.getConsolidatedMajorityCount(MajorityType.TITANIUM), 'majority: titanium').to.eq(4)
     expect(navigationState.getConsolidatedMajorityCount(MajorityType.CARBON), 'majority: carbon').to.eq(3)
