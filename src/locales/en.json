@@ -158,7 +158,18 @@
     "planningPhase": "Carry out the planning phase"
   },
   "endOfGame": {
-    "title": "End of Game"
+    "title": "End of Game",
+    "scoring": {
+      "introduction": "Count the company shares of each player and Luna. Don't forget to count any additional shares on action cards.",
+      "companyValueTitle": "Company Values",
+      "scoringTitle": "Scoring",
+      "shareValue": "Share Value",
+      "shareCount": "Share Count",
+      "crypCoin": "CrypCoin",
+      "heliumCoin": "Helium CrypCoin",
+      "researchCoin": "Research CrypCoin",
+      "totalCoin": "Total"
+    }
   },
   "difficultyLevel": {
     "0": "Level 0 - Easy",

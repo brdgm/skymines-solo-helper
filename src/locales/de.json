@@ -158,7 +158,18 @@
     "planningPhase": "Führe die Planungsphase durch"
   },
   "endOfGame": {
-    "title": "Spielende"
+    "title": "Spielende",
+    "scoring": {
+      "introduction": "Zähle die Unternehmensanteile von jedem Spieler und Luna. Vergiss nicht die zusätzlichen Anteile von Karten zu berücksichtigen.",
+      "companyValueTitle": "Unternehmensanteile",
+      "scoringTitle": "Spielergebnis",
+      "shareValue": "Anteils-Wert",
+      "shareCount": "Anzahl Anteile",
+      "crypCoin": "CrypCoin",
+      "heliumCoin": "Helium CrypCoin",
+      "researchCoin": "Forschung CrypCoin",
+      "totalCoin": "Gesamtergebnis"
+    }
   },
   "difficultyLevel": {
     "0": "Level 0 - Leicht",

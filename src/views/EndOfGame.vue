@@ -1,7 +1,7 @@
 <template>
   <h1>{{t('endOfGame.title')}}</h1>
 
-  <p>...</p>
+  <FinalScoring/>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="endGame"/>
 </template>
@@ -12,11 +12,13 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import { useStore } from '@/store'
+import FinalScoring from '@/components/scoring/FinalScoring.vue'
 
 export default defineComponent({
   name: 'EndOfGame',
   components: {
-    FooterButtons
+    FooterButtons,
+    FinalScoring
   },
   setup() {
     const { t } = useI18n()
