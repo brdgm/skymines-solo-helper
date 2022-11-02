@@ -159,8 +159,8 @@
   },
   "endOfGame": {
     "title": "Spielende",
+    "introduction": "Zähle die Unternehmensanteile von jedem Spieler und Luna. Vergiss nicht die zusätzlichen Anteile von Karten zu berücksichtigen.",
     "scoring": {
-      "introduction": "Zähle die Unternehmensanteile von jedem Spieler und Luna. Vergiss nicht die zusätzlichen Anteile von Karten zu berücksichtigen.",
       "companyValueTitle": "Unternehmensanteile",
       "scoringTitle": "Spielergebnis",
       "shareValue": "Anteils-Wert",
@@ -170,6 +170,10 @@
       "researchCoin": "Forschung CrypCoin",
       "totalCoin": "Gesamtergebnis"
     }
+  },
+  "standaloneScoring": {
+    "title": "Skymines Endauswertung",
+    "introduction": "Zähle die Unternehmensanteile von jedem. Vergiss nicht die zusätzlichen Anteile von Karten zu berücksichtigen."
   },
   "difficultyLevel": {
     "0": "Level 0 - Leicht",

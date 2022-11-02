@@ -159,8 +159,8 @@
   },
   "endOfGame": {
     "title": "End of Game",
+    "introduction": "Count the company shares of each player and Luna. Don't forget to count any additional shares on action cards.",
     "scoring": {
-      "introduction": "Count the company shares of each player and Luna. Don't forget to count any additional shares on action cards.",
       "companyValueTitle": "Company Values",
       "scoringTitle": "Scoring",
       "shareValue": "Share Value",
@@ -170,6 +170,10 @@
       "researchCoin": "Research CrypCoin",
       "totalCoin": "Total"
     }
+  },
+  "standaloneScoring": {
+    "title": "Skymines Scoring",
+    "introduction": "Count the company shares of each player. Don't forget to count any additional shares on action cards."
   },
   "difficultyLevel": {
     "0": "Level 0 - Easy",

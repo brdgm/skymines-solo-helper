@@ -1,6 +1,8 @@
 <template>
   <h1>{{t('endOfGame.title')}}</h1>
 
+  <p v-html="t('endOfGame.introduction')"></p>
+
   <FinalScoring/>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="endGame"/>

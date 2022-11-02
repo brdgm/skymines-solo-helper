@@ -8,6 +8,7 @@ import TurnPlayer from '@/views/TurnPlayer.vue'
 import TurnBot from '@/views/TurnBot.vue'
 import EndOfRound from '@/views/EndOfRound.vue'
 import EndOfGame from '@/views/EndOfGame.vue'
+import StandaloneScoring from '@/views/StandaloneScoring.vue'
 
 const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "route"
 
@@ -51,6 +52,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/endOfGame',
     name: 'EndOfGame',
     component: EndOfGame
+  },
+  {
+    path: '/scoring',
+    name: 'StandaloneScoring',
+    component: StandaloneScoring
   },
   {
     path: '/:pathMatch(.*)*',

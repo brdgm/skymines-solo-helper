@@ -50,11 +50,7 @@
       </th>
       <th v-for="player in playerCount" :key="player">
         <PlayerColorIcon :playerColor="playerColors[player-1]" class="playerIcon"/>
-        <span>{{t('turnPlayer.title', {player:player}, playerCount)}}</span>
-      </th>
-      <th v-for="bot in botCount" :key="bot">
-        <PlayerColorIcon :playerColor="playerColors[playerCount+bot-1]" class="playerIcon"/>
-        <span>{{t('turnBot.title', {bot:bot}, botCount)}}</span>
+        <input v-model="playerNames[player-1]" @focus="inputSelectAll"/>
       </th>
     </tr>
     <tr>
@@ -62,7 +58,7 @@
         <Icon type="company" name="astrogo-enterprises" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="20" step="1" v-model="astrogoShares[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -71,7 +67,7 @@
         <Icon type="company" name="tawac-industries" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="20" step="1" v-model="tawacShares[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -80,7 +76,7 @@
         <Icon type="company" name="skymine-resources" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="20" step="1" v-model="skymineShares[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -89,7 +85,7 @@
         <Icon type="company" name="minerva-corp" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="20" step="1" v-model="minervaShares[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -98,7 +94,7 @@
         <Icon type="action" name="gain-coin" class="icon"/>
         {{t('endOfGame.scoring.crypCoin')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="999" step="1" v-model="coins[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -107,7 +103,7 @@
         <Icon type="action" name="gain-helium" class="icon"/>
         {{t('endOfGame.scoring.heliumCoin')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="60" step="1" v-model="heliumCoins[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -116,7 +112,7 @@
         <Icon type="action" name="advance-research" class="icon"/>
         {{t('endOfGame.scoring.researchCoin')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <input type="number" min="0" max="60" step="1" v-model="researchCoins[index-1]" @focus="inputSelectAll"/>
       </td>
     </tr>
@@ -124,7 +120,7 @@
       <th>
         {{t('endOfGame.scoring.totalCoin')}}
       </th>
-      <td v-for="index in playerCount+botCount" :key="index">
+      <td v-for="index in playerCount" :key="index">
         <b>{{totalCoins[index-1]}}</b>
       </td>
     </tr>
@@ -132,36 +128,29 @@
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import Icon from '../structure/Icon.vue'
-import LunaState from '@/services/LunaState'
-import getLunaState from '@/util/getLunaState'
-import { MAX_TURN } from '@/util/getTurnOrder'
+import PlayerColor from '@/services/enum/PlayerColor'
 
 export default defineComponent({
-  name: 'FinalScoring',
+  name: 'StandaloneFinalScoring',
   components: {
     PlayerColorIcon,
     Icon
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
 
-    const playerSetup = store.state.setup.playerSetup
-    const playerCount = playerSetup.playerCount
-    const botCount = playerSetup.botCount
-    const playerColors = playerSetup.playerColors
-
-    const lunaStates : LunaState[] = []
-    for (let bot=1; bot<=botCount; bot++) {
-      lunaStates[bot-1] = getLunaState(store.state, 7, MAX_TURN, bot)
+    const playerCount = 4
+    const playerColors = [PlayerColor.RED,PlayerColor.ORANGE,PlayerColor.BLUE,PlayerColor.GREEN]
+    const playerNames = []
+    for (let player=1; player<=playerCount; player++) {
+      playerNames.push(t('turnPlayer.title', {player:player},playerCount))
     }
 
-    return { t, playerCount, botCount, playerColors, lunaStates }
+    return { t, playerCount, playerColors, playerNames }
   },
   data() {
     return {
@@ -174,14 +163,14 @@ export default defineComponent({
       skymineShares: [] as number[],
       minervaShareValue: undefined as number|undefined,
       minervaShares: [] as number[],
-      heliumCoins: this.getInitialHeliumCoinArray(),
-      researchCoins: this.getInitialResearchCoinArray()
+      heliumCoins: [] as number[],
+      researchCoins: [] as number[]
     }
   },
   computed: {
     totalCoins() : number[] {
       const result = []
-      for (let i=0; i<this.playerCount+this.botCount; i++) {
+      for (let i=0; i<this.playerCount; i++) {
         result[i] = this.toNumber(this.coins[i])
             + (this.toNumber(this.astrogoShares[i]) * this.toNumber(this.astrogoShareValue))
             + (this.toNumber(this.tawacShares[i]) * this.toNumber(this.tawacShareValue))
@@ -205,20 +194,6 @@ export default defineComponent({
       else {
         return value ?? 0
       }
-    },
-    getInitialHeliumCoinArray() : number[] {
-      let result = [] as number[]
-      for (let bot=1; bot<=this.botCount; bot++) {
-        result[this.playerCount + bot - 1] = this.lunaStates[bot-1].getHeliumInCoins()
-      }
-      return result
-    },
-    getInitialResearchCoinArray() : number[] {
-      let result = [] as number[]
-      for (let bot=1; bot<=this.botCount; bot++) {
-        result[this.playerCount + bot - 1] = this.lunaStates[bot-1].getResearchInCoins()
-      }
-      return result
     }
   }
 })
@@ -229,7 +204,7 @@ export default defineComponent({
   height: 1.5rem;
   width: 1.5rem;
   margin-right: 0.25rem;
-  margin-top: -0.25rem;
+  margin-top: -0.5rem;
 }
 .icon {
   width: 2.5rem;
