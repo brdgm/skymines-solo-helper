@@ -6,29 +6,36 @@
       <table>
         <tr>
           <td>
-            <Icon type="resource" name="titanium" class="icon"/>
-            <div class="label" v-html="t('resource.titanium')"></div>
+            <Icon type="majority" name="scientist" class="icon"/>
+            <div class="label" v-html="t('turnPlayer.playerStatus.scientist')"></div>
+          </td>
+          <td class="value">{{majorityScientist}}</td>
+        </tr>
+        <tr>
+          <td>
+            <Icon type="majority" name="titanium" class="icon"/>
+            <div class="label" v-html="t('turnPlayer.playerStatus.titanium')"></div>
           </td>
           <td class="value">{{majorityTitanium}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="resource" name="carbon" class="icon"/>
-            <div class="label" v-html="t('resource.carbon')"></div>
+            <Icon type="majority" name="carbon" class="icon"/>
+            <div class="label" v-html="t('turnPlayer.playerStatus.carbon')"></div>
           </td>
           <td class="value">{{majorityCarbon}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="resource" name="energy" class="icon"/>
-            <div class="label" v-html="t('resource.energy')"></div>
+            <Icon type="majority" name="energy" class="icon"/>
+            <div class="label" v-html="t('turnPlayer.playerStatus.energy')"></div>
           </td>
           <td class="value">{{majorityEnergy}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="resource" name="minerals" class="icon"/>
-            <div class="label" v-html="t('resource.minerals')"></div>
+            <Icon type="majority" name="minerals" class="icon"/>
+            <div class="label" v-html="t('turnPlayer.playerStatus.minerals')"></div>
           </td>
           <td class="value">{{majorityMinerals}}</td>
         </tr>
@@ -65,6 +72,9 @@ export default defineComponent({
     },
     turn(): number {
       return this.navigationState.turn;
+    },
+    majorityScientist(): number {
+      return this.navigationState.getConsolidatedMajorityCount(MajorityType.SCIENTISTS);
     },
     majorityTitanium(): number {
       return this.navigationState.getConsolidatedMajorityCount(MajorityType.TITANIUM);

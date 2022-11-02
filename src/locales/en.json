@@ -38,7 +38,12 @@
     "makeTurn": "Make your turn.",
     "playerStatus": {
       "turn": "Turn {round}-{turn}",
-      "majorities": "Luna Majorities"
+      "majorities": "Luna Majorities",
+      "scientist": "Scientist",
+      "titanium": "Titanium",
+      "carbon": "Carbon",
+      "energy": "Energy",
+      "minerals": "Minerals"
     }
   },
   "turnBot": {
@@ -95,12 +100,6 @@
     "6": "Level 6 - Advanced",
     "7": "Level 7 - Advanced",
     "8": "Level 8 - Advanced"
-  },
-  "resource": {
-    "titanium": "Titanium",
-    "carbon": "Carbon",
-    "energy": "Energy",
-    "minerals": "Minerals"
   },
   "notfound": {
     "title": "Not Found"

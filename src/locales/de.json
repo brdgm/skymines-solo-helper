@@ -38,7 +38,12 @@
     "makeTurn": "Führe deinen Zug aus.",
     "playerStatus": {
       "turn": "Zug {round}-{turn}",
-      "majorities": "Luna Mehrheiten"
+      "majorities": "Luna Mehrheiten",
+      "scientist": "Wissenschaftler",
+      "titanium": "Titan",
+      "carbon": "Kohlenstoff",
+      "energy": "Energie",
+      "minerals": "Mineralien"  
     }
   },
   "turnBot": {
@@ -95,12 +100,6 @@
     "6": "Level 6 - Fortgeschritten",
     "7": "Level 7 - Fortgeschritten",
     "8": "Level 8 - Fortgeschritten"
-  },
-  "resource": {
-    "titanium": "Titan",
-    "carbon": "Kohlenstoff",
-    "energy": "Energie",
-    "minerals": "Mineralien"
   },
   "notfound": {
     "title": "Nicht Gefunden"
