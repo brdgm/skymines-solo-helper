@@ -38,29 +38,23 @@
       </table>
     </div>
 
-    <div class="cardSlots">
-      <Icon name="luna-card" v-for="(slot,index) in cardSlots" :key="index"
-          class="card" :class="{flipped:slot.flipped}"
-          :title="t('turnBot.botStatus.slot',{slot:slot.slot})"/>
-    </div>
-    <div>
-      <div v-for="(cardId,index) in cardIds" :key="index" class="cardId text-muted">{{cardId}}</div>
-    </div>
+    <BotCardSlotStatus :luna-state="lunaState"/>
   </div>
 </template>
 
 <script lang="ts">
-import CardSlot from '@/services/CardSlot'
 import LunaState from '@/services/LunaState'
 import BotNavigationState from '@/util/BotNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Icon from '../structure/Icon.vue'
+import BotCardSlotStatus from './BotCardSlotStatus.vue'
 
 export default defineComponent({
   name: 'BotStatus',
   components: {
-    Icon
+    Icon,
+    BotCardSlotStatus
   },
   setup() {
     const { t } = useI18n()
@@ -99,14 +93,6 @@ export default defineComponent({
     },
     researchAsCoins() : number {
       return this.lunaState.getResearchInCoins(this.researchSteps + this.researchStepsGain)
-    },
-    cardSlots() : readonly CardSlot[] {
-      return this.lunaState.cardDeck.slots
-    },
-    cardIds() : string[] {
-      return this.cardSlots
-          .filter(item => item.flipped)
-          .map(item => item.card.id)
     }
   }
 })
@@ -146,23 +132,5 @@ export default defineComponent({
       height: 0.7rem;
     }
   }
-}
-.cardSlots {
-  margin-top: 1rem;
-  .card {
-    display: inline-block;
-    width: 1.5rem;
-    margin-left: 0.25rem;
-    &.flipped {
-      filter: invert(100%);
-    }
-  }
-}
-.cardId {
-  display: inline-block;
-  width: 1.5rem;
-  margin-left: 0.25rem;
-  text-align: center;
-  font-size: 0.7rem;
 }
 </style>

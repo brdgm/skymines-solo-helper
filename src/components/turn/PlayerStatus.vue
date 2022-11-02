@@ -47,6 +47,8 @@
       <button class="btn btn-secondary btn-sm" v-if="canClaimFirstPlayer" @click="firstPlayerClaimed()" v-html="t('turnPlayer.playerStatus.claimFirstPlayer')"></button>
     </div>
 
+    <BotCardSlotStatus v-for="(lunaState,index) of navigationState.lunaStates" :key="index" :luna-state="lunaState"/>
+
   </div>
 </template>
 
@@ -56,11 +58,13 @@ import PlayerNavigationState from '@/util/PlayerNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Icon from '../structure/Icon.vue'
+import BotCardSlotStatus from './BotCardSlotStatus.vue'
 
 export default defineComponent({
   name: 'PlayerStatus',
   components: {
-    Icon
+    Icon,
+    BotCardSlotStatus
   },
   emits: ['firstPlayerClaimed'],
   setup() {
