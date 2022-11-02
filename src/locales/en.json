@@ -1,0 +1,207 @@
+{
+  "gameTitle": "Skymines",
+  "home": {
+    "title": "Skymines Solo Helper",
+    "play1": "Play against Luna, the Solo Mode opponent of <a href='https://boardgamegeek.com/boardgame/359438/skymines' target='_blank' rel='noopener'><b>Skymines</b></a>.",
+    "play2": "This helper application replaces the Automa cards and the Luna player board.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup Game",
+    "players": {
+      "title": "Player",
+      "playerCount": "Human Players",
+      "playerCountItem": "{count} Player | {count} Players",
+      "playerColor": "Player Color | Player {index} Color",
+      "playerBonusMarkers": "Each human player gets <b>{count} bonus markers</b>.",
+      "botCount": "Luna Bots",
+      "botCountItem": "{count} Luna Bot | {count} Luna Bots",
+      "botColor": "Luna Color | Luna {index} Color"
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard"
+    }
+  },
+  "setupLuna": {
+    "title": "Setup Luna",
+    "forEach": "For each Luna Bot, prepare a dedicated area with:",
+    "playerToken": "The <b>player token</b> with the bot's color.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> and <b>all 5 Bonus Markers</b>.",
+    "trackMarkers": "Take the <b>4 track markers</b> and add one to space 0 of each company track.",
+    "startingBonus": "Take one of the spare <b>starting research tokens</b> at random and apply its starting bonus to the track markers. Then return that starting research token to the game box.",
+    "finalNotes": "The bot does not need a player board, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box."
+  },
+  "turnPlayer": {
+    "title": "Player | Player {player}",
+    "makeTurn": "Make your turn.",
+    "playerStatus": {
+      "turn": "Turn {round}-{turn}",
+      "majorities": "Luna Majorities",
+      "scientist": "Scientist",
+      "titanium": "Titanium",
+      "carbon": "Carbon",
+      "energy": "Energy",
+      "minerals": "Minerals",
+      "claimFirstPlayer": "Claim First Player"
+    }
+  },
+  "turnBot": {
+    "title": "Luna | Luna {bot}",
+    "botStatus": {
+      "turn": "Turn {round}-{turn}",
+      "helium": "Helium",
+      "research": "Research",
+      "slot": "Slot {slot}"
+    },
+    "action": {
+      "lunaGains": "Luna gains:",
+      "advanceCompany": {
+        "most-valuable": "on the <b>most valuable</b> company track",
+        "most-valuable-two-each": "on each of the <b>2 most valuable</b> company tracks",
+        "second-most-valuable": "on the <b>second most valuable</b> company track",
+        "least-valuable": "on the <b>least valuable</b> company track",
+        "lead-biggest-margin": "on the company track on which Luna leads by the <b>biggest margin</b>",
+        "lead-biggest-margin-two-each": "on each of the <b>2 company tracks</b> on which Luna leads by the <b>biggest margin</b>",
+        "all-four-each": "on each of the <b>4 company tracks</b>",
+        "help": {
+          "title": "Advance on Company Track",
+          "instruction": "Move my track marker this many spaces forward on the company track(s) named on the card <i>(see below)</i>.",
+          "rulesHint": "Bear the following rules in mind:",
+          "hint1": "Whenever one of my track markers (or any of yours) passes a bonus threshold, its CrypCoin reward is distributed as usual.",
+          "hint2": "Whenever one of my track markers passes a money barrier, its cost must be paid with CrypCoin from my e. If I do not have enough CrypCoin to do so, pay as much as I have and then continue to move my track marker forward.",
+          "hint3": "Once a marker of mine has reached the end of its company track: From now on, for each space that it would normally move forward on this track, I gain 2 CrypCoin instead.",
+          "hint4": "All track bonuses that my markers unlock are ignored for me.",
+          "mostValuable": "The <b>most valuable company track</b> is the one that has the most visible coin icons in its station.",
+          "tied": "Whenever company tracks are tied in value, the one whose station has more vacant home spaces is considered more valuable. If this does not break the tie, it is the tied track whose ID comes first in alphabetical order.",
+          "biggestMargin": "I <b>lead by the biggest margin</b> on the company track where there are the most spaces between my track marker and the one in second place (money barriers are not spaces). If I don’t lead on any track, it is the track where I share the lead. If I’m behind on all tracks, it is the track where I’m the fewest spaces behind the leading marker. Ties are broken in favor of the more valuable track.",
+          "farthestBehind": "I’m <b>farthest behind</b> on the track where there are the most spaces between my track marker and the leading one. If I’m not behind on any tracks, it is the track where I share the lead or lead by the smallest margin. Ties are broken in favor of the more valuable track."
+        }
+      },
+      "discardResearchPlan": {
+        "discard": "Luna discards a <b>{plan}-research plan</b>:",
+        "discardFirstCol": "Luna discards a <b>{plan}-research plan</b>; she also gains any CrypCoin on the supplement space:",
+        "discardSpecial": "Luna discards the <b>latest face-up special research plan</b>.",
+        "help": {
+          "title": "Discard Research Plan",
+          "instruction": "Whenever an action lets me discard research plans, remove the designated plans in the research display from the game. Afterwards, fill each of the now empty lettered spaces in the research display as usual.",
+          "specialResearchPlan": "Whenever I discard the latest face-up <b>special research plan</b> it means: Of the face-up special research plans on the round track, discard the one that was revealed last. If there is none, don’t discard any."
+        }
+      },
+      "expandCompany": {
+        "expand": "Then she expands that company:",
+        "min": "MIN",
+        "max": "MAX",
+        "help": {
+          "title": "Expand Company",
+          "instruction": "Whenever an action lets me expand a company, its card states how many expansion points must be used to expand which company. This is done differently depending on which side of the board you’re playing on <i>(see below)</i>.",
+          "rulesHint": "Important pre-notes:",
+          "hint1": "For reasons of clarity, one of the columns in each station is considered the current <b>main outpost column</b>, which is defined as follows: It is the column for outposts that has the most vacant home spaces but whose final home space (which shows 2 coin icons) is not vacant. Only if the final home spaces of all columns are vacant, it is instead the one with the most vacant home spaces that also shows the fewest coin icons. Any ties are broken in favor of the column that is closer to its company logo on the board.",
+          "hint2": "I never gain the rewards of the sectors/Belt spaces that are entered on my turn.",
+          "hint3": "If a company cannot be expanded because its station has no outposts/shuttles left that can be placed regularly, its expansion points are forfeited.",
+          "moon": {
+            "title": "Moon side",
+            "rulesHint": "For each expansion point, place 1 outpost from the station of the expanding company on the Moon as follows:",
+            "hint1": "Take the top outpost from the expanding company’s main outpost column and place it in the sector defined by the following rules:",
+            "hint2": "The sector must be reachable. This means, it must be adjacent to either the expanding company’s station or to any sector that has an outpost of the expanding company in it. (It doesn’t matter if it’s reachable via a single or a double line.)",
+            "hint3": "If the expansion point symbol shows a MIN, it must be the reachable <b>vacant</b> sector with the lowest sector number.",
+            "hint4": "If the expansion point symbol shows a MAX, it must be the reachable <b>vacant</b> sector with the highest sector number.",
+            "hint5": "If none of the reachable sectors is vacant, choose from them the sector with the lowest (MIN) / highest (MAX) sector number that contains an outpost of the reachable company on whose track I’m farthest behind. As usual, oust the existing outpost back to its station, placing it on the lowest vacant home space of its main outpost column."
+          },
+          "belt": {
+            "title": "Belt side",
+            "rulesHint": "For each expansion point, place 1 outpost/shuttle from the station of the expanding company on a Belt space as follows:",
+            "hint1": "First, determine the next <b>vacant</b> target within reach of the expanding company. That target must be either a vacant shuttle space or an asteroid where the expanding company has no outpost yet and that has at least one vacant outpost space.",
+            "hint2": "From these, choose the one with the lowest target number if the expansion point symbol shows a MIN. If it shows a MAX, choose the one with the highest target number.",
+            "hint3": "If that target is a shuttle space, take the top shuttle from the company’s station and place it on that space. (If there is no shuttle left in its column, the target must be an asteroid.)",
+            "hint4": "If the target is an asteroid, take the top outpost from the main outpost column and place it on any vacant outpost space of that asteroid.",
+            "hint5": "If there is no target that matches the above criteria, place the outpost on any <b>vacant</b> outpost space of the asteroid with the lowest (MIN) / highest (MAX) target number which already has outposts of the expanding company on it.",
+            "hint6": "If there is no vacant Belt space within reach at all, determine which shuttles and outposts are within reach that belong to the reachable company on whose track I’m farthest behind. Of these shuttles and outposts, choose the one with the lowest ( MIN ) / highest ( MAX ) target number and oust it back to its station per the usual rules. Ousted outposts must be placed on the lowest vacant home space of their main outpost column."
+          }
+        }
+      },
+      "gainCard": {
+        "matchSlot": "Luna gains each of the displayed cards:",
+        "mostValuableShare": "Luna gains the card with the <b>most valuable share</b> (if there are more than one, the one from the space with the lowest number).",
+        "help": {
+          "title": "Gain Cards",
+          "instruction": "Whenever an action lets me gain cards, take the designated card(s) from the card display and place them in a face-down stack in my reserve.",
+          "hint1": "Gaining cards costs me nothing.",
+          "hint2": "I don’t gain a card if its designated space is empty.",
+          "hint3": "The collected action cards remain in my reserve until the Final scoring phase.",
+          "hint4": "Whenever I gain the card with the <b>most valuable share</b> it means: Give me the card that shows an additional share of the company, which - among the ones displayed - belongs to the most valuable company. If there are multiple cards of that company, give me the one from the space with the lowest number. If there is no card with a share in the display, I don’t gain a card."
+        }
+      },
+      "gainCoin": {
+        "help": {
+          "title": "Gain CrypCoin",
+          "instruction": "Add this many CrypCoin from the bank to my reserve."
+        }
+      },
+      "placeBonusMarker": {
+        "place": "Luna places a bonus marker:",
+        "help": {
+          "title": "Place Bonus Marker",
+          "instruction": "Whenever an action lets me place a bonus marker, do the following for me: Take a bonus marker from my reserve and place it onto the bonus space designated by the card.",
+          "hint1": "Placing the bonus marker costs me nothing nor does it give me any reward.",
+          "hint2": "If the bonus space is already occupied, the bonus marker is not placed."
+        }
+      }
+    }
+  },
+  "endOfRound": {
+    "title": "Prepare Round {round}",
+    "flipSpecialResearchTile": "Flip the next special research plan face up",
+    "returnBonusMarkers": "Return the bonus markers to the players (including possible bonus tiles)",
+    "fillUpCardDisplay": "Fill up the card display",
+    "planningPhase": "Carry out the planning phase"
+  },
+  "endOfGame": {
+    "title": "End of Game",
+    "scoring": {
+      "introduction": "Count the company shares of each player and Luna. Don't forget to count any additional shares on action cards.",
+      "companyValueTitle": "Company Values",
+      "scoringTitle": "Scoring",
+      "shareValue": "Share Value",
+      "shareCount": "Share Count",
+      "crypCoin": "CrypCoin",
+      "heliumCoin": "Helium CrypCoin",
+      "researchCoin": "Research CrypCoin",
+      "totalCoin": "Total"
+    }
+  },
+  "difficultyLevel": {
+    "0": "Level 0 - Easy",
+    "1": "Level 1 - Easy",
+    "2": "Level 2 - Standard",
+    "3": "Level 3 - Advanced",
+    "4": "Level 4 - Advanced",
+    "5": "Level 5 - Advanced",
+    "6": "Level 6 - Advanced",
+    "7": "Level 7 - Advanced",
+    "8": "Level 8 - Advanced"
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "nextRound": "Next Round",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close",
+    "reset": "Reset",
+    "pass": "Pass"
+  },
+  "footer": {
+    "credits": "Credits"
+  }
+}
