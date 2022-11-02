@@ -151,7 +151,11 @@
     }
   },
   "endOfRound": {
-    "title": "End of Round {round}"
+    "title": "Prepare Round {round}",
+    "flipSpecialResearchTile": "Flip the next special research plan face up",
+    "returnBonusMarkers": "Return the bonus markers to the players (including possible bonus tiles)",
+    "fillUpCardDisplay": "Fill up the card display",
+    "planningPhase": "Carry out the planning phase"
   },
   "endOfGame": {
     "title": "End of Game"

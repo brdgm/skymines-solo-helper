@@ -1,7 +1,12 @@
 <template>
-  <h1>{{t('endOfRound.title', {round:round})}}</h1>
+  <h1>{{t('endOfRound.title', {round:round+1})}}</h1>
 
-  <p>...</p>
+  <ul class="mt-4">
+    <li v-html="t('endOfRound.flipSpecialResearchTile')"></li>
+    <li v-html="t('endOfRound.returnBonusMarkers')"></li>
+    <li v-html="t('endOfRound.fillUpCardDisplay')"></li>
+    <li v-html="t('endOfRound.planningPhase')"></li>
+  </ul>
 
   <button class="btn btn-primary btn-lg mt-4" @click="nextRound()">
     {{t('action.next')}}

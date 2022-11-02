@@ -151,7 +151,11 @@
     }
   },
   "endOfRound": {
-    "title": "Ende der Runde {round}"
+    "title": "Runde {round} vorbereiten",
+    "flipSpecialResearchTile": "Decke den nächsten Sonder-Forschungsplan auf",
+    "returnBonusMarkers": "Nehme die Bonusmarker zurück (inklusive eventueller Bonusplättchen)",
+    "fillUpCardDisplay": "Fülle die Kartenauslage auf dem Spielplan auf",
+    "planningPhase": "Führe die Planungsphase durch"
   },
   "endOfGame": {
     "title": "Spielende"
