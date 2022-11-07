@@ -1,9 +1,8 @@
 <template>
   <template v-if="cardSlots.length > 0">
     <div class="cardSlots">
-      <Icon name="luna-card" v-for="(slot,index) in cardSlots" :key="index"
-          class="card" :class="{flipped:slot.flipped}"
-          :title="t('turnBot.botStatus.slot',{slot:slot.slot})"/>
+      <Icon type="luna-card" :name="getCardImage(slot)" v-for="(slot,index) in cardSlots" :key="index"
+          class="card" :title="t('turnBot.botStatus.slot',{slot:slot.slot})"/>
     </div>
     <div v-if="showCardIds">
       <div v-for="(cardId,index) in cardIds" :key="index" class="cardId text-muted">{{cardId}}</div>
@@ -13,6 +12,7 @@
 
 <script lang="ts">
 import CardSlot from '@/services/CardSlot'
+import Grade from '@/services/enum/Grade'
 import LunaState from '@/services/LunaState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -45,6 +45,21 @@ export default defineComponent({
           .filter(item => item.flipped)
           .map(item => item.card.id)
     }
+  },
+  methods: {
+    getCardImage(slot : CardSlot) {
+      if (slot.flipped) {
+        if (slot.card.grade == Grade.GRADE_2) {
+          return 'grade-2'
+        }
+        else {
+          return 'grade-1'
+        }
+      }
+      else {
+        return 'back'
+      }
+    }
   }
 })
 </script>
@@ -56,9 +71,6 @@ export default defineComponent({
     display: inline-block;
     width: 1.5rem;
     margin-left: 0.25rem;
-    &.flipped {
-      filter: invert(100%);
-    }
   }
 }
 .cardId {
