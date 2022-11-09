@@ -2,7 +2,7 @@
   <div class="actionBox col" data-bs-toggle="modal" data-bs-target="#modalPlaceBonusMarkerHelp">
     {{t('turnBot.action.placeBonusMarker.place')}}
     <div class="selection">
-      <Icon type="selection" name="bonus-marker-selection" class="matrix"/>
+      <AppIcon type="selection" name="bonus-marker-selection" class="matrix"/>
       <table>
         <tr v-for="(row,indexRow) in action.bonusMarkerSelectionMatrix" :key="indexRow">
           <td v-for="(col,indexCol) in row" :key="indexCol">
@@ -40,7 +40,7 @@ import { CardAction } from '@/services/Card'
 import Slot from '@/services/enum/Slot'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../../structure/Icon.vue'
+import AppIcon from '../../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'PlaceBonusMarker',
@@ -49,7 +49,7 @@ export default defineComponent({
     return { t }
   },
   components: {
-    Icon
+    AppIcon
   },
   props: {
     action: {

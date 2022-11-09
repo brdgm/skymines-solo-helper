@@ -5,7 +5,7 @@
       <table>
         <tr>
           <td>
-            <Icon type="action" name="gain-helium" class="icon"/>
+            <AppIcon type="action" name="gain-helium" class="icon"/>
             <div class="label" v-html="t('turnBot.botStatus.helium')"></div>
           </td>
           <td>
@@ -15,13 +15,13 @@
             </div>
             <div class="coin-equivalent" v-if="heliumAsCoins > 0">
               <span>{{heliumAsCoins}}</span>
-              <Icon type="action" name="gain-coin" class="icon"/>
+              <AppIcon type="action" name="gain-coin" class="icon"/>
             </div>
           </td>
         </tr>
         <tr>
           <td>
-            <Icon type="action" name="advance-research" class="icon"/>
+            <AppIcon type="action" name="advance-research" class="icon"/>
             <div class="label" v-html="t('turnBot.botStatus.research')"></div>
           </td>
           <td>
@@ -31,7 +31,7 @@
             </div>
             <div class="coin-equivalent" v-if="researchAsCoins > 0">
               <span>{{researchAsCoins}}</span>
-              <Icon type="action" name="gain-coin" class="icon"/>
+              <AppIcon type="action" name="gain-coin" class="icon"/>
             </div>
           </td>
         </tr>
@@ -47,13 +47,13 @@ import LunaState from '@/services/LunaState'
 import BotNavigationState from '@/util/BotNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../structure/Icon.vue'
+import AppIcon from '../structure/AppIcon.vue'
 import BotCardSlotStatus from './BotCardSlotStatus.vue'
 
 export default defineComponent({
   name: 'BotStatus',
   components: {
-    Icon,
+    AppIcon,
     BotCardSlotStatus
   },
   setup() {

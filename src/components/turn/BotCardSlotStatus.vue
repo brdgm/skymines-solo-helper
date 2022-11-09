@@ -1,7 +1,7 @@
 <template>
   <template v-if="cardSlots.length > 0">
     <div class="cardSlots">
-      <Icon type="luna-card" :name="getCardImage(slot)" v-for="(slot,index) in cardSlots" :key="index"
+      <AppIcon type="luna-card" :name="getCardImage(slot)" v-for="(slot,index) in cardSlots" :key="index"
           class="card" :title="t('turnBot.botStatus.slot',{slot:slot.slot})"/>
     </div>
     <div v-if="showCardIds">
@@ -16,12 +16,12 @@ import Grade from '@/services/enum/Grade'
 import LunaState from '@/services/LunaState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../structure/Icon.vue'
+import AppIcon from '../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'BotCardSlotStatus',
   components: {
-    Icon
+    AppIcon
   },
   setup() {
     const { t } = useI18n()

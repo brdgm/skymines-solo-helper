@@ -3,7 +3,7 @@
     <div>{{t('turnBot.action.lunaGains')}}</div>
     <div class="action">
       <span>{{action.count}}</span>
-      <Icon type="action" name="advance-company" class="icon"/>
+      <AppIcon type="action" name="advance-company" class="icon"/>
     </div>
     <p v-html="t(`turnBot.action.advanceCompany.${action.companySelection}`)"></p>
   </div>
@@ -46,7 +46,7 @@
 import { CardAction } from '@/services/Card'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../../structure/Icon.vue'
+import AppIcon from '../../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'AdvanceCompany',
@@ -55,7 +55,7 @@ export default defineComponent({
     return { t }
   },
   components: {
-    Icon
+    AppIcon
   },
   props: {
     action: {

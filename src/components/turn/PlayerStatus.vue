@@ -6,35 +6,35 @@
       <table>
         <tr>
           <td>
-            <Icon type="majority" name="scientist" class="icon"/>
+            <AppIcon type="majority" name="scientist" class="icon"/>
             <div class="label" v-html="t('turnPlayer.playerStatus.scientist')"></div>
           </td>
           <td class="value">{{majorityScientist}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="majority" name="titanium" class="icon"/>
+            <AppIcon type="majority" name="titanium" class="icon"/>
             <div class="label" v-html="t('turnPlayer.playerStatus.titanium')"></div>
           </td>
           <td class="value">{{majorityTitanium}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="majority" name="carbon" class="icon"/>
+            <AppIcon type="majority" name="carbon" class="icon"/>
             <div class="label" v-html="t('turnPlayer.playerStatus.carbon')"></div>
           </td>
           <td class="value">{{majorityCarbon}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="majority" name="energy" class="icon"/>
+            <AppIcon type="majority" name="energy" class="icon"/>
             <div class="label" v-html="t('turnPlayer.playerStatus.energy')"></div>
           </td>
           <td class="value">{{majorityEnergy}}</td>
         </tr>
         <tr>
           <td>
-            <Icon type="majority" name="minerals" class="icon"/>
+            <AppIcon type="majority" name="minerals" class="icon"/>
             <div class="label" v-html="t('turnPlayer.playerStatus.minerals')"></div>
           </td>
           <td class="value">{{majorityMinerals}}</td>
@@ -43,7 +43,7 @@
     </div>
 
     <div class="firstPlayerToken" v-if="showFirstPlayer">
-      <Icon name="first-player-marker" class="icon" v-if="isFirstPlayer"/>
+      <AppIcon name="first-player-marker" class="icon" v-if="isFirstPlayer"/>
       <button class="btn btn-secondary btn-sm" v-if="canClaimFirstPlayer" @click="firstPlayerClaimed()" v-html="t('turnPlayer.playerStatus.claimFirstPlayer')"></button>
     </div>
 
@@ -57,13 +57,13 @@ import MajorityType from '@/services/enum/MajorityType'
 import PlayerNavigationState from '@/util/PlayerNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../structure/Icon.vue'
+import AppIcon from '../structure/AppIcon.vue'
 import BotCardSlotStatus from './BotCardSlotStatus.vue'
 
 export default defineComponent({
   name: 'PlayerStatus',
   components: {
-    Icon,
+    AppIcon,
     BotCardSlotStatus
   },
   emits: ['firstPlayerClaimed'],

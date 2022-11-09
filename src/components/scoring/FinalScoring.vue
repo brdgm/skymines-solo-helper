@@ -7,7 +7,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="astrogo-enterprises" class="icon"/>
+        <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
         {{t('endOfGame.scoring.shareValue')}}
       </th>
       <td>
@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="tawac-industries" class="icon"/>
+        <AppIcon type="company" name="tawac-industries" class="icon"/>
         {{t('endOfGame.scoring.shareValue')}}
       </th>
       <td>
@@ -25,7 +25,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="skymine-resources" class="icon"/>
+        <AppIcon type="company" name="skymine-resources" class="icon"/>
         {{t('endOfGame.scoring.shareValue')}}
       </th>
       <td>
@@ -34,7 +34,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="minerva-corp" class="icon"/>
+        <AppIcon type="company" name="minerva-corp" class="icon"/>
         {{t('endOfGame.scoring.shareValue')}}
       </th>
       <td>
@@ -59,7 +59,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="astrogo-enterprises" class="icon"/>
+        <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -68,7 +68,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="tawac-industries" class="icon"/>
+        <AppIcon type="company" name="tawac-industries" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -77,7 +77,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="skymine-resources" class="icon"/>
+        <AppIcon type="company" name="skymine-resources" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -86,7 +86,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="company" name="minerva-corp" class="icon"/>
+        <AppIcon type="company" name="minerva-corp" class="icon"/>
         {{t('endOfGame.scoring.shareCount')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -95,7 +95,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="action" name="gain-coin" class="icon"/>
+        <AppIcon type="action" name="gain-coin" class="icon"/>
         {{t('endOfGame.scoring.crypCoin')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -104,7 +104,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="action" name="gain-helium" class="icon"/>
+        <AppIcon type="action" name="gain-helium" class="icon"/>
         {{t('endOfGame.scoring.heliumCoin')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -113,7 +113,7 @@
     </tr>
     <tr>
       <th>
-        <Icon type="action" name="advance-research" class="icon"/>
+        <AppIcon type="action" name="advance-research" class="icon"/>
         {{t('endOfGame.scoring.researchCoin')}}
       </th>
       <td v-for="index in playerCount+botCount" :key="index">
@@ -136,7 +136,7 @@ import { useStore } from '@/store'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
-import Icon from '../structure/Icon.vue'
+import AppIcon from '../structure/AppIcon.vue'
 import LunaState from '@/services/LunaState'
 import getLunaState from '@/util/getLunaState'
 import { MAX_TURN } from '@/util/getTurnOrder'
@@ -145,7 +145,7 @@ export default defineComponent({
   name: 'FinalScoring',
   components: {
     PlayerColorIcon,
-    Icon
+    AppIcon
   },
   setup() {
     const { t } = useI18n()
@@ -207,14 +207,14 @@ export default defineComponent({
       }
     },
     getInitialHeliumCoinArray() : number[] {
-      let result = [] as number[]
+      const result = [] as number[]
       for (let bot=1; bot<=this.botCount; bot++) {
         result[this.playerCount + bot - 1] = this.lunaStates[bot-1].getHeliumInCoins()
       }
       return result
     },
     getInitialResearchCoinArray() : number[] {
-      let result = [] as number[]
+      const result = [] as number[]
       for (let bot=1; bot<=this.botCount; bot++) {
         result[this.playerCount + bot - 1] = this.lunaStates[bot-1].getResearchInCoins()
       }
