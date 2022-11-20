@@ -16,12 +16,12 @@ export default function (params?: MockCardDeckParams) : CardDeck {
 }
 
 export interface MockCardDeckParams {
-  pile?: string[],
-  grade2?: string[],
-  leftMajoritySlot?: string,
-  rightMajoritySlot?: string,
-  slots?: CardSlotPersistence[],
-  discard?: string[],
-  availableSlots?: Slot[],
+  pile?: string[]
+  grade2?: string[]
+  leftMajoritySlot?: string
+  rightMajoritySlot?: string
+  slots?: CardSlotPersistence[]
+  discard?: string[]
+  availableSlots?: Slot[]
   difficultyLevel?: DifficultyLevel 
 }

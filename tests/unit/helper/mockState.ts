@@ -19,9 +19,9 @@ export default function (params?: MockStateParams) : State {
 }
 
 export interface MockStateParams {
-  playerCount?: number ,
-  botCount?: number,
-  playerColors?: PlayerColor[],
-  difficultyLevel?: DifficultyLevel,
+  playerCount?: number
+  botCount?: number
+  playerColors?: PlayerColor[]
+  difficultyLevel?: DifficultyLevel
   rounds?: Round[]
 }

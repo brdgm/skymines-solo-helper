@@ -18,8 +18,8 @@ export default function (params?: MockLunaStateParams) : LunaState {
 }
 
 export interface MockLunaStateParams {
-  cardDeck?: MockCardDeckParams,
+  cardDeck?: MockCardDeckParams
   heliumCount?: number
-  researchSteps?: number,
+  researchSteps?: number
   difficultyLevel?: DifficultyLevel
 }
