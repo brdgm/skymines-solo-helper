@@ -45,6 +45,13 @@
       "energy": "Energie",
       "minerals": "Mineralien",
       "claimFirstPlayer": "Startspieler<br/>beanspruchen"
+    },
+    "pass":{
+      "title": "Passen: Ausstieg aus der Aktionsphase",
+      "step1": "Decke die umgedrehten Karten in deinem Aktionsbereich wieder auf.",
+      "step2": "Wähle <b>genau 1</b> der Sammelreihen oberhalb deiner Laborablage und nimm diese zurück auf die Hand.",
+      "step3": "Räume danach deinen Aktionsbereich auf, indem du jede Karte von ihrem Aktions-Slot auf einen <b>jeweils anderen</b> deiner Sammel-Slots versetzt.",
+      "step4": "Falls du Bonusplättchen hast, lege sie zurück."
     }
   },
   "turnBot": {

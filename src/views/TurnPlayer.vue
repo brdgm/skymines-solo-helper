@@ -11,11 +11,35 @@
   <button class="btn btn-primary btn-lg mt-4" @click="next()">
     {{t('action.next')}}
   </button>
-  <button class="btn btn-secondary btn-sm mt-4 ms-2" @click="pass()">
+  <button class="btn btn-secondary btn-sm mt-4 ms-2" data-bs-toggle="modal" data-bs-target="#modalPassInfo">
     {{t('action.pass')}}
   </button>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
+
+  <div class="modal" tabindex="-1" id="modalPassInfo">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">{{t('turnPlayer.pass.title')}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li v-html="t('turnPlayer.pass.step1')"></li>
+            <li v-html="t('turnPlayer.pass.step2')"></li>
+            <li v-html="t('turnPlayer.pass.step3')"></li>
+            <li v-html="t('turnPlayer.pass.step4')"></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="pass()">{{t('action.pass')}}</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 <script lang="ts">
