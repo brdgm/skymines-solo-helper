@@ -13,7 +13,6 @@ import Slot from '@/services/enum/Slot'
 import BotNavigationState from '@/util/BotNavigationState'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../structure/Icon.vue'
 import AdvanceCompany from './action/AdvanceCompany.vue'
 import DiscardResearchPlan from './action/DiscardResearchPlan.vue'
 import ExpandCompany from './action/ExpandCompany.vue'
@@ -28,7 +27,6 @@ export default defineComponent({
     return { t }
   },
   components: {
-    Icon,
     AdvanceCompany,
     DiscardResearchPlan,
     ExpandCompany,

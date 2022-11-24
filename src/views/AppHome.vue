@@ -20,7 +20,7 @@
   <router-link to="/setupGame" class="btn btn-primary btn-lg mt-3">{{t('action.playGame')}}</router-link>
 
   <p class="disclaimer">
-    This is not an official Deep Print Games product and has no affiliation with <a href="https://deep-print-games.com/" target="_blank" rel="noopener">https://deep-print-games.com/</a>.
+    This is not an official Deep Print Games product and has no affiliation with <a href="https://deep-print-games.com/" target="_blank" rel="noopener">Deep Print Games</a>.
     All art in this app is from <a href="https://deep-print-games.com/spiele/skymines/" target="_blank" rel="noopener">Skymines</a>.
     See <a href="#" data-bs-toggle="modal" data-bs-target="#creditsModal">{{t('footer.credits')}}</a>.
   </p>
@@ -32,7 +32,7 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
-  name: 'Home',
+  name: 'AppHome',
   setup() {
     const { t } = useI18n()
     return { t }

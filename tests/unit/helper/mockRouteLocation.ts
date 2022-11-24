@@ -15,13 +15,13 @@ export default function (params?: MockRouteLocationParams) : RouteLocation {
 }
 
 export interface MockRouteLocationParams {
-  name?: RouteRecordName|null,
-  path?: string,
-  params?: RouteParams,
-  meta?: RouteMeta,
-  matched?: RouteRecord[],
-  fullPath?: string,
-  query?: LocationQuery,
-  hash?: string,
+  name?: RouteRecordName|null
+  path?: string
+  params?: RouteParams
+  meta?: RouteMeta
+  matched?: RouteRecord[]
+  fullPath?: string
+  query?: LocationQuery
+  hash?: string
   redirectedFrom?: RouteLocation
 }

@@ -9,7 +9,7 @@ export default function (params?: MockRoundParams) : Round {
 }
 
 export interface MockRoundParams {
-  round? : number,
-  turns? : Turn[],
+  round? : number
+  turns? : Turn[]
   initialLunaStates? : LunaStatePersistence[]
 }

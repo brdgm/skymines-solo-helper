@@ -6,7 +6,7 @@
     <template v-else>
       <span v-html="t('turnBot.action.gainCard.matchSlot')"></span>
       <div class="selection">
-        <Icon type="selection" name="card-selection" class="matrix"/>
+        <AppIcon type="selection" name="card-selection" class="matrix"/>
         <table>
           <tr v-for="(row,indexRow) in action.cardSelectionMatrix" :key="indexRow">
             <td v-for="(col,indexCol) in row" :key="indexCol">
@@ -48,7 +48,7 @@ import CardSelection from '@/services/enum/CardSelection'
 import Slot from '@/services/enum/Slot'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../../structure/Icon.vue'
+import AppIcon from '../../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'GainCard',
@@ -57,7 +57,7 @@ export default defineComponent({
     return { t }
   },
   components: {
-    Icon
+    AppIcon
   },
   props: {
     action: {

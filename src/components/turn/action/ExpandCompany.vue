@@ -2,7 +2,7 @@
   <div class="actionBox col" data-bs-toggle="modal" data-bs-target="#modalExpandCompanyHelp">
     <span v-html="t('turnBot.action.expandCompany.expand')"></span>
     <div class="expand">
-      <Icon type="action" name="expand-company" class="icon"/>
+      <AppIcon type="action" name="expand-company" class="icon"/>
       <div class="value">{{action.count}}</div>
       <div class="minMax">{{t(`turnBot.action.expandCompany.${action.sectorSelection}`)}}</div>
     </div>
@@ -74,7 +74,7 @@
 import { CardAction } from '@/services/Card'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../../structure/Icon.vue'
+import AppIcon from '../../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'ExpandCompany',
@@ -83,7 +83,7 @@ export default defineComponent({
     return { t }
   },
   components: {
-    Icon
+    AppIcon
   },
   props: {
     action: {

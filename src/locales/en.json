@@ -45,6 +45,13 @@
       "energy": "Energy",
       "minerals": "Minerals",
       "claimFirstPlayer": "Claim First Player"
+    },
+    "pass":{
+      "title": "Pass: Drop out of Action phase",
+      "step1": "Turn the face-down cards of your action area face up.",
+      "step2": "Pick up <b>exactly 1</b> of your resting decks.",
+      "step3": "Then, clean up your action area by moving each card in your action slots to a <b>different</b> resting slot of your choice.",
+      "step4": "Finally, return any bonus tiles in your action area."
     }
   },
   "turnBot": {

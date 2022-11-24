@@ -7,7 +7,7 @@
       <span v-if="isFirstCol" v-html="t('turnBot.action.discardResearchPlan.discardFirstCol',{plan:plan})"></span>
       <span v-else v-html="t('turnBot.action.discardResearchPlan.discard',{plan:plan})"></span>
       <div class="selection">
-        <Icon type="selection" name="research-plan-selection" class="matrix"/>
+        <AppIcon type="selection" name="research-plan-selection" class="matrix"/>
         <table>
           <tr>
             <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
@@ -44,7 +44,7 @@ import ResearchPlanSelection from '@/services/enum/ResearchPlanSelection'
 import Slot from '@/services/enum/Slot'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../../structure/Icon.vue'
+import AppIcon from '../../structure/AppIcon.vue'
 
 export default defineComponent({
   name: 'DiscardResearchPlan',
@@ -53,7 +53,7 @@ export default defineComponent({
     return { t }
   },
   components: {
-    Icon
+    AppIcon
   },
   props: {
     action: {

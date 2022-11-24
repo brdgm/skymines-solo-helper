@@ -6,7 +6,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Icon',
+  name: 'AppIcon',
   setup() {
     const images = require.context('@/assets/icons', true, /\.png$/)
     return { images }
