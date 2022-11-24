@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/skymines-solo-helper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Skymines Solo Helper",
   "scripts": {
