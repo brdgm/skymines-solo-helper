@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/skymines-solo-helper",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "description": "Skymines Solo Helper",
   "scripts": {
@@ -14,7 +14,7 @@
   "dependencies": {
     "@popperjs/core": "~2.11.6",
     "bootstrap": "~5.2.3",
-    "brdgm-commons": "github:brdgm/brdgm-commons#1.0.4",
+    "brdgm-commons": "github:brdgm/brdgm-commons#1.0.5",
     "core-js": "~3.26.1",
     "register-service-worker": "~1.7.2",
     "vue": "~3.2.45",
