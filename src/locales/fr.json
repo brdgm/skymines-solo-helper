@@ -2,7 +2,7 @@
 {
   "gameTitle": "Skymines",
   "home": {
-    "title": "Skymines Solo Helper",
+    "title": "Skymines Assitant Solo",
     "play1": "Joue contre Luna, l'oppososant du mode solo <a href='https://boardgamegeek.com/boardgame/359438/skymines' target='_blank' rel='noopener'><b>Skymines</b></a>.",
     "play2": "Cette application remplace les cartes LUNA ainsi que son plateau",
     "feedback": "Discussions et retours:"
@@ -17,10 +17,10 @@
       "playerBonusMarkers": "Chaque joueur humain prend <b>{count} pions bonus</b>.",
       "botCount": "Luna Bots",
       "botCountItem": "{count} Luna Bot | {count} Luna Bots",
-      "botColor": "Luna Color | Luna {index} Color"
+      "botColor": "Luna Couleur | Luna {index} Color"
     },
     "difficultyLevel": {
-      "title": "Niveau de difficultés",
+      "title": "Niveaux de difficulté",
       "easy": "Facile",
       "hard": "Difficile"
     }
@@ -28,15 +28,15 @@
   "setupLuna": {
     "title": "Préparation de Luna",
     "forEach": "Pour chaque bot Luna, prépare une place spécifique avec:",
-    "playerToken": "Le <b>player token</b> avec la couleur de l'automate.",
-    "coinsBonusMarkers": "<b>1 CrypCoin</b> and <b>all 5 Bonus Markers</b>.",
-    "trackMarkers": "Take the <b>4 track markers</b> and add one to space 0 of each company track.",
-    "startingBonus": "Prends une des tuiles <b>starting research tokens</b> au hasard et applique son effet sur la piste de la compagnie désignée. Retourne le jeton de départ dans la boite de jeu",
-    "finalNotes": "Luna n'a pas besoin d'un plateu joueur, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box."
+    "playerToken": "Le <b>jeton</b> avec la couleur de l'automate.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> et <b>all les 5 pions bonus</b>.",
+    "trackMarkers": "Prends les <b>4 marqueurs de parts</b> et mets en un à l'emplacement 0 de chaque piste de compagnie",
+    "startingBonus": "Prends une des tuiles <b>recherche de départ</b> au hasard et applique son effet sur la piste de la compagnie désignée. Retourne le jeton de départ dans la boite de jeu.",
+    "finalNotes": "Luna n'a pas besoin d'un plateu joueur, l'application va gérer automatiquement les cartes LUNA ainsi que le comptage des niveaux d'Helium et de recherche. Les cartes actions initiales ainsi que la carte energie initiale ne sont pas utilisées par LUNA et peuvent rester dans la boite ."
   },
   "turnPlayer": {
-    "title": "Player | Player {player}",
-    "makeTurn": "Make your turn.",
+    "title": "Joueur | Player {player}",
+    "makeTurn": "Prépare ton tour.",
     "playerStatus": {
       "turn": "Turn {round}-{turn}",
       "majorities": "Majorités de Luna",
@@ -45,13 +45,13 @@
       "carbon": "Carbone",
       "energy": "Energie",
       "minerals": "Mineraux",
-      "claimFirstPlayer": "Claim First Player"
+      "claimFirstPlayer": "Devenir le premier joueur"
     },
     "pass":{
       "title": "Passer: Abandon de la phase d'action",
-      "step1": "Tourné les cartes retournées pour qu'elles soient de nouveaux visibles",
-      "step2": "Choisis <b>exactly 1</b> pile de défausse",
-      "step3": "Then, clean up your action area by moving each card in your action slots to a <b>different</b> resting slot of your choice.",
+      "step1": "Tourne les cartes retournées pour qu'elles soient de nouveaux visibles",
+      "step2": "Choisis <b>exactement 1</b> pile de défausse",
+      "step3": "Ensuite, vide ton emplacement action en déplacant chaque carte depuis tes emplacemets actions vers <b>different</b> resting slot of your choice.",
       "step4": "Enfin retourne les tuiles bonus vers le plateau"
     }
   },
@@ -60,14 +60,14 @@
     "botStatus": {
       "turn": "Tour {round}-{turn}",
       "helium": "Helium",
-      "research": "Research",
+      "research": "Recherche",
       "slot": "Slot {slot}"
     },
     "action": {
       "lunaGains": "Luna gagne:",
       "advanceCompany": {
-        "most-valuable": "on the <b>most valuable</b> company track",
-        "most-valuable-two-each": "on each of the <b>2 most valuable</b> company tracks",
+        "most-valuable": "la piste compagnie la <b>plus rentable</b> ",
+        "most-valuable-two-each": "sur chacune des 2 pistes compagnie <b>les plus rentables</b> ",
         "second-most-valuable": "on the <b>second most valuable</b> company track",
         "least-valuable": "on the <b>least valuable</b> company track",
         "lead-biggest-margin": "on the company track on which Luna leads by the <b>biggest margin</b>",
@@ -89,8 +89,8 @@
       },
       "discardResearchPlan": {
         "discard": "Luna défausse <b>{plan}-research plan</b>:",
-        "discardFirstCol": "Luna défausse un <b>{plan}-research plan</b>; Luna gagne le CrypCoin sur la case de prime",
-        "discardSpecial": "Luna défausse le <b>latest face-up special research plan</b>.",
+        "discardFirstCol": "Luna défausse un <b>{plan}-plan de recherche</b>; Luna gagne le CrypCoin sur la case de prime",
+        "discardSpecial": "Luna défausse le <b>dernier plan de recherche spécial apparu </b>.",
         "help": {
           "title": "Défausse un jeton de recherche",
           "instruction": "Whenever an action lets me discard research plans, remove the designated plans in the research display from the game. Afterwards, fill each of the now empty lettered spaces in the research display as usual.",
@@ -104,7 +104,7 @@
         "help": {
           "title": "Extension de la compagnie",
           "instruction": "Whenever an action lets me expand a company, its card states how many expansion points must be used to expand which company. This is done differently depending on which side of the board you’re playing on <i>(see below)</i>.",
-          "rulesHint": "Important pre-notes:",
+          "rulesHint": "Notes importantes:",
           "hint1": "For reasons of clarity, one of the columns in each station is considered the current <b>main outpost column</b>, which is defined as follows: It is the column for outposts that has the most vacant home spaces but whose final home space (which shows 2 coin icons) is not vacant. Only if the final home spaces of all columns are vacant, it is instead the one with the most vacant home spaces that also shows the fewest coin icons. Any ties are broken in favor of the column that is closer to its company logo on the board.",
           "hint2": "I never gain the rewards of the sectors/Belt spaces that are entered on my turn.",
           "hint3": "If a company cannot be expanded because its station has no outposts/shuttles left that can be placed regularly, its expansion points are forfeited.",
@@ -130,10 +130,10 @@
         }
       },
       "gainCard": {
-        "matchSlot": "Luna gains each of the displayed cards:",
+        "matchSlot": "Luna gagne les cartes suivantes:",
         "mostValuableShare": "Luna gains the card with the <b>most valuable share</b> (if there are more than one, the one from the space with the lowest number).",
         "help": {
-          "title": "Gain Cards",
+          "title": "Gagne des cartes",
           "instruction": "Whenever an action lets me gain cards, take the designated card(s) from the card display and place them in a face-down stack in my reserve.",
           "hint1": "Acheter des cartes ne me coute rien.",
           "hint2": "I don’t gain a card if its designated space is empty.",
@@ -162,8 +162,8 @@
     "title": "Preparation de la manche {round}",
     "flipSpecialResearchTile": "Retoune le jeton de recherche spécial",
     "returnBonusMarkers": "Chaque joueurs reprend ses jetons bonus (et aussi les éventuelles tuiles bonus)",
-    "fillUpCardDisplay": "Fill up the card display",
-    "planningPhase": "Carry out the planning phase"
+    "fillUpCardDisplay": "Défausse les cartes de la dernière colonnes et remplit la rivière de cartes",
+    "planningPhase": "Réalise la phase de planification"
   },
   "endOfGame": {
     "title": "End of Game",
@@ -203,9 +203,9 @@
     "next": "Suivant",
     "nextRound": "Manche suivante",
     "abortGame": "Quitter le jeu",
-    "abortGameConfirm": "Etes vous sur de quitter le jeu ?",
+    "abortGameConfirm": "Etes vous sur de quitter cette partie ?",
     "endGame": "Fin du jeu",
-    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "endGameConfirm": "Etes vous sur de quitter cette partie et de revenir à l'écran titre?",
     "cancel": "Annuler",
     "backToHome": "Back to Home",
     "back": "Précédent",
