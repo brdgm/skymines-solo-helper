@@ -27,9 +27,9 @@
   },
   "setupLuna": {
     "title": "Préparation de Luna",
-    "forEach": "Pour chaque bot Luna, prépare une place spécifique avec:",
+    "forEach": "Pour chaque bot Luna, préparez une place spécifique avec:",
     "playerToken": "Le <b>jeton</b> avec la couleur de l'automate.",
-    "coinsBonusMarkers": "<b>1 CrypCoin</b> et <b>all les 5 pions bonus</b>.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> et <b> les 5 pions bonus</b>.",
     "trackMarkers": "Prends les <b>4 marqueurs de parts</b> et mets en un à l'emplacement 0 de chaque piste de compagnie",
     "startingBonus": "Prends une des tuiles <b>recherche de départ</b> au hasard et applique son effet sur la piste de la compagnie désignée. Retourne le jeton de départ dans la boite de jeu.",
     "finalNotes": "Luna n'a pas besoin d'un plateu joueur, l'application va gérer automatiquement les cartes LUNA ainsi que le comptage des niveaux d'Helium et de recherche. Les cartes actions initiales ainsi que la carte energie initiale ne sont pas utilisées par LUNA et peuvent rester dans la boite ."
@@ -38,7 +38,7 @@
     "title": "Joueur | Player {player}",
     "makeTurn": "Prépare ton tour.",
     "playerStatus": {
-      "turn": "Turn {round}-{turn}",
+      "turn": "Tour {round}-{turn}",
       "majorities": "Majorités de Luna",
       "scientist": "Scientifique",
       "titanium": "Titane",
@@ -68,15 +68,15 @@
       "advanceCompany": {
         "most-valuable": "la piste compagnie la <b>plus rentable</b> ",
         "most-valuable-two-each": "sur chacune des 2 pistes compagnie <b>les plus rentables</b> ",
-        "second-most-valuable": "on the <b>second most valuable</b> company track",
-        "least-valuable": "on the <b>least valuable</b> company track",
+        "second-most-valuable": "sur la <b>deuxième/b> piste la plus rentable",
+        "least-valuable": "sur la <b>moins rentable</b> piste compagnie",
         "lead-biggest-margin": "on the company track on which Luna leads by the <b>biggest margin</b>",
         "lead-biggest-margin-two-each": "on each of the <b>2 company tracks</b> on which Luna leads by the <b>biggest margin</b>",
         "all-four-each": "on each of the <b>4 company tracks</b>",
         "help": {
           "title": "Advance on Company Track",
           "instruction": "Move my track marker this many spaces forward on the company track(s) named on the card <i>(see below)</i>.",
-          "rulesHint": "Bear the following rules in mind:",
+          "rulesHint": "Gardez les règles suivantes à l'esprit:",
           "hint1": "Whenever one of my track markers (or any of yours) passes a bonus threshold, its CrypCoin reward is distributed as usual.",
           "hint2": "Whenever one of my track markers passes a money barrier, its cost must be paid with CrypCoin from my e. If I do not have enough CrypCoin to do so, pay as much as I have and then continue to move my track marker forward.",
           "hint3": "Once a marker of mine has reached the end of its company track: From now on, for each space that it would normally move forward on this track, I gain 2 CrypCoin instead.",
