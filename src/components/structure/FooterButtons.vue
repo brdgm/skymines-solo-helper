@@ -31,7 +31,7 @@ export default defineComponent({
   },
   methods: {
     endGame() {
-      this.$store.commit('endGame')
+      this.$store.commit('resetGame')
       this.$router.push('/')
     }
   }
