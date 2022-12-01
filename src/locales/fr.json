@@ -70,14 +70,14 @@
         "most-valuable-two-each": "sur chacune des 2 pistes compagnie <b>les plus rentables</b> ",
         "second-most-valuable": "sur la <b>deuxième/b> piste la plus rentable",
         "least-valuable": "sur la <b>moins rentable</b> piste compagnie",
-        "lead-biggest-margin": "on the company track on which Luna leads by the <b>biggest margin</b>",
-        "lead-biggest-margin-two-each": "on each of the <b>2 company tracks</b> on which Luna leads by the <b>biggest margin</b>",
-        "all-four-each": "on each of the <b>4 company tracks</b>",
+        "lead-biggest-margin": "Sur la piste compagnie sur laquelle LUNA mène avec <b>le plus grand écart</b>",
+        "lead-biggest-margin-two-each": "Sur chacunes des <b>2 pistes compagnie</b> sur lesquelles LUNA mène par le plus grand <b>écart</b>",
+        "all-four-each": "sur chacune des <b>4 pistes compagnie</b>",
         "help": {
-          "title": "Advance on Company Track",
-          "instruction": "Move my track marker this many spaces forward on the company track(s) named on the card <i>(see below)</i>.",
+          "title": "Avance sur la piste compagnie",
+          "instruction": "Déplace mon marqueur de piste sur la piste compagnie nommé <i>ci-dessous</i>.",
           "rulesHint": "Gardez les règles suivantes à l'esprit:",
-          "hint1": "Whenever one of my track markers (or any of yours) passes a bonus threshold, its CrypCoin reward is distributed as usual.",
+          "hint1": "A chaque fois qu'un de mes marqueurs de piste (ou l'un des votres) franchit un jalon, la récompense en CrypCoin est distribuée comme d'habitude.",
           "hint2": "Whenever one of my track markers passes a money barrier, its cost must be paid with CrypCoin from my e. If I do not have enough CrypCoin to do so, pay as much as I have and then continue to move my track marker forward.",
           "hint3": "Once a marker of mine has reached the end of its company track: From now on, for each space that it would normally move forward on this track, I gain 2 CrypCoin instead.",
           "hint4": "All track bonuses that my markers unlock are ignored for me.",
@@ -131,13 +131,13 @@
       },
       "gainCard": {
         "matchSlot": "Luna gagne les cartes suivantes:",
-        "mostValuableShare": "Luna gains the card with the <b>most valuable share</b> (if there are more than one, the one from the space with the lowest number).",
+        "mostValuableShare": "Luna gagne la carte avec <b>la part dont la valeur est la plus grande</b> (if there are more than one, the one from the space with the lowest number).",
         "help": {
           "title": "Gagne des cartes",
           "instruction": "Whenever an action lets me gain cards, take the designated card(s) from the card display and place them in a face-down stack in my reserve.",
           "hint1": "Acheter des cartes ne me coute rien.",
-          "hint2": "I don’t gain a card if its designated space is empty.",
-          "hint3": "The collected action cards remain in my reserve until the Final scoring phase.",
+          "hint2": "Je ne gagne pas de carte si l'espace désignée est vide",
+          "hint3": "Les cartes actions gagné reste dans ma réserve jusqu'à la fin de la partie et au décompte du score",
           "hint4": "Whenever I gain the card with the <b>most valuable share</b> it means: Give me the card that shows an additional share of the company, which - among the ones displayed - belongs to the most valuable company. If there are multiple cards of that company, give me the one from the space with the lowest number. If there is no card with a share in the display, I don’t gain a card."
         }
       },
@@ -152,8 +152,8 @@
         "help": {
           "title": "Place un pion bonus",
           "instruction": "Whenever an action lets me place a bonus marker, do the following for me: Take a bonus marker from my reserve and place it onto the bonus space designated by the card.",
-          "hint1": "Placing the bonus marker costs me nothing nor does it give me any reward.",
-          "hint2": "If the bonus space is already occupied, the bonus marker is not placed."
+          "hint1": "Placer un pion bonus ne me coute rien et ne rapporte rien",
+          "hint2": "Si l'espace bonus est déjà occupé, ne place pas dessus de pion bonus."
         }
       }
     }
@@ -167,7 +167,7 @@
   },
   "endOfGame": {
     "title": "End of Game",
-    "introduction": "Count the company shares of each player and Luna. Don't forget to count any additional shares on action cards.",
+    "introduction": "Compte les parts de compagnie de chaque joueurs et de LUNA. N'oublie pas les parts sur les cartes achetées",
     "scoring": {
       "companyValueTitle": "Valeur de la compagnie",
       "scoringTitle": "Scores",
