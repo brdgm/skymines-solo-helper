@@ -1,0 +1,218 @@
+{
+  "gameTitle": "Skymines",
+  "home": {
+    "title": "Skymines Solo Helper",
+    "play1": "Juga contra Luna, l'oponent en mode solitari de <a href='https://boardgamegeek.com/boardgame/359438/skymines' target='_blank' rel='noopener'><b>Skymines</b></a>.",
+    "play2": "Aquesta aplicació d'ajuda substitueix les cartes Automa i el tauler de jugadors Luna.",
+    "feedback": "Discussió i comentaris:"
+  },
+  "setup": {
+    "title": "Setup Joc",
+    "players": {
+      "title": "Jugador",
+      "playerCount": "Jugadors humans",
+      "playerCountItem": "{count} Jugador | {count} Jugadors",
+      "playerColor": "Color Jugador | Jugador {index} Color",
+      "playerBonusMarkers": "Cada jugador humà obté <b>{count} marcadors de bonificació</b>.",
+      "botCount": "Luna Bots",
+      "botCountItem": "{count} Luna Bot | {count} Luna Bots",
+      "botColor": "Luna Color | Luna {index} Color"
+    },
+    "difficultyLevel": {
+      "title": "Nivell de dificultat",
+      "easy": "Fàcil",
+      "hard": "Difícil"
+    }
+  },
+  "setupLuna": {
+    "title": "Setup Luna",
+    "forEach": "Per a cada Luna Bot, prepareu una àrea dedicada amb:",
+    "playerToken": "El <b>token de jugador</b> amb el color per al bot.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> i <b>els 5 marcadors de Bonus</b>.",
+    "trackMarkers": "Agafa els <b>4 marcadors de track</b> i afegeix-ne un a l'espai 0 de cada track d'empresa.",
+    "startingBonus": "Agafeu una de les <b>fitxes d'investigació inicials</b> a l'atzar i apliqueu la seva bonificació inicial als marcadors de track d'empresa. A continuació, torneu la fitxa d'investigació inicial a la caixa de joc.",
+    "finalNotes": "El bot no necessita un tauler de jugador, l'aplicació gestionarà les targetes Automa i comptarà automàticament els nivells d'heli i investigació. També deixeu totes les cartes d'acció inicial del color del jugador del bot i qualsevol carta d'energia única de recanvi a la caixa del joc."
+  },
+  "turnPlayer": {
+    "title": "Jugador | Jugador {player}",
+    "makeTurn": "Fes el teu torn.",
+    "playerStatus": {
+      "turn": "Torn {round}-{turn}",
+      "majorities": "Majories de Luna",
+      "scientist": "Científic",
+      "titanium": "Titanium",
+      "carbon": "Carboni",
+      "energy": "Energia",
+      "minerals": "Minerals",
+      "claimFirstPlayer": "Reclam jugador inicial"
+    },
+    "pass":{
+      "title": "Passar: Abandonament de la fase d'Accions",
+      "step1": "Gireu les cartes cara avall de l'àrea d'acció cap amunt.",
+      "step2": "Recull <b>exactament 1</b> de les teves piles de cartes de repòs.",
+      "step3": "A continuació, netegeu l'àrea d'acció movent cada carta de les ranures d'acció a una pila de repòs <b>diferent</b> per a cada carta.",
+      "step4": "Finalment, torneu les fitxes de bonificació a la vostra àrea d'acció."
+    }
+  },
+  "turnBot": {
+    "title": "Luna | Luna {bot}",
+    "botStatus": {
+      "turn": "Torn {round}-{turn}",
+      "helium": "Helium",
+      "research": "Recerca",
+      "slot": "Slot {slot}"
+    },
+    "action": {
+      "lunaGains": "Luna Guanys:",
+      "advanceCompany": {
+        "most-valuable": "a la pista d'empresa <b>més valuosa</b>",
+        "most-valuable-two-each": "a cadascuna de les 2 pistes d'empresa <b>més valuoses</b>",
+        "second-most-valuable": "a la segona pista d'empresa <b>més valuosa</b>",
+        "least-valuable": "a la pista d'empresa <b>menys valuosa</b>",
+        "lead-biggest-margin": "a la pista d'empresa en la qual Luna lidera pel <b>marge més gran</b>",
+        "lead-biggest-margin-two-each": "en cadascuna de les <b>2 pistes</b> d'empresa en què Luna lidera pel <b>marge més gran</b>",
+        "all-four-each": "en cadascuna de les <b>4 pistes d'empresa</b>",
+        "help": {
+          "title": "Avança en el track de l'empresa",
+          "instruction": "Moveu el marcador de track aquests espais cap endavant als tracks d'empresa anomenats a la targeta <i>(vegeu més avall)</i>",
+          "rulesHint": "Tingues en compte les regles següents:",
+          "hint1": "Sempre que un dels meus marcadors de pista (o algun dels vostres) superi un llindar de bonificació, la seva recompensa CrypCoin es distribueix com de costum.",
+          "hint2": "Cada vegada que un dels meus marcadors de pista passa una barrera de diners, el seu cost s'ha de pagar amb CrypCoin de la meva reserva. Si no tinc prou CrypCoin per fer-ho, pagui tant com tingui i després continuï movent el meu marcador de pista cap endavant.",
+          "hint3": "Un cop un marcador meu ha arribat al final de la pista de la seva empresa: A partir d'ara, per cada espai que normalment avançaria en aquesta pista, guanyo 2 CrypCoin en lloc d'això.",
+          "hint4": "Totes les bonificacions de track que desbloquegen els meus marcadors s'ignoren per a mi.",
+          "mostValuable": "La <b>track de l'empresa més valuosa</b>, és la que té més icones de monedes visibles a la seva estació.",
+          "tied": "Sempre que els tracks d'empresa estiguin empatades en valor, es considera més valuosa aquella l'estació de la qual tingui més espais vuits. Si això no trenca l'empat, és la pista empatada el nom de la qual és primer per ordre alfabètic.",
+          "biggestMargin": "Jo <b>lidero pel marge més gran</b> del track d'empresa on hi ha més espais entre el meu marcador de track i el del segon lloc (les barreres monetàries no són espais). Si no lidero en cap track, és el track on comparteixo el liderat. Si estic darrere en tots els tracks, és el track on estic menys espais darrere del marcador líder. L'empat es trenca a favor de la pista més valuosa.",
+          "farthestBehind": "Estic <b>més lluny </b> a la pista on hi ha més espais entre el marcador de track meu i el del líder. Si no em quedo enrere en cap track, és el track on comparteixo el liderat o condueixo pel marge més petit. Els empats es trenquen a favor de la pista més valuosa."
+        }
+      },
+      "discardResearchPlan": {
+        "discard": "Luna descarta un <b>{plan}-pla de recerca</b>:",
+        "discardFirstCol": "Luna descarta un <b>{plan}-pla de recerca</b>; també guanya qualsevol CrypCoin de l'espai suplementari:",
+        "discardSpecial": "Luna descarta <b>l'últim pla especial d'investigació capgirat</b>.",
+        "help": {
+          "title": "Descarta pla de recerca",
+          "instruction": "Sempre que una acció em permeti descartar plans de recerca, elimineu del joc els plans designats a la pantalla de recerca. Després, ompliu cadascun dels espais amb lletres ara buits de la pantalla de recerca com de costum.",
+          "specialResearchPlan": "Sempre que descarto l'últim <b>pla especial de recerca</b> capgirat vol dir: Dels plans especials d'investigació capgirats al track de ronda, descarteu el que es va revelar per última vegada. Si no n'hi ha cap, no en descarteu cap."
+        }
+      },
+      "expandCompany": {
+        "expand": "Després amplia aquesta empresa:",
+        "min": "MÍN",
+        "max": "MÀX",
+        "help": {
+          "title": "Expandeix companyia",
+          "instruction": "Sempre que una acció em permet expandir una empresa, la seva carta indica quants punts d'expansió s'han d'utilitzar per expandir quina empresa. Això es fa de manera diferent segons a quin costat del tauler esteu jugant <i>(vegeu més avall).</i>",
+          "rulesHint": "Pre-notes importants:",
+          "hint1": "Per raons de claredat, una de les columnes de cada estació es considera l'actual <b>columna principal de sortida</b>, que es defineix de la següent manera: És la columna per a llocs avançats que té els espais domèstics més buits però l'espai final de la llar (que mostra 2 icones de monedes) no està vacant.  Només si els espais domèstics finals de totes les columnes estan buits, és en canvi el que té més espais domèstics buits que també mostra menys icones de monedes. Qualsevol empat es trenca a favor de la columna que està més a prop del logotip de la seva empresa al taulell.",
+          "hint2": "Mai guanyo les recompenses dels sectors/espais del Cinturó que s'introdueixen al meu torn.",
+          "hint3": "Si una empresa no es pot ampliar perquè a la seva estació no li queden llocs de sortida / llançadores que es puguin col·locar regularment, els seus punts d'expansió es perden.",
+          "moon": {
+            "title": "Cara de la Lluna",
+            "rulesHint": "Per a cada punt d'expansió, col·loqueu 1 lloc de sortida de l'estació de l'empresa en expansió a la Lluna de la següent manera:",
+            "hint1": "Agafeu la part superior de la columna principal de sortida de l'empresa en expansió i col·loqueu-la al sector definit per les regles següents:",
+            "hint2": "El sector ha de ser accessible. Això vol dir que ha d'estar al costat de l'estació de l'empresa en expansió o de qualsevol sector que tingui un lloc avançat de l'empresa en expansió. (No importa si es pot accedir a través d'una sola o doble línia.)",
+            "hint3": "Si el símbol del punt d'expansió mostra una MÍN, ha de ser el sector <b>vacant</b> accessible amb el nombre de sector més baix.",
+            "hint4": "Si el símbol del punt d'expansió mostra un MÀX, ha de ser el sector <b>vacant</b> accessible amb el nombre de sector més alt.",
+            "hint5": "Si cap dels sectors accessibles està vacant, trieu entre ells el sector amb el número de sector més baix (MÍN) / més alt (MÀX) que conté un lloc avançat de l'empresa accessible en el camí de la qual estic més lluny. Com és habitual, torneu a l'avançada existent a la seva estació, col·locant-la a l'espai domèstic més baix vacant de la seva columna principal."
+          },
+          "belt": {
+            "title": "Cara del Cinturó",
+            "rulesHint": "Per a cada punt d'expansió, col·loqueu 1 lloc de sortida / llançadora des de l'estació de l'empresa en expansió en un espai del Cinturó de la següent manera:",
+            "hint1": "En primer lloc, determinar el següent objectiu <b>vacant</b> a l'abast de l'empresa en expansió. Aquest objectiu ha de ser un espai de transbordador vacant o un asteroide on l'empresa en expansió encara no tingui cap lloc avançat i que tingui almenys un espai vacant.",
+            "hint2": "D'aquests, trieu el que tingui el número de destinació més baix si el símbol del punt d'expansió mostra un MIN. Si mostra un MAX, trieu el que tingui el número de destinació més alt.",
+            "hint3": "Si aquest objectiu és un espai de transbordador, agafeu el transbordador superior des de l'estació de la companyia i col·loqueu-lo en aquest espai. (Si no queda cap llançadora a la seva columna, l'objectiu ha de ser un asteroide.)",
+            "hint4": "Si l'objectiu és un asteroide, agafeu la part superior de la columna principal i col·loqueu-la a qualsevol espai de sortida vacant d'aquest asteroide.",
+            "hint5": "Si no hi ha cap objectiu que coincideixi amb els criteris anteriors, col·loqueu la posició avançada a qualsevol espai <b>de sortida vacant</b> de l'asteroide amb el número objectiu més baix (MIN) / més alt (MAX) que ja tingui llocs avançats de l'empresa en expansió.",
+            "hint6": "Si no hi ha cap espai vacant del Cinturó a l'abast, determineu quins transbordadors i llocs de sortida estan a l'abast que pertanyen a l'empresa accessible a la pista de la qual estic més lluny. D'aquests transbordadors i llocs de sortida, trieu el que tingui el número objectiu més baix (MIN) / més alt (MAX) i torneu-lo a la seva estació segons les normes habituals. Els llocs de sortida expulsats s'han de col·locar a l'espai d'habitatge vacant més baix de la seva columna principal."
+          }
+        }
+      },
+      "gainCard": {
+        "matchSlot": "Luna guanya cadascuna de les cartes mostrades:",
+        "mostValuableShare": "Luna guanya la targeta amb la <b>part més valuosa</b> (si n'hi ha més d'una, la de l'espai amb el número més baix).",
+        "help": {
+          "title": "Targetes guanyades",
+          "instruction": "Sempre que una acció em permeti guanyar targetes, agafeu les targetes designades de la pantalla de la targeta i col·loqueu-les en una pila cara avall a la meva reserva.",
+          "hint1": "Guanyar targetes no em costa res.",
+          "hint2": "No guanyo cap targeta si el seu espai designat està buit.",
+          "hint3": "Les targetes d'acció recollides romanen a la meva reserva fins a la fase de puntuació final.",
+          "hint4": "Sempre que guanyo la carta amb la <b>l'acció (participació) més valuosa</b> vol dir: Dóna'm la carta que mostri una participació addicional de l'empresa, que -entre les que es mostren- pertany a l'empresa més valuosa. Si hi ha diverses cartes d'aquesta empresa, doneu-me la de l'espai amb el número més baix. Si no hi ha cap carta amb participació al taulell, no guanyo cap targeta."
+        }
+      },
+      "gainCoin": {
+        "help": {
+          "title": "Guany de CrypCoin",
+          "instruction": "Afegeix aquests CrypCoin del banc a la meva reserva."
+        }
+      },
+      "placeBonusMarker": {
+        "place": "Luna col·loca un marcador de bonus:",
+        "help": {
+          "title": "Col·loca un marcador de bonificació",
+          "instruction": "Sempre que una acció em permeti col·locar un marcador de bonificació, feu el següent per a mi: Agafeu un marcador de bonificació de la meva reserva i col·loqueu-lo a l'espai de bonificació designat per la targeta.",
+          "hint1": "Col·locar el marcador de bonificació no em costa res ni em dóna cap recompensa.",
+          "hint2": "Si l'espai de bonificació ja està ocupat, no es col·loca el marcador de bonificació."
+        }
+      }
+    }
+  },
+  "endOfRound": {
+    "title": "Preparar Ronda {round}",
+    "flipSpecialResearchTile": "Capgirar el proper pla especial de recerca",
+    "returnBonusMarkers": "Retornar els marcadors de bonificació als jugadors (incloent possibles fitxes de bonificació)",
+    "fillUpCardDisplay": "Empleneu els espais buits del mercat de cartes",
+    "planningPhase": "Dur a terme la fase de planificació"
+  },
+  "endOfGame": {
+    "title": "Fi del joc",
+    "introduction": "Compta les accions de l'empresa de cada jugador i Luna. No oblideu comptar accions addicionals a les targetes d'acció.",
+    "scoring": {
+      "companyValueTitle": "Valors de l'empresa",
+      "scoringTitle": "Puntuació",
+      "shareValue": "Valor de l'acció",
+      "shareCount": "Recompte d'accions",
+      "crypCoin": "CrypCoin",
+      "heliumCoin": "Helium CrypCoin",
+      "researchCoin": "Recerca CrypCoin",
+      "totalCoin": "Total"
+    }
+  },
+  "standaloneScoring": {
+    "title": "Puntuació Skymines",
+    "introduction": "Compta les accions de l'empresa de cada jugador. No oblideu comptar accions addicionals a les targetes d'acció."
+  },
+  "difficultyLevel": {
+    "0": "Nivell 0 - Fàcil",
+    "1": "Nivell 1 - Fàcil",
+    "2": "Nivell 2 - Normal",
+    "3": "Nivell 3 - Avançat",
+    "4": "Nivell 4 - Avançat",
+    "5": "Nivell 5 - Avançat",
+    "6": "Nivell 6 - Avançat",
+    "7": "Nivell 7 - Avançat",
+    "8": "Nivell 8 - Avançat"
+  },
+  "notfound": {
+    "title": "No trobat"
+  },
+  "action": {
+    "playGame": "Jugar al joc",
+    "startGame": "Inici de joc",
+    "next": "Següent",
+    "nextRound": "Propera ronda",
+    "abortGame": "Avortar el joc",
+    "abortGameConfirm": "Avortant el joc en execució -- esteu segurs?",
+    "endGame": "Fi del joc",
+    "endGameConfirm": "Finalitza aquest joc i torna a la pantalla d'inici -- n'estàs segur?",
+    "cancel": "Cancelar",
+    "backToHome": "Tornar a l'inici",
+    "back": "Desfer",
+    "close": "Tancar",
+    "reset": "Resetejar",
+    "pass": "Passar"
+  },
+  "footer": {
+    "credits": "Crèdits"
+  }
+}
