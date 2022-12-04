@@ -35,6 +35,8 @@ export default defineComponent({
   },
   methods: {
     startGame() : void {
+      // start with clean game state
+      this.$store.commit('resetGame')
       // prepare luna states for all bots
       const initialLunaStates = new InitialLunaStates(this.$store)
       initialLunaStates.prepareRound(1)
