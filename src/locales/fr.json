@@ -84,7 +84,7 @@
           "mostValuable": "La<b>piste dompagnie la plus rentable</b> est celle dont la station possède le plus de pièces découvertes.",
           "tied": "Quand les piste compagnie sont à égalité en valeur, celle qui a le plus de station vacante est considérée comme la plus rentable. Si l'égalité persiste, c'est la lettre de désignation de la piste qui sert à départager en utilisant l'ordre alphabétique.",
           "biggestMargin": "Je <b>mène par le plus grand écart</b> sur la piste compagnie où il y a le plus d'écart entre mon marqueur et celui du deuxième joueur (Les péages ne sont pas des cases). Si je mène sur aucune piste c'est celle où je partage l'égalité. Si je suis derrière sur toutes les pistes, c'est celle où j'ai le moins de retard. Les égalités sont départagés par la valeur de la compagnie: je prends celle qui a le plus de valeur",
-          "farthestBehind": "I’m <b>farthest behind</b> on the track where there are the most spaces between my track marker and the leading one. If I’m not behind on any tracks, it is the track where I share the lead or lead by the smallest margin. Ties are broken in favor of the more valuable track."
+          "farthestBehind": "Je suis le <b>plus loin derrière</b> sur la piste où il y a le plus d'écart entre mon marqueur et celui du joueur qui mène. Si je ne suis pas derrière sur aucune piste, cela désigne la piste où je partage la première place ou celle où je mène avec le plus petit écart avec le second . Les égalités sont départagés par la valeur de la compagnie: je prends celle qui a le plus de valeur."
         }
       },
       "discardResearchPlan": {
@@ -138,7 +138,7 @@
           "hint1": "Acheter des cartes ne me coute rien.",
           "hint2": "Je ne gagne pas de carte si l'espace désignée est vide",
           "hint3": "Les cartes actions gagné reste dans ma réserve jusqu'à la fin de la partie et au décompte du score",
-          "hint4": "Whenever I gain the card with the <b>most valuable share</b> it means: Give me the card that shows an additional share of the company, which - among the ones displayed - belongs to the most valuable company. If there are multiple cards of that company, give me the one from the space with the lowest number. If there is no card with a share in the display, I don’t gain a card."
+          "hint4": "Quand je gagnge la carte avec la <b>part la plus rentable</b> cela signifie: Donne moi la carte qui présente une part supplémentaire qui appartient à la compagnie la plus rentable. Si cela désigne plusieurs carte: donne moi celle sur l'emplacement avec le numéro le plus petit. Si il n'y a pas de carte avec une part supplémentaire de la compagnie la plus rentable: je ne gagne rien."
         }
       },
       "gainCoin": {
@@ -151,7 +151,7 @@
         "place": "Luna place un pion bonus:",
         "help": {
           "title": "Place un pion bonus",
-          "instruction": "Whenever an action lets me place a bonus marker, do the following for me: Take a bonus marker from my reserve and place it onto the bonus space designated by the card.",
+          "instruction": " Quand une action me fait placer un marqueur bonus: Prendre le marqueur bonus depuis ma réserve et place le sur l'emplacement désigné par la carte.",
           "hint1": "Placer un pion bonus ne me coute rien et ne rapporte rien",
           "hint2": "Si l'espace bonus est déjà occupé, ne place pas dessus de pion bonus."
         }
