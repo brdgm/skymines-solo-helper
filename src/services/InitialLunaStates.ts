@@ -23,13 +23,14 @@ export default class InitialLunaStates {
    * Stores a new round with luna states from previous round, or new ones for first round.
    * Draws new cards for each bot.
    * @param round round
+   * @param lunaHeliumBonus Helium Bonus for luna from start research tokens (only round 1)
    */
-  public prepareRound(round : number) : void {
+  public prepareRound(round : number, lunaHeliumBonus? : (number|undefined)[]) : void {
     let lunaStates
 
     // get/prepare luna states
     if (round == 1) {
-      lunaStates = this.newLunaStates()
+      lunaStates = this.newLunaStates(lunaHeliumBonus)
     }
     else {
       lunaStates = this.getLunaStatesFromRound(round-1)
@@ -44,12 +45,18 @@ export default class InitialLunaStates {
   }
 
   /**
-   * Pepare new Luna states for first round.
+   * Prepare new Luna states for first round.
    */
-  private newLunaStates() : LunaState[] {
+  private newLunaStates(lunaHeliumBonus? : (number|undefined)[]) : LunaState[] {
     const initialLunaStates : LunaState[] = []
     for (let botIndex=0; botIndex<this.botCount; botIndex++) {
       initialLunaStates[botIndex] = this.newLunaState()
+      if (lunaHeliumBonus) {
+        const heliumBonus = lunaHeliumBonus[botIndex]
+        if (heliumBonus) {
+          initialLunaStates[botIndex].addHelium(heliumBonus)
+        }
+      }
     }
     return initialLunaStates
   }
