@@ -31,7 +31,13 @@
     "coinsBonusMarkers": "<b>1 CrypCoin</b> and <b>all 5 Bonus Markers</b>.",
     "trackMarkers": "Take the <b>4 track markers</b> and add one to space 0 of each company track.",
     "startingBonus": "Take one of the spare <b>starting research tokens</b> at random and apply its starting bonus to the track markers. Then return that starting research token to the game box.",
-    "finalNotes": "The bot does not need a player board, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box."
+    "finalNotes": "The bot does not need a player board, the app will manage the Automa cards and automatically count the helium and research levels. Also leave all starting action cards of the bot's player color and any spare single energy cards in the game box.",
+    "heliumBonus": {
+      "title": "Set Helium Bonus",
+      "introduction": "In case you have drawn a starting research token for Luna with Helium bonus, enter the bonus here:",
+      "heliumNone": "None",
+      "heliumCount": "{count} Helium"
+    }
   },
   "turnPlayer": {
     "title": "Player | Player {player}",
