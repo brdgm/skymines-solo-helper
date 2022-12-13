@@ -1,0 +1,218 @@
+{
+  "gameTitle": "Skymines",
+  "home": {
+    "title": "Skymines Assitant Solo",
+    "play1": "Joue contre Luna, l'oppososant du mode solo <a href='https://boardgamegeek.com/boardgame/359438/skymines' target='_blank' rel='noopener'><b>Skymines</b></a>.",
+    "play2": "Cette application remplace les cartes LUNA ainsi que son plateau",
+    "feedback": "Discussions et retours:"
+  },
+  "setup": {
+    "title": "Paramètres de jeu",
+    "players": {
+      "title": "Joueur",
+      "playerCount": "Joueur humain",
+      "playerCountItem": "{count} Joueur | {count} Joueurs",
+      "playerColor": "Couleur du joueur | Player {index} Color",
+      "playerBonusMarkers": "Chaque joueur humain prend <b>{count} pions bonus</b>.",
+      "botCount": "Luna Bots",
+      "botCountItem": "{count} Luna Bot | {count} Luna Bots",
+      "botColor": "Luna Couleur | Luna {index} Couleur"
+    },
+    "difficultyLevel": {
+      "title": "Niveaux de difficulté",
+      "easy": "Facile",
+      "hard": "Difficile"
+    }
+  },
+  "setupLuna": {
+    "title": "Préparation de Luna",
+    "forEach": "Pour chaque bot Luna, préparez une place spécifique avec:",
+    "playerToken": "Le <b>jeton</b> avec la couleur de l'automate.",
+    "coinsBonusMarkers": "<b>1 CrypCoin</b> et <b> les 5 pions bonus</b>.",
+    "trackMarkers": "Prends les <b>4 marqueurs de parts</b> et mets en un à l'emplacement 0 de chaque piste de compagnie",
+    "startingBonus": "Prends une des tuiles <b>recherche de départ</b> au hasard et applique son effet sur la piste de la compagnie désignée. Retourne le jeton de départ dans la boite de jeu.",
+    "finalNotes": "Luna n'a pas besoin d'un plateu joueur, l'application va gérer automatiquement les cartes LUNA ainsi que le comptage des niveaux d'Helium et de recherche. Les cartes actions initiales ainsi que la carte energie initiale ne sont pas utilisées par LUNA et peuvent rester dans la boite ."
+  },
+  "turnPlayer": {
+    "title": "Joueur | Player {player}",
+    "makeTurn": "Prépare ton tour.",
+    "playerStatus": {
+      "turn": "Tour {round}-{turn}",
+      "majorities": "Majorités de Luna",
+      "scientist": "Scientifique",
+      "titanium": "Titane",
+      "carbon": "Carbone",
+      "energy": "Energie",
+      "minerals": "Mineraux",
+      "claimFirstPlayer": "Devenir le premier joueur"
+    },
+    "pass":{
+      "title": "Passer: Abandon de la phase d'action",
+      "step1": "Tourne les cartes retournées pour qu'elles soient de nouveaux visibles",
+      "step2": "Choisis <b>exactement 1</b> pile de défausse",
+      "step3": "Ensuite, vide ton emplacement action en déplacant chaque carte depuis tes emplacemets actions vers <b>different</b> resting slot of your choice.",
+      "step4": "Enfin retourne les tuiles bonus vers le plateau"
+    }
+  },
+  "turnBot": {
+    "title": "Luna | Luna {bot}",
+    "botStatus": {
+      "turn": "Tour {round}-{turn}",
+      "helium": "Helium",
+      "research": "Recherche",
+      "slot": "Slot {slot}"
+    },
+    "action": {
+      "lunaGains": "Luna gagne:",
+      "advanceCompany": {
+        "most-valuable": "la piste compagnie la <b>plus rentable</b> ",
+        "most-valuable-two-each": "sur chacune des 2 pistes compagnie <b>les plus rentables</b> ",
+        "second-most-valuable": "sur la <b>deuxième/b> piste la plus rentable",
+        "least-valuable": "sur la <b>moins rentable</b> piste compagnie",
+        "lead-biggest-margin": "Sur la piste compagnie sur laquelle LUNA mène avec <b>le plus grand écart</b>",
+        "lead-biggest-margin-two-each": "Sur chacunes des <b>2 pistes compagnie</b> sur lesquelles LUNA mène par le plus grand <b>écart</b>",
+        "all-four-each": "sur chacune des <b>4 pistes compagnie</b>",
+        "help": {
+          "title": "Avance sur la piste compagnie",
+          "instruction": "Déplace mon marqueur de piste sur la piste compagnie nommé <i>ci-dessous</i>.",
+          "rulesHint": "Gardez les règles suivantes à l'esprit:",
+          "hint1": "A chaque fois qu'un de mes marqueurs de piste (ou l'un des votres) franchit un jalon, la récompense en CrypCoin est distribuée comme d'habitude.",
+          "hint2": "Quand mon marqueur de piste traverse une barrière payante, je paie de ma réserve. Si je n'ai pas assez de CrypCoin, je dépense tout ce que j'ai et je continue d'avancer.",
+          "hint3": "A partir du moment où j'ai atteind la fin d'une piste: pour chaque mouvement supplémentaire de mon marqueur, je gagne 2 CrypCoin ",
+          "hint4": "Les bonus des pistes compagnie ne sont pas utilisé par Luna.",
+          "mostValuable": "La<b>piste dompagnie la plus rentable</b> est celle dont la station possède le plus de pièces découvertes.",
+          "tied": "Quand les piste compagnie sont à égalité en valeur, celle qui a le plus de station vacante est considérée comme la plus rentable. Si l'égalité persiste, c'est la lettre de désignation de la piste qui sert à départager en utilisant l'ordre alphabétique.",
+          "biggestMargin": "Je <b>mène par le plus grand écart</b> sur la piste compagnie où il y a le plus d'écart entre mon marqueur et celui du deuxième joueur (Les péages ne sont pas des cases). Si je mène sur aucune piste c'est celle où je partage l'égalité. Si je suis derrière sur toutes les pistes, c'est celle où j'ai le moins de retard. Les égalités sont départagés par la valeur de la compagnie: je prends celle qui a le plus de valeur",
+          "farthestBehind": "Je suis le <b>plus loin derrière</b> sur la piste où il y a le plus d'écart entre mon marqueur et celui du joueur qui mène. Si je ne suis pas derrière sur aucune piste, cela désigne la piste où je partage la première place ou celle où je mène avec le plus petit écart avec le second . Les égalités sont départagés par la valeur de la compagnie: je prends celle qui a le plus de valeur."
+        }
+      },
+      "discardResearchPlan": {
+        "discard": "Luna défausse un <b>{plan}-plan de recherche</b>:",
+        "discardFirstCol": "Luna défausse un <b>{plan}-plan de recherche</b>; Luna gagne le CrypCoin sur la case de prime",
+        "discardSpecial": "Luna défausse le <b>dernier plan de recherche spécial apparu </b>.",
+        "help": {
+          "title": "Défausse un jeton de recherche",
+          "instruction": "Quand je défausse des plans de recherche, je les enlève du jeu à partir des emplacements désignés. Après cela, je remplie comme d'habitude les espaces laissés vides.",
+          "specialResearchPlan": "Quand je dois défausser le dernier <b>plan de recherhce spécial</b> cela désigne le plan de récherche spécial de la manche en cours. si il n'est plus disponible, je ne défausse rien"
+        }
+      },
+      "expandCompany": {
+        "expand": "Alors elle étend cette compagnie",
+        "min": "MIN",
+        "max": "MAX",
+        "help": {
+          "title": "Expansion de la compagnie",
+          "instruction": "Quand une action me demande d'étendre una compagnie, sa carte me donne le nombre de point d'expansion et la désignation de la compagnie à étendre. Ma façon de s'étendre dépend du plateau de jeu où je me trouve: <i>(voir ci dessous)</i>.",
+          "rulesHint": "Notes importantes:",
+          "hint1": "Pour être plus clair, une seule colonne de chaque station est considérée comme <b>la colonne principale</b>, Celle ci est définie ci -après: C'est la colonne qui contient le moins de succursales si l'emplacement final n'est pas vide (celui qui contient 2 pièces) . Si cette emplacement final est vide, c'est la colonne avec le plus d'espace vide qui montre le moins de pièces. Les égalités sont départagés en faveur de la colonne la plus près du logo de la compagnie.",
+          "hint2": "Je ne gagne jamais les récompenses associées à un secteur/navette.",
+          "hint3": "Si une compagnie ne peut pas s'étendre de manière régulière, alors ces points d'expension sont abandonnés.",
+          "moon": {
+            "title": "Côté lune",
+            "rulesHint": "Pour chaque point d'extension, place une succursale de la compagnie qui s'étend de la manière suivante :",
+            "hint1": "Prend une succursale de la colonne principale et place là sur le secteur en suivant les régles suivantes:",
+            "hint2": "Le secteur doit être atteignable. C'est à dire, il doit être adjacent à une autre succursale ou à la station de la compagnie qui s'étend. (La double et la simple frontière n'ont pas d'effet pour moi)",
+            "hint3": "Si le symbole d'expension présente un MIN, le secteur doit être le secteur atteignable <b>vide</b> avec le plus petit numéro.",
+            "hint4": "Si le symbole d'expension présente un MAX, le secteur doit être le secteur atteignable <b>vide</b> avec le plus grand numéro.",
+            "hint5": "Si il n'y a plus de secteur atteignable vide , choisis le secteur avec le plus petit (MIN) / plus grand (MAX) numéro qui contient une succursale de la compagnie sur laquelle je suis le plus loin derrière. Comme d'habitude les succursales sont renvoyés dans leur station dans l'espace le plus bas de leur colonne principale."
+          }, 
+          "belt": {
+            "title": "Coté ceinture d'astéroides",
+            "rulesHint": "Pour chaque point d'extension, place une succursale/navette de la compagnie qui s'étend de la manière suivante :",
+            "hint1": "D'abord, determine l'emplacement <b>vide</b> de la compagnie qui s'étend. La cible doit être soit un espace navette libre soit un asteroide ou la compagnie qui s'étend n'a pas encore de succursale et possède un espace de libre.",
+            "hint2": "A partir de ça, choisis l'espace avec le plus petit nombre (MIN). Si il y a MAX, choisis celui avec le plus grand nombre.",
+            "hint3": "Si la cible est un espace navette, prend la première navette disponible de la station. (Si il n'y a plus de navette alors on considère un astéroide)",
+            "hint4": "Si la cible est un astéroide, prend la première succursale de la colonne principale and place et met la sur l'espace vacant",
+            "hint5": "Si il n'y aucun emplacement qui répond à ces critères, place la succursale sur l'espace <b>vide</b> d'un astéroide. Prends le plus petit numéro (MIN) ou le plus grand (MAX) de l'asteroide qui contient déjà une succursale.",
+            "hint6": "Si il n'y a plus de secteur atteignable vide , choisis le secteur avec le plus petit (MIN) / plus grand (MAX) numéro qui contient une succursale de la compagnie sur laquelle je suis le plus loin derrière. Comme d'habitude les succursales sont renvoyés dans leur station dans l'espace le plus bas de leur colonne principale."
+          }
+        }
+      },
+      "gainCard": {
+        "matchSlot": "Luna gagne les cartes suivantes:",
+        "mostValuableShare": "Luna gagne la carte avec <b>la part dont la valeur est la plus grande</b> (if there are more than one, the one from the space with the lowest number).",
+        "help": {
+          "title": "Gagne des cartes",
+          "instruction": "Quand une action me permet de gagner des cartes, prends les cartes désignés et mets les dans ma réserve.",
+          "hint1": "Acheter des cartes ne me coute rien.",
+          "hint2": "Je ne gagne pas de carte si l'espace désignée est vide",
+          "hint3": "Les cartes actions gagné reste dans ma réserve jusqu'à la fin de la partie et au décompte du score",
+          "hint4": "Quand je gagnge la carte avec la <b>part la plus rentable</b> cela signifie: Donne moi la carte qui présente une part supplémentaire qui appartient à la compagnie la plus rentable. Si cela désigne plusieurs carte: donne moi celle sur l'emplacement avec le numéro le plus petit. Si il n'y a pas de carte avec une part supplémentaire de la compagnie la plus rentable: je ne gagne rien."
+        }
+      },
+      "gainCoin": {
+        "help": {
+          "title": "Gagne CrypCoin",
+          "instruction": "Ajoute cette somme de CrypCoin depuis la banque vers ma réserve"
+        }
+      },
+      "placeBonusMarker": {
+        "place": "Luna place un pion bonus:",
+        "help": {
+          "title": "Place un pion bonus",
+          "instruction": " Quand une action me fait placer un marqueur bonus: Prendre le marqueur bonus depuis ma réserve et place le sur l'emplacement désigné par la carte.",
+          "hint1": "Placer un pion bonus ne me coute rien et ne rapporte rien",
+          "hint2": "Si l'espace bonus est déjà occupé, ne place pas dessus de pion bonus."
+        }
+      }
+    }
+  },
+  "endOfRound": {
+    "title": "Preparation de la manche {round}",
+    "flipSpecialResearchTile": "Retoune le jeton de recherche spécial",
+    "returnBonusMarkers": "Chaque joueurs reprend ses jetons bonus (et aussi les éventuelles tuiles bonus)",
+    "fillUpCardDisplay": "Défausse les cartes de la dernière colonnes et remplit la rivière de cartes",
+    "planningPhase": "Réalise la phase de planification"
+  },
+  "endOfGame": {
+    "title": "End of Game",
+    "introduction": "Compte les parts de compagnie de chaque joueurs et de LUNA. N'oublie pas les parts sur les cartes achetées",
+    "scoring": {
+      "companyValueTitle": "Valeur de la compagnie",
+      "scoringTitle": "Scores",
+      "shareValue": "Valeur de la part",
+      "shareCount": "Nombre de parts",
+      "crypCoin": "CrypCoin",
+      "heliumCoin": "Helium CrypCoin",
+      "researchCoin": "Research CrypCoin",
+      "totalCoin": "Total"
+    }
+  },
+  "standaloneScoring": {
+    "title": "Skymines Scoring",
+    "introduction": "Compte les parts de compagnie de chaque joueurs. N'oublie pas les parts sur les cartes achetées"
+  },
+  "difficultyLevel": {
+    "0": "Level 0 - Facile",
+    "1": "Level 1 - Facile",
+    "2": "Level 2 - Standard",
+    "3": "Level 3 - Compliqué",
+    "4": "Level 4 - Compliqué",
+    "5": "Level 5 - Compliqué",
+    "6": "Level 6 - Compliqué",
+    "7": "Level 7 - Compliqué",
+    "8": "Level 8 - Compliqué"
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Commencer une partie",
+    "startGame": "Début du jeu",
+    "next": "Suivant",
+    "nextRound": "Manche suivante",
+    "abortGame": "Quitter le jeu",
+    "abortGameConfirm": "Etes vous sur de quitter cette partie ?",
+    "endGame": "Fin du jeu",
+    "endGameConfirm": "Etes vous sur de quitter cette partie et de revenir à l'écran titre?",
+    "cancel": "Annuler",
+    "backToHome": "Back to Home",
+    "back": "Précédent",
+    "close": "Fermer",
+    "reset": "Recommencer",
+    "pass": "Passer"
+  },
+  "footer": {
+    "credits": "Credits"
+  }
+}
