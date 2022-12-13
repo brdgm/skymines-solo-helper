@@ -17,7 +17,7 @@
       "playerBonusMarkers": "Chaque joueur humain prend <b>{count} pions bonus</b>.",
       "botCount": "Luna Bots",
       "botCountItem": "{count} Luna Bot | {count} Luna Bots",
-      "botColor": "Luna Couleur | Luna {index} Color"
+      "botColor": "Luna Couleur | Luna {index} Couleur"
     },
     "difficultyLevel": {
       "title": "Niveaux de difficulté",
@@ -105,27 +105,27 @@
           "title": "Expansion de la compagnie",
           "instruction": "Quand une action me demande d'étendre una compagnie, sa carte me donne le nombre de point d'expansion et la désignation de la compagnie à étendre. Ma façon de s'étendre dépend du plateau de jeu où je me trouve: <i>(voir ci dessous)</i>.",
           "rulesHint": "Notes importantes:",
-          "hint1": "Pour être plus clair, une seule colonne de chaque station est considérée comme <b>la colonne principale</b>, Celle ci est définie ci -après: It is the column for outposts that has the most vacant home spaces but whose final home space (which shows 2 coin icons) is not vacant. Only if the final home spaces of all columns are vacant, it is instead the one with the most vacant home spaces that also shows the fewest coin icons. Any ties are broken in favor of the column that is closer to its company logo on the board.",
-          "hint2": "I never gain the rewards of the sectors/Belt spaces that are entered on my turn.",
-          "hint3": "If a company cannot be expanded because its station has no outposts/shuttles left that can be placed regularly, its expansion points are forfeited.",
+          "hint1": "Pour être plus clair, une seule colonne de chaque station est considérée comme <b>la colonne principale</b>, Celle ci est définie ci -après: C'est la colonne qui contient le moins de succursales si l'emplacement final n'est pas vide (celui qui contient 2 pièces) . Si cette emplacement final est vide, c'est la colonne avec le plus d'espace vide qui montre le moins de pièces. Les égalités sont départagés en faveur de la colonne la plus près du logo de la compagnie.",
+          "hint2": "Je ne gagne jamais les récompenses associées à un secteur/navette.",
+          "hint3": "Si une compagnie ne peut pas s'étendre de manière régulière, alors ces points d'expension sont abandonnés.",
           "moon": {
             "title": "Côté lune",
-            "rulesHint": "For each expansion point, place 1 outpost from the station of the expanding company on the Moon as follows:",
-            "hint1": "Take the top outpost from the expanding company’s main outpost column and place it in the sector defined by the following rules:",
-            "hint2": "The sector must be reachable. This means, it must be adjacent to either the expanding company’s station or to any sector that has an outpost of the expanding company in it. (It doesn’t matter if it’s reachable via a single or a double line.)",
-            "hint3": "If the expansion point symbol shows a MIN, it must be the reachable <b>vacant</b> sector with the lowest sector number.",
-            "hint4": "If the expansion point symbol shows a MAX, it must be the reachable <b>vacant</b> sector with the highest sector number.",
-            "hint5": "If none of the reachable sectors is vacant, choose from them the sector with the lowest (MIN) / highest (MAX) sector number that contains an outpost of the reachable company on whose track I’m farthest behind. As usual, oust the existing outpost back to its station, placing it on the lowest vacant home space of its main outpost column."
-          },
+            "rulesHint": "Pour chaque point d'extension, place une succursale de la compagnie qui s'étend de la manière suivante :",
+            "hint1": "Prend une succursale de la colonne principale et place là sur le secteur en suivant les régles suivantes:",
+            "hint2": "Le secteur doit être atteignable. C'est à dire, il doit être adjacent à une autre succursale ou à la station de la compagnie qui s'étend. (La double et la simple frontière n'ont pas d'effet pour moi)",
+            "hint3": "Si le symbole d'expension présente un MIN, le secteur doit être le secteur atteignable <b>vide</b> avec le plus petit numéro.",
+            "hint4": "Si le symbole d'expension présente un MAX, le secteur doit être le secteur atteignable <b>vide</b> avec le plus grand numéro.",
+            "hint5": "Si il n'y a plus de secteur atteignable vide , choisis le secteur avec le plus petit (MIN) / plus grand (MAX) numéro qui contient une succursale de la compagnie sur laquelle je suis le plus loin derrière. Comme d'habitude les succursales sont renvoyés dans leur station dans l'espace le plus bas de leur colonne principale."
+          }, 
           "belt": {
             "title": "Coté ceinture d'astéroides",
-            "rulesHint": "For each expansion point, place 1 outpost/shuttle from the station of the expanding company on a Belt space as follows:",
-            "hint1": "First, determine the next <b>vacant</b> target within reach of the expanding company. That target must be either a vacant shuttle space or an asteroid where the expanding company has no outpost yet and that has at least one vacant outpost space.",
-            "hint2": "From these, choose the one with the lowest target number if the expansion point symbol shows a MIN. If it shows a MAX, choose the one with the highest target number.",
-            "hint3": "If that target is a shuttle space, take the top shuttle from the company’s station and place it on that space. (If there is no shuttle left in its column, the target must be an asteroid.)",
-            "hint4": "If the target is an asteroid, take the top outpost from the main outpost column and place it on any vacant outpost space of that asteroid.",
-            "hint5": "If there is no target that matches the above criteria, place the outpost on any <b>vacant</b> outpost space of the asteroid with the lowest (MIN) / highest (MAX) target number which already has outposts of the expanding company on it.",
-            "hint6": "If there is no vacant Belt space within reach at all, determine which shuttles and outposts are within reach that belong to the reachable company on whose track I’m farthest behind. Of these shuttles and outposts, choose the one with the lowest ( MIN ) / highest ( MAX ) target number and oust it back to its station per the usual rules. Ousted outposts must be placed on the lowest vacant home space of their main outpost column."
+            "rulesHint": "Pour chaque point d'extension, place une succursale/navette de la compagnie qui s'étend de la manière suivante :",
+            "hint1": "D'abord, determine l'emplacement <b>vide</b> de la compagnie qui s'étend. La cible doit être soit un espace navette libre soit un asteroide ou la compagnie qui s'étend n'a pas encore de succursale et possède un espace de libre.",
+            "hint2": "A partir de ça, choisis l'espace avec le plus petit nombre (MIN). Si il y a MAX, choisis celui avec le plus grand nombre.",
+            "hint3": "Si la cible est un espace navette, prend la première navette disponible de la station. (Si il n'y a plus de navette alors on considère un astéroide)",
+            "hint4": "Si la cible est un astéroide, prend la première succursale de la colonne principale and place et met la sur l'espace vacant",
+            "hint5": "Si il n'y aucun emplacement qui répond à ces critères, place la succursale sur l'espace <b>vide</b> d'un astéroide. Prends le plus petit numéro (MIN) ou le plus grand (MAX) de l'asteroide qui contient déjà une succursale.",
+            "hint6": "Si il n'y a plus de secteur atteignable vide , choisis le secteur avec le plus petit (MIN) / plus grand (MAX) numéro qui contient une succursale de la compagnie sur laquelle je suis le plus loin derrière. Comme d'habitude les succursales sont renvoyés dans leur station dans l'espace le plus bas de leur colonne principale."
           }
         }
       },
@@ -134,7 +134,7 @@
         "mostValuableShare": "Luna gagne la carte avec <b>la part dont la valeur est la plus grande</b> (if there are more than one, the one from the space with the lowest number).",
         "help": {
           "title": "Gagne des cartes",
-          "instruction": "Whenever an action lets me gain cards, take the designated card(s) from the card display and place them in a face-down stack in my reserve.",
+          "instruction": "Quand une action me permet de gagner des cartes, prends les cartes désignés et mets les dans ma réserve.",
           "hint1": "Acheter des cartes ne me coute rien.",
           "hint2": "Je ne gagne pas de carte si l'espace désignée est vide",
           "hint3": "Les cartes actions gagné reste dans ma réserve jusqu'à la fin de la partie et au décompte du score",
