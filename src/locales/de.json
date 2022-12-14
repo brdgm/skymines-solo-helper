@@ -104,6 +104,7 @@
       },
       "expandCompany": {
         "expand": "Dann breitet sich dieses Unternehmen aus:",
+        "expandMultiple": "Dann breiten sich diese Unternehmen aus:<br/>(das weniger wertvolle zuerst)",
         "min": "MIN",
         "max": "MAX",
         "help": {
@@ -220,5 +221,9 @@
   },
   "footer": {
     "credits": "Credits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Applikation neu laden",
+    "notice": "Die Applikation wurde aktualisiert - möchtest du die Seite neu laden um die neueste Version zu nutzen?"
   }
 }

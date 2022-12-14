@@ -155,6 +155,7 @@ const cards = [
       {
         action: Action.EXPAND_COMPANY,
         count: 2,
+        companySelection: CompanySelection.LEAD_BIGGEST_MARGIN,
         sectorSelection: SectorSelection.MIN
       }
     ]
@@ -173,6 +174,7 @@ const cards = [
       {
         action: Action.EXPAND_COMPANY,
         count: 2,
+        companySelection: CompanySelection.LEAD_BIGGEST_MARGIN,
         sectorSelection: SectorSelection.MAX
       }
     ]
@@ -248,6 +250,7 @@ const cards = [
       {
         action: Action.EXPAND_COMPANY,
         count: 3,
+        companySelection: CompanySelection.LEAST_VALUABLE,
         sectorSelection: SectorSelection.MAX
       }
     ]
@@ -380,6 +383,7 @@ const cards = [
       {
         action: Action.EXPAND_COMPANY,
         count: 3,
+        companySelection: CompanySelection.LEAD_BIGGEST_MARGIN,
         sectorSelection: SectorSelection.MAX
       }
     ]
@@ -500,6 +504,7 @@ const cards = [
       {
         action: Action.EXPAND_COMPANY,
         count: 2,
+        companySelection: CompanySelection.LEAD_BIGGEST_MARGIN_TWO_EACH,
         sectorSelection: SectorSelection.MIN
       }
     ]
