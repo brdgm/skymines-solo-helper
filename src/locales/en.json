@@ -104,6 +104,7 @@
       },
       "expandCompany": {
         "expand": "Then she expands that company:",
+        "expandMultiple": "Then she expands each of these companies:<br/>(starting with the less valuable)",
         "min": "MIN",
         "max": "MAX",
         "help": {

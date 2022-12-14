@@ -1,6 +1,7 @@
 <template>
   <div class="actionBox col" data-bs-toggle="modal" data-bs-target="#modalExpandCompanyHelp">
-    <span v-html="t('turnBot.action.expandCompany.expand')"></span>
+    <span v-if="isMultipleCompanies" v-html="t('turnBot.action.expandCompany.expandMultiple')"></span>
+    <span v-else v-html="t('turnBot.action.expandCompany.expand')"></span>
     <div class="expand">
       <AppIcon type="action" name="expand-company" class="icon"/>
       <div class="value">{{action.count}}</div>
@@ -72,6 +73,7 @@
 
 <script lang="ts">
 import { CardAction } from '@/services/Card'
+import CompanySelection from '@/services/enum/CompanySelection'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../../structure/AppIcon.vue'
@@ -93,6 +95,12 @@ export default defineComponent({
     cardSlot: {
       type: String,
       required: true
+    }
+  },
+  computed: {
+    isMultipleCompanies() : boolean {
+      return this.action.companySelection == CompanySelection.LEAD_BIGGEST_MARGIN_TWO_EACH
+          ||this.action.companySelection == CompanySelection.MOST_VALUABLE_TWO_EACH
     }
   }
 })
