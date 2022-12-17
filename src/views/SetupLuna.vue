@@ -17,38 +17,27 @@
     {{t('action.startGame')}}
   </button>
 
-  <div class="modal" tabindex="-1" id="modalLunaHeliumStartBonus">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">{{t('setupLuna.heliumBonus.title')}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
-        </div>
-        <div class="modal-body">
-          <p v-html="t('setupLuna.heliumBonus.introduction')"></p>
-          <p v-for="bot in botCount" :key="bot" class="ms-3">
-            <PlayerColorIcon :playerColor="playerColors[playerCount+bot-1]" class="playerIcon"/>
-            <span class="fw-bold">{{t('turnBot.title', {bot:bot}, botCount)}}</span>
-            <span class="form-check form-check-inline ms-4">
-              <input class="form-check-input" type="radio" :id="`inputHeliumBonus${bot}-0`" :value="undefined" v-model="lunaHeliumBonus[bot-1]">
-              <label class="form-check-label" :for="`inputHeliumBonus${bot}-0`">{{t('setupLuna.heliumBonus.heliumNone')}}</label>
-            </span>
-            <span class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" :id="`inputHeliumBonus${bot}-1`" :value="1" v-model="lunaHeliumBonus[bot-1]">
-              <label class="form-check-label" :for="`inputHeliumBonus${bot}-1`">{{t('setupLuna.heliumBonus.heliumCount',{count:1})}}</label>
-            </span>
-            <span class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" :id="`inputHeliumBonus${bot}-2`" :value="2" v-model="lunaHeliumBonus[bot-1]">
-              <label class="form-check-label" :for="`inputHeliumBonus${bot}-2`">{{t('setupLuna.heliumBonus.heliumCount',{count:2})}}</label>
-            </span>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ModalDialog id="modalLunaHeliumStartBonus" :title="t('setupLuna.heliumBonus.title')" :size-lg="true">
+    <template #body>
+      <p v-html="t('setupLuna.heliumBonus.introduction')"></p>
+      <p v-for="bot in botCount" :key="bot" class="ms-3">
+        <PlayerColorIcon :playerColor="playerColors[playerCount+bot-1]" class="playerIcon"/>
+        <span class="fw-bold">{{t('turnBot.title', {bot:bot}, botCount)}}</span>
+        <span class="form-check form-check-inline ms-4">
+          <input class="form-check-input" type="radio" :id="`inputHeliumBonus${bot}-0`" :value="undefined" v-model="lunaHeliumBonus[bot-1]">
+          <label class="form-check-label" :for="`inputHeliumBonus${bot}-0`">{{t('setupLuna.heliumBonus.heliumNone')}}</label>
+        </span>
+        <span class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" :id="`inputHeliumBonus${bot}-1`" :value="1" v-model="lunaHeliumBonus[bot-1]">
+          <label class="form-check-label" :for="`inputHeliumBonus${bot}-1`">{{t('setupLuna.heliumBonus.heliumCount',{count:1})}}</label>
+        </span>
+        <span class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" :id="`inputHeliumBonus${bot}-2`" :value="2" v-model="lunaHeliumBonus[bot-1]">
+          <label class="form-check-label" :for="`inputHeliumBonus${bot}-2`">{{t('setupLuna.heliumBonus.heliumCount',{count:2})}}</label>
+        </span>
+      </p>
+    </template>
+  </ModalDialog>
 
   <FooterButtons backButtonRouteTo="/setupGame" endGameButtonType="abortGame"/>
 </template>
@@ -60,12 +49,14 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import InitialLunaStates from '@/services/InitialLunaStates'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
+import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'SetupLuna',
   components: {
     FooterButtons,
-    PlayerColorIcon
+    PlayerColorIcon,
+    ModalDialog
   },
   setup() {
     const { t } = useI18n()

@@ -18,28 +18,19 @@
     </template>
   </div>
 
-  <div class="modal" tabindex="-1" id="modalGainCardHelp">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">{{t('turnBot.action.gainCard.help.title')}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
-        </div>
-        <div class="modal-body">
-          <p v-html="t('turnBot.action.gainCard.help.instruction')"></p>
-          <ul>
-            <li v-html="t('turnBot.action.gainCard.help.hint1')"></li>
-            <li v-html="t('turnBot.action.gainCard.help.hint2')"></li>
-            <li v-html="t('turnBot.action.gainCard.help.hint3')"></li>
-            <li v-html="t('turnBot.action.gainCard.help.hint4')"></li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ModalDialog id="modalGainCardHelp" :title="t('turnBot.action.gainCard.help.title')"
+      :size-lg="true" :scrollable="true">
+    <template #body>
+      <p v-html="t('turnBot.action.gainCard.help.instruction')"></p>
+      <ul>
+        <li v-html="t('turnBot.action.gainCard.help.hint1')"></li>
+        <li v-html="t('turnBot.action.gainCard.help.hint2')"></li>
+        <li v-html="t('turnBot.action.gainCard.help.hint3')"></li>
+        <li v-html="t('turnBot.action.gainCard.help.hint4')"></li>
+      </ul>
+    </template>
+  </ModalDialog>
+
 </template>
 
 <script lang="ts">
@@ -49,6 +40,7 @@ import Slot from '@/services/enum/Slot'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../../structure/AppIcon.vue'
+import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'GainCard',
@@ -57,7 +49,8 @@ export default defineComponent({
     return { t }
   },
   components: {
-    AppIcon
+    AppIcon,
+    ModalDialog
   },
   props: {
     action: {

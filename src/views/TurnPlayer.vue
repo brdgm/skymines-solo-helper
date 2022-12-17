@@ -17,28 +17,20 @@
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 
-  <div class="modal" tabindex="-1" id="modalPassInfo">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">{{t('turnPlayer.pass.title')}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
-        </div>
-        <div class="modal-body">
-          <ul>
-            <li v-html="t('turnPlayer.pass.step1')"></li>
-            <li v-html="t('turnPlayer.pass.step2')"></li>
-            <li v-html="t('turnPlayer.pass.step3')"></li>
-            <li v-html="t('turnPlayer.pass.step4')"></li>
-          </ul>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="pass()">{{t('action.pass')}}</button>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ModalDialog id="modalPassInfo" :title="t('turnPlayer.pass.title')">
+    <template #body>
+      <ul>
+        <li v-html="t('turnPlayer.pass.step1')"></li>
+        <li v-html="t('turnPlayer.pass.step2')"></li>
+        <li v-html="t('turnPlayer.pass.step3')"></li>
+        <li v-html="t('turnPlayer.pass.step4')"></li>
+      </ul>
+    </template>
+    <template #footer>
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="pass()">{{t('action.pass')}}</button>
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
+    </template>
+  </ModalDialog>
 
 </template>
 
@@ -52,13 +44,15 @@ import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import PlayerNavigationState from '@/util/PlayerNavigationState'
 import PlayerStatus from '@/components/turn/PlayerStatus.vue'
+import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'TurnPlayer',
   components: {
     FooterButtons,
     PlayerColorIcon,
-    PlayerStatus
+    PlayerStatus,
+    ModalDialog
   },
   setup() {
     const { t } = useI18n()
