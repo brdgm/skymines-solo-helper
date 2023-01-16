@@ -97,7 +97,8 @@ export default class CardDeck {
     }
     const newCard = this._pile.shift()
     if (!newCard) {
-      throw new Error('No card left in pile and discard.')
+      throw new Error(`No card left in pile and discard.\n
+        Debug Info: ${JSON.stringify(this.toPersistence())}`)
     }
     return newCard
   }

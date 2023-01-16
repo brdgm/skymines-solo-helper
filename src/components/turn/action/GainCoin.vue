@@ -7,22 +7,12 @@
     </div>
   </div>
 
-  <div class="modal" tabindex="-1" id="modalGainCoinHelp">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">{{t('turnBot.action.gainCoin.help.title')}}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
-        </div>
-        <div class="modal-body">
-          <p v-html="t('turnBot.action.gainCoin.help.instruction')"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ModalDialog id="modalGainCoinHelp" :title="t('turnBot.action.gainCoin.help.title')">
+    <template #body>
+      <p v-html="t('turnBot.action.gainCoin.help.instruction')"></p>
+    </template>
+  </ModalDialog>
+
 </template>
 
 <script lang="ts">
@@ -30,11 +20,13 @@ import { CardAction } from '@/services/Card'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../../structure/AppIcon.vue'
+import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'GainCoin',
   components: {
-    AppIcon
+    AppIcon,
+    ModalDialog
   },
   setup() {
     const { t } = useI18n()
