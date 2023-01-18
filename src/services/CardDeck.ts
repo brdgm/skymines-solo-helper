@@ -80,10 +80,10 @@ export default class CardDeck {
   }
 
   /**
-   * Has cards drawn.
+   * Has cards drawn (in slots or majority slots).
    */
   public get hasCardsDrawn() : boolean {
-    return this._slots.length > 0
+    return this._slots.length > 0 || this._leftMajoritySlot != undefined || this._rightMajoritySlot != undefined
   }
 
   /**
