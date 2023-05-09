@@ -1,7 +1,10 @@
 <template>
   <h1>{{t('endOfGame.title')}}</h1>
 
-  <p v-html="t('endOfGame.introduction')"></p>
+  <p>
+    <span v-html="t('endOfGame.introduction')"></span><br>
+    {{t('setup.difficultyLevel.title')}}: <strong>{{t(`difficultyLevel.${$store.state.setup.difficultyLevel}`)}}</strong>
+  </p>
 
   <FinalScoring/>
 
