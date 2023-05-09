@@ -68,6 +68,10 @@ export default defineComponent({
   filter: drop-shadow(0.1rem 0.1rem 0.2rem #888);
   padding: 1rem;
   cursor: pointer;
+  background-image: url('@/assets/icons/help-semi-transparent.png');
+  background-repeat: no-repeat;
+  background-position: right 5px top 5px;
+  background-size: 1.25rem;
 }
 .modal.show {
   z-index: 10000;  /* fix: show above footer buttons */
