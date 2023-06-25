@@ -1,7 +1,7 @@
-import { State } from "@/store"
-import getPlayerOrder from "@/util/getPlayerOrder"
-import getTurnOrder, { MAX_TURN } from "@/util/getTurnOrder"
-import FirstPlayerDetector from "./FirstPlayerDetector"
+import { State } from '@/store'
+import getPlayerOrder from '@/util/getPlayerOrder'
+import getTurnOrder, { MAX_TURN } from '@/util/getTurnOrder'
+import FirstPlayerDetector from './FirstPlayerDetector'
 
 /**
  * Calculate routes for next/back respecting "passed" state of players/bots.

@@ -1,8 +1,8 @@
-import DifficultyLevel from "@/services/enum/DifficultyLevel"
-import LunaState from "@/services/LunaState"
-import { State } from "@/store"
-import { Store } from "vuex"
-import getLastTurn from "../util/getLastTurn"
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import LunaState from '@/services/LunaState'
+import { State } from '@/store'
+import { Store } from 'vuex'
+import getLastTurn from '../util/getLastTurn'
 
 /**
  * Prepares Luna states for new round.

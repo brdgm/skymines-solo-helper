@@ -1,12 +1,12 @@
-import { CardDeckPersistence } from "@/store"
-import * as _ from "lodash"
-import Card, { CardAction } from "./Card"
-import Cards from "./Cards"
-import CardSlot from "./CardSlot"
-import DifficultyLevel from "./enum/DifficultyLevel"
-import Grade from "./enum/Grade"
-import MajorityType from "./enum/MajorityType"
-import Slot from "./enum/Slot"
+import { CardDeckPersistence } from '@/store'
+import * as _ from 'lodash'
+import Card, { CardAction } from './Card'
+import Cards from './Cards'
+import CardSlot from './CardSlot'
+import DifficultyLevel from './enum/DifficultyLevel'
+import Grade from './enum/Grade'
+import MajorityType from './enum/MajorityType'
+import Slot from './enum/Slot'
 
 /**
  * Luna Card Deck
