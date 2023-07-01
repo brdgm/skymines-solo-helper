@@ -1,9 +1,9 @@
-import { LunaStatePersistence } from "@/store"
-import { CardAction } from "./Card"
-import CardDeck from "./CardDeck"
-import Action from "./enum/Action"
-import DifficultyLevel from "./enum/DifficultyLevel"
-import Slot from "./enum/Slot"
+import { LunaStatePersistence } from '@/store'
+import { CardAction } from './Card'
+import CardDeck from './CardDeck'
+import Action from './enum/Action'
+import DifficultyLevel from './enum/DifficultyLevel'
+import Slot from './enum/Slot'
 
 /**
  * Luna State

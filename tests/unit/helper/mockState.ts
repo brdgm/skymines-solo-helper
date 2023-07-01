@@ -1,6 +1,6 @@
-import DifficultyLevel from "@/services/enum/DifficultyLevel";
-import PlayerColor from "@/services/enum/PlayerColor";
-import { Round, State } from "@/store";
+import DifficultyLevel from '@/services/enum/DifficultyLevel';
+import PlayerColor from '@/services/enum/PlayerColor';
+import { Round, State } from '@/store';
 
 export default function (params?: MockStateParams) : State {  
   return {

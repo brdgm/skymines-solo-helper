@@ -1,7 +1,7 @@
-import DifficultyLevel from "@/services/enum/DifficultyLevel"
-import { State } from "@/store"
-import { RouteLocation } from "vue-router"
-import PlayerColor from "@/services/enum/PlayerColor"
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import { State } from '@/store'
+import { RouteLocation } from 'vue-router'
+import PlayerColor from '@/services/enum/PlayerColor'
 
 export default abstract class AbstractNavigationState {
 

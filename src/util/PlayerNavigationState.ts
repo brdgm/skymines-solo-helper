@@ -1,11 +1,11 @@
-import { State } from "@/store"
-import { RouteLocation } from "vue-router"
-import PlayerColor from "@/services/enum/PlayerColor"
-import AbstractNavigationState from "./AbstractNavigationState"
-import LunaState from "@/services/LunaState"
-import getLunaState from "./getLunaState"
-import MajorityType from "@/services/enum/MajorityType"
-import FirstPlayerDetector from "@/services/FirstPlayerDetector"
+import { State } from '@/store'
+import { RouteLocation } from 'vue-router'
+import PlayerColor from '@/services/enum/PlayerColor'
+import AbstractNavigationState from './AbstractNavigationState'
+import LunaState from '@/services/LunaState'
+import getLunaState from './getLunaState'
+import MajorityType from '@/services/enum/MajorityType'
+import FirstPlayerDetector from '@/services/FirstPlayerDetector'
 
 export default class PlayerNavigationState extends AbstractNavigationState {
 

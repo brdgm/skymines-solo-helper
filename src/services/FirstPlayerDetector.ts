@@ -1,5 +1,5 @@
-import { State } from "@/store"
-import getTurnOrder, { TurnOrder } from "@/util/getTurnOrder"
+import { State } from '@/store'
+import getTurnOrder, { TurnOrder } from '@/util/getTurnOrder'
 
 /**
  * Determines which (human) player has the first player token.

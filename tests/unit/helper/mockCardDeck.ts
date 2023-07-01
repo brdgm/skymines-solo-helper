@@ -1,7 +1,7 @@
-import CardDeck from "@/services/CardDeck";
-import DifficultyLevel from "@/services/enum/DifficultyLevel";
-import Slot from "@/services/enum/Slot";
-import { CardSlotPersistence } from "@/store";
+import CardDeck from '@/services/CardDeck';
+import DifficultyLevel from '@/services/enum/DifficultyLevel';
+import Slot from '@/services/enum/Slot';
+import { CardSlotPersistence } from '@/store';
 
 export default function (params?: MockCardDeckParams) : CardDeck {  
   return CardDeck.fromPersistence({
