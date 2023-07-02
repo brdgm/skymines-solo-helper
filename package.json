@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/skymines-solo-helper",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "private": true,
   "description": "Skymines Solo Helper",
   "appDeployName": "skymines",
