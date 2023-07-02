@@ -3,8 +3,9 @@ import PlayerColor from '@/services/enum/PlayerColor'
 import Slot from '@/services/enum/Slot'
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
+import { name } from '@/../package.json'
 
-const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "store"
+const LOCALSTORAGE_KEY = `${name}.store`
 
 export interface State {
   language: string
