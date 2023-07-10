@@ -1,5 +1,6 @@
 # Skymines Solo Helper
 
+[![Build](https://github.com/brdgm/skymines-solo-helper/workflows/Build/badge.svg?branch=develop)](https://github.com/brdgm/skymines-solo-helper/actions?query=workflow%3ABuild+branch%3Adevelop)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=brdgm_skymines-solo-helper&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=brdgm_skymines-solo-helper)
 
 
