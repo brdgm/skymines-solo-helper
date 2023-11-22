@@ -15,7 +15,7 @@ export default function(state: State, round: number, turn: number, startPlayer: 
   const playerOrder = getPlayerOrder(playerCount, botCount, startPlayer)
   
   const currentRound = state.rounds.find(item => item.round==round)
-  const turns = currentRound?.turns || []
+  const turns = currentRound?.turns ?? []
   const steps : TurnOrder[] = []
 
   let invalidTurn = false
