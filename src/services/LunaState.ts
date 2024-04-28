@@ -29,31 +29,31 @@ export default class LunaState {
       case DifficultyLevel.L3_ADVANCED:
         this._heliumCardTresholds = [11,19]
         this._researchCardTresholds = [5,10]
-        break;
+        break
       case DifficultyLevel.L4_ADVANCED:
         this._heliumCardTresholds = [9,16]
         this._researchCardTresholds = [4,8]
-        break;
+        break
       case DifficultyLevel.L5_ADVANCED:
         this._heliumCardTresholds = [7,13]
         this._researchCardTresholds = [2,7]
-        break;
+        break
       case DifficultyLevel.L6_ADVANCED:
         this._heliumCardTresholds = [6,13]
         this._researchCardTresholds = [4,8]
-        break;
+        break
       case DifficultyLevel.L7_ADVANCED:
         this._heliumCardTresholds = [7,10]
         this._researchCardTresholds = [5,7]
-        break;
+        break
       case DifficultyLevel.L8_ADVANCED:
         this._heliumCardTresholds = [8,11]
         this._researchCardTresholds = [5,7]
-        break;
+        break
       default:
         this._heliumCardTresholds = []
         this._researchCardTresholds = []
-        break;
+        break
     }
   }
 
@@ -253,19 +253,19 @@ export default class LunaState {
       case DifficultyLevel.L6_ADVANCED:
         initialHeliumCount = 1
         initialResearchSteps = 1
-        break;
+        break
       case DifficultyLevel.L7_ADVANCED:
         initialHeliumCount = 3
         initialResearchSteps = 2
-        break;
+        break
       case DifficultyLevel.L8_ADVANCED:
         initialHeliumCount = 5
         initialResearchSteps = 3
-        break;
+        break
       default:
         initialHeliumCount = 0
         initialResearchSteps = 0
-        break;
+        break
     }
     return new LunaState(
       CardDeck.new(difficultyLevel),

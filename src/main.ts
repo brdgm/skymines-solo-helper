@@ -17,4 +17,4 @@ createApp(App)
   .use(store, key)
   .use(router)
   .use(i18n)
-  .mount('#app');
+  .mount('#app')
