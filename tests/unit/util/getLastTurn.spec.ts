@@ -1,4 +1,4 @@
-import { Turn } from '@/store'
+import { Turn } from '@/store/state'
 import getLastTurn from '@/util/getLastTurn'
 import { expect } from 'chai'
 

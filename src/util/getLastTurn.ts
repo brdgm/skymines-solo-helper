@@ -1,4 +1,4 @@
-import { Turn } from '@/store';
+import { Turn } from '@/store/state'
 
 /**
  * Get last turn in turn order from given list of turns.

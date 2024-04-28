@@ -1,6 +1,6 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import LunaState from '@/services/LunaState'
-import { State } from '@/store'
+import { State } from '@/store/state'
 import { Store } from 'vuex'
 import getLastTurn from '../util/getLastTurn'
 

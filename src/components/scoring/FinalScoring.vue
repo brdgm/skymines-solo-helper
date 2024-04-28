@@ -132,7 +132,7 @@
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
@@ -149,16 +149,16 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
+    const state = useStateStore()
 
-    const playerSetup = store.state.setup.playerSetup
+    const playerSetup = state.setup.playerSetup
     const playerCount = playerSetup.playerCount
     const botCount = playerSetup.botCount
     const playerColors = playerSetup.playerColors
 
     const lunaStates : LunaState[] = []
     for (let bot=1; bot<=botCount; bot++) {
-      lunaStates[bot-1] = getLunaState(store.state, 7, MAX_TURN, bot)
+      lunaStates[bot-1] = getLunaState(state, 7, MAX_TURN, bot)
     }
 
     return { t, playerCount, botCount, playerColors, lunaStates }

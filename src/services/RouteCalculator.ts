@@ -1,4 +1,4 @@
-import { State } from '@/store'
+import { State } from '@/store/state'
 import getPlayerOrder from '@/util/getPlayerOrder'
 import getTurnOrder, { MAX_TURN } from '@/util/getTurnOrder'
 import FirstPlayerDetector from './FirstPlayerDetector'

@@ -45,9 +45,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import PlayerColorPicker from './PlayerColorPicker.vue'
 import PlayerColor from '@/services/enum/PlayerColor'
 
@@ -58,15 +58,13 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    useStore()
-    return { t }
-  },
-  data() {
-    return {
-      playerCount: this.$store.state.setup.playerSetup?.playerCount || 1,
-      botCount: this.$store.state.setup.playerSetup?.botCount || 1,
-      playerColors: this.$store.state.setup.playerSetup?.playerColors || [PlayerColor.RED,PlayerColor.ORANGE,PlayerColor.BLUE,PlayerColor.GREEN]
-    }
+    const state = useStateStore()
+
+    const playerCount = ref(state.setup.playerSetup?.playerCount || 1)
+    const botCount = ref(state.setup.playerSetup?.botCount || 1)
+    const playerColors = ref(state.setup.playerSetup?.playerColors || [PlayerColor.RED,PlayerColor.ORANGE,PlayerColor.BLUE,PlayerColor.GREEN])
+
+    return { t, state, playerCount, botCount, playerColors }
   },
   computed: {
     maxPlayerCount() : number {
@@ -104,11 +102,11 @@ export default defineComponent({
   },
   methods: {
     storePlayerSetup() {
-      this.$store.commit('setupPlayer', {
+      this.state.setup.playerSetup =  {
         playerCount: this.playerCount,
         botCount: this.botCount,
         playerColors: this.playerColors
-      })
+      }
     },
     playerColorChanged(index : number, color : PlayerColor) {
       const newPlayerColors = [...this.playerColors]

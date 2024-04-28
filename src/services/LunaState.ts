@@ -1,4 +1,4 @@
-import { LunaStatePersistence } from '@/store'
+import { LunaStatePersistence } from '@/store/state'
 import { CardAction } from './Card'
 import CardDeck from './CardDeck'
 import Action from './enum/Action'
