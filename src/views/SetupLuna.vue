@@ -43,7 +43,7 @@
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
@@ -60,14 +60,14 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
+    const state = useStateStore()
 
-    const playerSetup = store.state.setup.playerSetup
+    const playerSetup = state.setup.playerSetup
     const playerCount = playerSetup.playerCount
     const botCount = playerSetup.botCount
     const playerColors = playerSetup.playerColors
 
-    return { t, playerCount, botCount, playerColors }
+    return { t, state, playerCount, botCount, playerColors }
   },
   data() {
     return {
@@ -77,9 +77,9 @@ export default defineComponent({
   methods: {
     startGame() : void {
       // start with clean game state
-      this.$store.commit('resetGame')
+      this.state.resetGame()
       // prepare luna states for all bots
-      const initialLunaStates = new InitialLunaStates(this.$store)
+      const initialLunaStates = new InitialLunaStates()
       initialLunaStates.prepareRound(1, this.lunaHeliumBonus)
       // go to start game screen
       this.$router.push("/startGame")

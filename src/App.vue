@@ -50,9 +50,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import AppHeader from 'brdgm-commons/src/components/structure/AppHeader.vue'
 import AppFooter from 'brdgm-commons/src/components/structure/AppFooter.vue'
 import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
@@ -74,7 +74,7 @@ export default defineComponent({
       inheritLocale: true,
       useScope: 'global'
     })
-    const store = useStore()
+    const state = useStateStore()
 
     // handle PWA updates with prompt if a new version is detected, check regularly for a new version
     const checkForNewVersionsIntervalSeconds = 1 * 60 * 60
@@ -88,12 +88,9 @@ export default defineComponent({
       }
     })
 
-    store.commit('initialiseStore')
-    locale.value = store.state.language
-    
-    const baseFontSize = ref(store.state.baseFontSize)
+    locale.value = state.language
 
-    return { t, locale, baseFontSize, updateServiceWorker }
+    return { t, state, locale, updateServiceWorker }
   },
   data() {
     return {
@@ -102,14 +99,18 @@ export default defineComponent({
       errorMessage: 'Error'
     }
   },
+  computed: {
+    baseFontSize() : number {
+      return this.state.baseFontSize
+    }
+  },
   methods: {
     setLocale(lang: string) {
-      this.$store.commit('language', lang)
-      this.locale = lang;
+      this.locale = lang
+      this.state.language = lang
     },
     zoomFontSize(payload: { baseFontSize: number }) {
-      this.baseFontSize = payload.baseFontSize
-      this.$store.commit('zoomFontSize', this.baseFontSize)
+      this.state.baseFontSize = payload.baseFontSize
     }
   },
   errorCaptured(err : unknown) {

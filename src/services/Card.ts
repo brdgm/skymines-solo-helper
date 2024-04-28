@@ -1,10 +1,10 @@
-import Action from './enum/Action';
-import CardSelection from './enum/CardSelection';
-import CompanySelection from './enum/CompanySelection';
-import Grade from './enum/Grade';
-import ResearchPlanSelection from './enum/ResearchPlanSelection';
-import SectorSelection from './enum/SectorSelection';
-import Slot from './enum/Slot';
+import Action from './enum/Action'
+import CardSelection from './enum/CardSelection'
+import CompanySelection from './enum/CompanySelection'
+import Grade from './enum/Grade'
+import ResearchPlanSelection from './enum/ResearchPlanSelection'
+import SectorSelection from './enum/SectorSelection'
+import Slot from './enum/Slot'
 
 export default interface Card {
   id: string

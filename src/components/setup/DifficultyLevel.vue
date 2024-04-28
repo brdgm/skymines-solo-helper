@@ -7,7 +7,7 @@
     </div>
     <div class="col-8 col-md-4">
       <input type="range" class="form-range" min="0" max="8" id="difficultyLevel"
-          :value="$store.state.setup.difficultyLevel" @input="updateDifficultyLevel($event)">
+          :value="difficultyLevel" @input="updateDifficultyLevel($event)">
     </div>
     <div class="col-1">
       <label for="difficultyLevel" class="form-label">{{t('setup.difficultyLevel.hard')}}</label>
@@ -15,28 +15,29 @@
   </div>
   <div class="row">
     <div class="offset-1 col-8 col-md-4 text-muted small">
-      {{t(`difficultyLevel.${$store.state.setup.difficultyLevel}`)}}
+      {{t(`difficultyLevel.${difficultyLevel}`)}}
     </div>
   </div>  
 
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 
 export default defineComponent({
   name: 'DifficultyLevel',
   setup() {
     const { t } = useI18n()
-    useStore()
-    return { t }
+    const state = useStateStore()
+    const difficultyLevel = ref(state.setup.difficultyLevel)
+    return { t, state, difficultyLevel }
   },
   methods: {
     updateDifficultyLevel(event: Event) {
-      const level = parseInt((event.target as HTMLInputElement).value)
-      this.$store.commit('setupDifficultyLevel', level)
+      this.difficultyLevel = parseInt((event.target as HTMLInputElement).value)
+      this.state.setup.difficultyLevel = this.difficultyLevel
     }
   }
 })

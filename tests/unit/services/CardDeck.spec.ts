@@ -4,7 +4,7 @@ import Action from '@/services/enum/Action'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import MajorityType from '@/services/enum/MajorityType'
 import Slot from '@/services/enum/Slot'
-import { CardSlotPersistence } from '@/store'
+import { CardSlotPersistence } from '@/store/state'
 import { expect } from 'chai'
 import mockCardDeck from '../helper/mockCardDeck'
 

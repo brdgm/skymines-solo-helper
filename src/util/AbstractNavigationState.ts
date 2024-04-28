@@ -1,5 +1,5 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
-import { State } from '@/store'
+import { State } from '@/store/state'
 import { RouteLocation } from 'vue-router'
 import PlayerColor from '@/services/enum/PlayerColor'
 
