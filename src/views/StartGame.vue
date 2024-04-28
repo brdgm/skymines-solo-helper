@@ -15,6 +15,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 
@@ -25,13 +26,14 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    return { t }
+    const state = useStateStore()
+    return { t, state }
   },
   methods: {
     next() : void {
       // go to first turn
       const routeCalculator = new RouteCalculator({round:1})
-      this.$router.push(routeCalculator.getFirstTurnRouteTo(this.$store.state))
+      this.$router.push(routeCalculator.getFirstTurnRouteTo(this.state))
     }
   }
 })

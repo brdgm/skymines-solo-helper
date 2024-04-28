@@ -79,7 +79,7 @@ export default defineComponent({
       // start with clean game state
       this.state.resetGame()
       // prepare luna states for all bots
-      const initialLunaStates = new InitialLunaStates(this.$store)
+      const initialLunaStates = new InitialLunaStates()
       initialLunaStates.prepareRound(1, this.lunaHeliumBonus)
       // go to start game screen
       this.$router.push("/startGame")

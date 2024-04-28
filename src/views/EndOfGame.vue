@@ -3,7 +3,7 @@
 
   <p>
     <span v-html="t('endOfGame.introduction')"></span><br>
-    {{t('setup.difficultyLevel.title')}}: <strong>{{t(`difficultyLevel.${$store.state.setup.difficultyLevel}`)}}</strong>
+    {{t('setup.difficultyLevel.title')}}: <strong>{{t(`difficultyLevel.${state.setup.difficultyLevel}`)}}</strong>
   </p>
 
   <FinalScoring/>
@@ -14,6 +14,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import FinalScoring from '@/components/scoring/FinalScoring.vue'
@@ -26,15 +27,16 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
+    const state = useStateStore()
 
     const round = 7  // last round
 
-    return { t, round }
+    return { t, state, round }
   },
   computed: {
     backButtonRouteTo() : string {
       const routeCalculator = new RouteCalculator({round:this.round})
-      return routeCalculator.getLastTurnRouteTo(this.$store.state)
+      return routeCalculator.getLastTurnRouteTo(this.state)
     }
   }
 })
