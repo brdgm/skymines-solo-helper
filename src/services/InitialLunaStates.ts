@@ -1,6 +1,5 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import LunaState from '@/services/LunaState'
-import { State } from '@/store/state'
 import { useStateStore } from '@/store/state'
 import getLastTurn from '../util/getLastTurn'
 
