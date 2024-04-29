@@ -40,7 +40,7 @@ export default defineComponent({
     const route = useRoute()
     const state = useStateStore()
 
-    const navigationState = new BotNavigationState(route, state);
+    const navigationState = new BotNavigationState(route, state)
     const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn

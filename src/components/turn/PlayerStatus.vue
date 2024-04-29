@@ -84,25 +84,25 @@ export default defineComponent({
   },
   computed: {
     round(): number {
-      return this.navigationState.round;
+      return this.navigationState.round
     },
     turn(): number {
-      return this.navigationState.turn;
+      return this.navigationState.turn
     },
     majorityScientist(): number {
-      return this.navigationState.getConsolidatedMajorityCount(MajorityType.SCIENTISTS);
+      return this.navigationState.getConsolidatedMajorityCount(MajorityType.SCIENTISTS)
     },
     majorityTitanium(): number {
-      return this.navigationState.getConsolidatedMajorityCount(MajorityType.TITANIUM);
+      return this.navigationState.getConsolidatedMajorityCount(MajorityType.TITANIUM)
     },
     majorityCarbon(): number {
-      return this.navigationState.getConsolidatedMajorityCount(MajorityType.CARBON);
+      return this.navigationState.getConsolidatedMajorityCount(MajorityType.CARBON)
     },
     majorityEnergy(): number {
-      return this.navigationState.getConsolidatedMajorityCount(MajorityType.ENERGY);
+      return this.navigationState.getConsolidatedMajorityCount(MajorityType.ENERGY)
     },
     majorityMinerals(): number {
-      return this.navigationState.getConsolidatedMajorityCount(MajorityType.MINERALS);
+      return this.navigationState.getConsolidatedMajorityCount(MajorityType.MINERALS)
     },
     showFirstPlayer() : boolean {
       return this.navigationState.playerCount > 1

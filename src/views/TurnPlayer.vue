@@ -59,7 +59,7 @@ export default defineComponent({
     const route = useRoute()
     const state = useStateStore()
 
-    const navigationState = new PlayerNavigationState(route, state);
+    const navigationState = new PlayerNavigationState(route, state)
     const playerCount = navigationState.playerCount
     const round = navigationState.round
     const turn = navigationState.turn
