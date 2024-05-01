@@ -44,7 +44,7 @@ import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import PlayerNavigationState from '@/util/PlayerNavigationState'
 import PlayerStatus from '@/components/turn/PlayerStatus.vue'
-import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
+import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'TurnPlayer',
