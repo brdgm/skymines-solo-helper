@@ -9,11 +9,13 @@
       <div class="selection">
         <AppIcon type="selection" name="research-plan-selection" class="matrix"/>
         <table>
-          <tr>
-            <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
-              <span v-if="col.includes(slot)">X</span>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
+                <span v-if="col.includes(slot)">X</span>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </template>

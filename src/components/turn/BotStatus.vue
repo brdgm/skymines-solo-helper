@@ -3,38 +3,40 @@
     <p v-html="t('turnBot.botStatus.turn',{round:round,turn:turn})"></p>
     <div class="status">
       <table>
-        <tr>
-          <td>
-            <AppIcon type="action" name="gain-helium" class="icon"/>
-            <div class="label" v-html="t('turnBot.botStatus.helium')"></div>
-          </td>
-          <td>
-            <div class="value">
-              <span>{{heliumCount}}</span>
-              <span v-if="heliumCountGain > 0" class="gain">+{{heliumCountGain}}</span>
-            </div>
-            <div class="coin-equivalent" v-if="heliumAsCoins > 0">
-              <span>{{heliumAsCoins}}</span>
-              <AppIcon type="action" name="gain-coin" class="icon"/>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <AppIcon type="action" name="advance-research" class="icon"/>
-            <div class="label" v-html="t('turnBot.botStatus.research')"></div>
-          </td>
-          <td>
-            <div class="value">
-              <span>{{researchSteps}}</span>
-              <span v-if="researchStepsGain > 0" class="gain">+{{researchStepsGain}}</span>
-            </div>
-            <div class="coin-equivalent" v-if="researchAsCoins > 0">
-              <span>{{researchAsCoins}}</span>
-              <AppIcon type="action" name="gain-coin" class="icon"/>
-            </div>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <AppIcon type="action" name="gain-helium" class="icon"/>
+              <div class="label" v-html="t('turnBot.botStatus.helium')"></div>
+            </td>
+            <td>
+              <div class="value">
+                <span>{{heliumCount}}</span>
+                <span v-if="heliumCountGain > 0" class="gain">+{{heliumCountGain}}</span>
+              </div>
+              <div class="coin-equivalent" v-if="heliumAsCoins > 0">
+                <span>{{heliumAsCoins}}</span>
+                <AppIcon type="action" name="gain-coin" class="icon"/>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <AppIcon type="action" name="advance-research" class="icon"/>
+              <div class="label" v-html="t('turnBot.botStatus.research')"></div>
+            </td>
+            <td>
+              <div class="value">
+                <span>{{researchSteps}}</span>
+                <span v-if="researchStepsGain > 0" class="gain">+{{researchStepsGain}}</span>
+              </div>
+              <div class="coin-equivalent" v-if="researchAsCoins > 0">
+                <span>{{researchAsCoins}}</span>
+                <AppIcon type="action" name="gain-coin" class="icon"/>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
 

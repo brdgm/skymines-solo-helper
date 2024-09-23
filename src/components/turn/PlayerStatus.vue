@@ -4,41 +4,43 @@
     <div class="majorities">
       <div v-html="t('turnPlayer.playerStatus.majorities')"></div>
       <table>
-        <tr>
-          <td>
-            <AppIcon type="majority" name="scientist" class="icon"/>
-            <div class="label" v-html="t('turnPlayer.playerStatus.scientist')"></div>
-          </td>
-          <td class="value">{{majorityScientist}}</td>
-        </tr>
-        <tr>
-          <td>
-            <AppIcon type="majority" name="titanium" class="icon"/>
-            <div class="label" v-html="t('turnPlayer.playerStatus.titanium')"></div>
-          </td>
-          <td class="value">{{majorityTitanium}}</td>
-        </tr>
-        <tr>
-          <td>
-            <AppIcon type="majority" name="carbon" class="icon"/>
-            <div class="label" v-html="t('turnPlayer.playerStatus.carbon')"></div>
-          </td>
-          <td class="value">{{majorityCarbon}}</td>
-        </tr>
-        <tr>
-          <td>
-            <AppIcon type="majority" name="energy" class="icon"/>
-            <div class="label" v-html="t('turnPlayer.playerStatus.energy')"></div>
-          </td>
-          <td class="value">{{majorityEnergy}}</td>
-        </tr>
-        <tr>
-          <td>
-            <AppIcon type="majority" name="minerals" class="icon"/>
-            <div class="label" v-html="t('turnPlayer.playerStatus.minerals')"></div>
-          </td>
-          <td class="value">{{majorityMinerals}}</td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <AppIcon type="majority" name="scientist" class="icon"/>
+              <div class="label" v-html="t('turnPlayer.playerStatus.scientist')"></div>
+            </td>
+            <td class="value">{{majorityScientist}}</td>
+          </tr>
+          <tr>
+            <td>
+              <AppIcon type="majority" name="titanium" class="icon"/>
+              <div class="label" v-html="t('turnPlayer.playerStatus.titanium')"></div>
+            </td>
+            <td class="value">{{majorityTitanium}}</td>
+          </tr>
+          <tr>
+            <td>
+              <AppIcon type="majority" name="carbon" class="icon"/>
+              <div class="label" v-html="t('turnPlayer.playerStatus.carbon')"></div>
+            </td>
+            <td class="value">{{majorityCarbon}}</td>
+          </tr>
+          <tr>
+            <td>
+              <AppIcon type="majority" name="energy" class="icon"/>
+              <div class="label" v-html="t('turnPlayer.playerStatus.energy')"></div>
+            </td>
+            <td class="value">{{majorityEnergy}}</td>
+          </tr>
+          <tr>
+            <td>
+              <AppIcon type="majority" name="minerals" class="icon"/>
+              <div class="label" v-html="t('turnPlayer.playerStatus.minerals')"></div>
+            </td>
+            <td class="value">{{majorityMinerals}}</td>
+          </tr>
+        </tbody>
       </table>
     </div>
 

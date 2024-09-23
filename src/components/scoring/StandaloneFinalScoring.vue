@@ -1,129 +1,133 @@
 <template>
   <table>
-    <tr>
-      <th colspan="2"  scope="col">
-        <h3 v-html="t('endOfGame.scoring.companyValueTitle')"></h3>
-      </th>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="astrogoShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="tawac-industries" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="tawacShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="skymine-resources" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="skymineShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="minerva-corp" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="minervaShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <th colspan="2"  scope="col">
+          <h3 v-html="t('endOfGame.scoring.companyValueTitle')"></h3>
+        </th>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="astrogoShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="tawac-industries" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="tawacShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="skymine-resources" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="skymineShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="minerva-corp" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="minervaShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+    </tbody>
   </table>
 
   <table class="mt-3">
-    <tr>
-      <th scope="col">
-        <h3 v-html="t('endOfGame.scoring.scoringTitle')"></h3>
-      </th>
-      <th v-for="player in playerCount" :key="player" scope="col">
-        <PlayerColorIcon :playerColor="playerColors[player-1]" class="playerIcon"/>
-        <input v-model="playerNames[player-1]" @focus="inputSelectAll"/>
-      </th>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="astrogoShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="tawac-industries" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="tawacShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="skymine-resources" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="skymineShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="minerva-corp" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="minervaShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="action" name="gain-coin" class="icon"/>
-        {{t('endOfGame.scoring.crypCoin')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="999" step="1" v-model="coins[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="action" name="gain-helium" class="icon"/>
-        {{t('endOfGame.scoring.heliumCoin')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="60" step="1" v-model="heliumCoins[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="action" name="advance-research" class="icon"/>
-        {{t('endOfGame.scoring.researchCoin')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <input type="number" min="0" max="60" step="1" v-model="researchCoins[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        {{t('endOfGame.scoring.totalCoin')}}
-      </th>
-      <td v-for="index in playerCount" :key="index">
-        <b>{{totalCoins[index-1]}}</b>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <th scope="col">
+          <h3 v-html="t('endOfGame.scoring.scoringTitle')"></h3>
+        </th>
+        <th v-for="player in playerCount" :key="player" scope="col">
+          <PlayerColorIcon :playerColor="playerColors[player-1]" class="playerIcon"/>
+          <input v-model="playerNames[player-1]" @focus="inputSelectAll"/>
+        </th>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="astrogoShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="tawac-industries" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="tawacShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="skymine-resources" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="skymineShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="minerva-corp" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="minervaShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="action" name="gain-coin" class="icon"/>
+          {{t('endOfGame.scoring.crypCoin')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="999" step="1" v-model="coins[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="action" name="gain-helium" class="icon"/>
+          {{t('endOfGame.scoring.heliumCoin')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="60" step="1" v-model="heliumCoins[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="action" name="advance-research" class="icon"/>
+          {{t('endOfGame.scoring.researchCoin')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <input type="number" min="0" max="60" step="1" v-model="researchCoins[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          {{t('endOfGame.scoring.totalCoin')}}
+        </th>
+        <td v-for="index in playerCount" :key="index">
+          <b>{{totalCoins[index-1]}}</b>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </template>
 
