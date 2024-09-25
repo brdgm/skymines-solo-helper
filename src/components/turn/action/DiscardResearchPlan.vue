@@ -9,11 +9,13 @@
       <div class="selection">
         <AppIcon type="selection" name="research-plan-selection" class="matrix"/>
         <table>
-          <tr>
-            <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
-              <span v-if="col.includes(slot)">X</span>
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td v-for="(col,indexCol) in action.researchPlanRow" :key="indexCol">
+                <span v-if="col.includes(slot)">X</span>
+              </td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </template>
@@ -36,7 +38,7 @@ import Slot from '@/services/enum/Slot'
 import { defineComponent, PropType } from 'vue'
 import { useI18n } from 'vue-i18n'
 import AppIcon from '../../structure/AppIcon.vue'
-import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
+import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'DiscardResearchPlan',

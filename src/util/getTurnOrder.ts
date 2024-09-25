@@ -1,4 +1,4 @@
-import { State } from '@/store'
+import { State } from '@/store/state'
 import getPlayerOrder from './getPlayerOrder'
 
 /**

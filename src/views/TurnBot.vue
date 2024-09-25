@@ -19,7 +19,7 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import { useRoute } from 'vue-router'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/services/RouteCalculator'
@@ -38,9 +38,9 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     const route = useRoute()
-    const store = useStore()
+    const state = useStateStore()
 
-    const navigationState = new BotNavigationState(route, store.state);
+    const navigationState = new BotNavigationState(route, state)
     const botCount = navigationState.botCount
     const round = navigationState.round
     const turn = navigationState.turn
@@ -49,11 +49,11 @@ export default defineComponent({
     const routeCalculator = new RouteCalculator({round:round, turn:turn, bot:bot})
     const lunaState = navigationState.lunaState
 
-    return { t, botCount, round, turn, bot, playerColor, routeCalculator, navigationState, lunaState }
+    return { t, state, botCount, round, turn, bot, playerColor, routeCalculator, navigationState, lunaState }
   },
   computed: {
     backButtonRouteTo() : string {
-      return this.routeCalculator.getBackRouteTo(this.$store.state)
+      return this.routeCalculator.getBackRouteTo(this.state)
     }
   },
   methods: {
@@ -64,9 +64,9 @@ export default defineComponent({
         this.lunaState.cardDeck.discardSlotCardsAndOneMajorityCard()
         passed = true
       }
-      this.$store.commit('turnBot',{round:this.round,turn:this.turn,bot:this.bot,
+      this.state.turnBot({round:this.round,turn:this.turn,bot:this.bot,
         passed:passed,lunaState:this.lunaState.toPersistence()})
-      this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
+      this.$router.push(this.routeCalculator.getNextRouteTo(this.state))
     }
   }
 })

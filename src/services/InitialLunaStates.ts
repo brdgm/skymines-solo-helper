@@ -1,7 +1,6 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import LunaState from '@/services/LunaState'
-import { State } from '@/store'
-import { Store } from 'vuex'
+import { useStateStore } from '@/store/state'
 import getLastTurn from '../util/getLastTurn'
 
 /**
@@ -9,14 +8,14 @@ import getLastTurn from '../util/getLastTurn'
  */
 export default class InitialLunaStates {
 
-  private readonly store : Store<State>
+  private readonly state
   private readonly difficultyLevel : DifficultyLevel
   private readonly botCount : number
 
-  public constructor(store : Store<State>) {
-    this.store = store
-    this.difficultyLevel = store.state.setup.difficultyLevel
-    this.botCount = store.state.setup.playerSetup.botCount
+  public constructor() {
+    this.state = useStateStore()
+    this.difficultyLevel = this.state.setup.difficultyLevel
+    this.botCount = this.state.setup.playerSetup.botCount
   }
 
   /**
@@ -41,7 +40,7 @@ export default class InitialLunaStates {
 
     // store round
     const lunaStatesPersistence = lunaStates.map(item => item.toPersistence())
-    this.store.commit('prepareRound', {round:round, initialLunaStates:lunaStatesPersistence, turns:[]})
+    this.state.prepareRound({round:round, initialLunaStates:lunaStatesPersistence, turns:[]})
   }
 
   /**
@@ -66,7 +65,7 @@ export default class InitialLunaStates {
    */
   private getLunaStatesFromRound(roundNo : number) : LunaState[] {
     const initialLunaStates : LunaState[] = []
-    const roundTurns = this.store.state.rounds.find(item => item.round==roundNo)?.turns ?? []
+    const roundTurns = this.state.rounds.find(item => item.round==roundNo)?.turns ?? []
     for (let bot=1; bot<=this.botCount; bot++) {
       const botTurns = roundTurns.filter(item => item.bot==bot)
       const lastTurn = getLastTurn(botTurns)

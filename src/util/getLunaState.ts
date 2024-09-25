@@ -1,6 +1,6 @@
-import LunaState from '@/services/LunaState';
-import { LunaStatePersistence, State } from '@/store';
-import getLastTurn from './getLastTurn';
+import LunaState from '@/services/LunaState'
+import { LunaStatePersistence, State } from '@/store/state'
+import getLastTurn from './getLastTurn'
 
 /**
  * Get Luna state from previous bot turn in same round, or from initial state in round.

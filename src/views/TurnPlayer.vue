@@ -39,12 +39,12 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
 import RouteCalculator from '@/services/RouteCalculator'
 import PlayerNavigationState from '@/util/PlayerNavigationState'
 import PlayerStatus from '@/components/turn/PlayerStatus.vue'
-import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
+import ModalDialog from '@brdgm/brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'TurnPlayer',
@@ -57,9 +57,9 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     const route = useRoute()
-    const store = useStore()
+    const state = useStateStore()
 
-    const navigationState = new PlayerNavigationState(route, store.state);
+    const navigationState = new PlayerNavigationState(route, state)
     const playerCount = navigationState.playerCount
     const round = navigationState.round
     const turn = navigationState.turn
@@ -67,7 +67,7 @@ export default defineComponent({
     const playerColor = navigationState.playerColor
     const routeCalculator = new RouteCalculator({round:round, turn:turn, player:player})
 
-    return { t, playerCount, round, turn, player, playerColor, routeCalculator, navigationState }
+    return { t, state, playerCount, round, turn, player, playerColor, routeCalculator, navigationState }
   },
   data() {
     return {
@@ -76,7 +76,7 @@ export default defineComponent({
   },
   computed: {
     backButtonRouteTo() : string {
-      return this.routeCalculator.getBackRouteTo(this.$store.state)
+      return this.routeCalculator.getBackRouteTo(this.state)
     }
   },
   methods: {
@@ -87,14 +87,14 @@ export default defineComponent({
       this.nextWithPassed(true)
     },
     nextWithPassed(passed : boolean) {
-      this.$store.commit('turnPlayer', {
+      this.state.turnPlayer({
         round:this.round,
         turn:this.turn,
         player:this.player,
         claimFirstPlayer: this.claimFirstPlayer ? true : undefined,
         passed: passed ? true : undefined
       })
-      this.$router.push(this.routeCalculator.getNextRouteTo(this.$store.state))
+      this.$router.push(this.routeCalculator.getNextRouteTo(this.state))
     },
     firstPlayerClaimed() : void {
       this.claimFirstPlayer = true

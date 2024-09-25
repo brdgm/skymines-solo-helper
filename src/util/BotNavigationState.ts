@@ -1,4 +1,4 @@
-import { State } from '@/store'
+import { State } from '@/store/state'
 import { RouteLocation } from 'vue-router'
 import PlayerColor from '@/services/enum/PlayerColor'
 import LunaState from '@/services/LunaState'

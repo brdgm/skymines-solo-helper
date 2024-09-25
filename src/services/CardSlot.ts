@@ -1,5 +1,5 @@
-import Card from './Card';
-import Slot from './enum/Slot';
+import Card from './Card'
+import Slot from './enum/Slot'
 
 export default interface CardSlot {
   slot: Slot

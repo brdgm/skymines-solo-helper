@@ -18,6 +18,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import { useRoute } from 'vue-router'
 import RouteCalculator from '@/services/RouteCalculator'
@@ -30,26 +31,27 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
+    const state = useStateStore()
     const route = useRoute()
 
     const round = parseInt(route.params['round'] as string)
 
-    return { t, round }
+    return { t, state, round }
   },
   computed: {
     backButtonRouteTo() : string {
       const routeCalculator = new RouteCalculator({round:this.round})
-      return routeCalculator.getLastTurnRouteTo(this.$store.state)
+      return routeCalculator.getLastTurnRouteTo(this.state)
     }
   },
   methods: {
     nextRound() : void {
       // prepare luna states for all bots for next round
-      const initialLunaStates = new InitialLunaStates(this.$store)
+      const initialLunaStates = new InitialLunaStates()
       initialLunaStates.prepareRound(this.round+1)
       // got to first turn of next round
       const routeCalculator = new RouteCalculator({round:this.round+1})
-      this.$router.push(routeCalculator.getFirstTurnRouteTo(this.$store.state))
+      this.$router.push(routeCalculator.getFirstTurnRouteTo(this.state))
     }
   }
 })

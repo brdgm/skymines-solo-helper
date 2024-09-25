@@ -1,138 +1,142 @@
 <template>
   <table>
-    <tr>
-      <th colspan="2" scope="col">
-        <h3 v-html="t('endOfGame.scoring.companyValueTitle')"></h3>
-      </th>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="astrogoShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="tawac-industries" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="tawacShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="skymine-resources" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="skymineShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="minerva-corp" class="icon"/>
-        {{t('endOfGame.scoring.shareValue')}}
-      </th>
-      <td>
-        <input type="number" min="0" max="15" step="1" v-model="minervaShareValue" @focus="inputSelectAll"/>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <th colspan="2" scope="col">
+          <h3 v-html="t('endOfGame.scoring.companyValueTitle')"></h3>
+        </th>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="astrogoShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="tawac-industries" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="tawacShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="skymine-resources" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="skymineShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="minerva-corp" class="icon"/>
+          {{t('endOfGame.scoring.shareValue')}}
+        </th>
+        <td>
+          <input type="number" min="0" max="15" step="1" v-model="minervaShareValue" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+    </tbody>
   </table>
 
   <table class="mt-3">
-    <tr>
-      <th scope="col">
-        <h3 v-html="t('endOfGame.scoring.scoringTitle')"></h3>
-      </th>
-      <th v-for="player in playerCount" :key="player" scope="col">
-        <PlayerColorIcon :playerColor="playerColors[player-1]" class="playerIcon"/>
-        <span>{{t('turnPlayer.title', {player:player}, playerCount)}}</span>
-      </th>
-      <th v-for="bot in botCount" :key="bot" scope="col">
-        <PlayerColorIcon :playerColor="playerColors[playerCount+bot-1]" class="playerIcon"/>
-        <span>{{t('turnBot.title', {bot:bot}, botCount)}}</span>
-      </th>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="astrogoShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="tawac-industries" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="tawacShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="skymine-resources" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="skymineShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="company" name="minerva-corp" class="icon"/>
-        {{t('endOfGame.scoring.shareCount')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="20" step="1" v-model="minervaShares[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="action" name="gain-coin" class="icon"/>
-        {{t('endOfGame.scoring.crypCoin')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="999" step="1" v-model="coins[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="action" name="gain-helium" class="icon"/>
-        {{t('endOfGame.scoring.heliumCoin')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="60" step="1" v-model="heliumCoins[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        <AppIcon type="action" name="advance-research" class="icon"/>
-        {{t('endOfGame.scoring.researchCoin')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <input type="number" min="0" max="60" step="1" v-model="researchCoins[index-1]" @focus="inputSelectAll"/>
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">
-        {{t('endOfGame.scoring.totalCoin')}}
-      </th>
-      <td v-for="index in playerCount+botCount" :key="index">
-        <b>{{totalCoins[index-1]}}</b>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <th scope="col">
+          <h3 v-html="t('endOfGame.scoring.scoringTitle')"></h3>
+        </th>
+        <th v-for="player in playerCount" :key="player" scope="col">
+          <PlayerColorIcon :playerColor="playerColors[player-1]" class="playerIcon"/>
+          <span>{{t('turnPlayer.title', {player:player}, playerCount)}}</span>
+        </th>
+        <th v-for="bot in botCount" :key="bot" scope="col">
+          <PlayerColorIcon :playerColor="playerColors[playerCount+bot-1]" class="playerIcon"/>
+          <span>{{t('turnBot.title', {bot:bot}, botCount)}}</span>
+        </th>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="astrogo-enterprises" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="astrogoShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="tawac-industries" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="tawacShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="skymine-resources" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="skymineShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="company" name="minerva-corp" class="icon"/>
+          {{t('endOfGame.scoring.shareCount')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="20" step="1" v-model="minervaShares[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="action" name="gain-coin" class="icon"/>
+          {{t('endOfGame.scoring.crypCoin')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="999" step="1" v-model="coins[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="action" name="gain-helium" class="icon"/>
+          {{t('endOfGame.scoring.heliumCoin')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="60" step="1" v-model="heliumCoins[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          <AppIcon type="action" name="advance-research" class="icon"/>
+          {{t('endOfGame.scoring.researchCoin')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <input type="number" min="0" max="60" step="1" v-model="researchCoins[index-1]" @focus="inputSelectAll"/>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">
+          {{t('endOfGame.scoring.totalCoin')}}
+        </th>
+        <td v-for="index in playerCount+botCount" :key="index">
+          <b>{{totalCoins[index-1]}}</b>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import PlayerColorIcon from '@/components/structure/PlayerColorIcon.vue'
@@ -149,16 +153,16 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
+    const state = useStateStore()
 
-    const playerSetup = store.state.setup.playerSetup
+    const playerSetup = state.setup.playerSetup
     const playerCount = playerSetup.playerCount
     const botCount = playerSetup.botCount
     const playerColors = playerSetup.playerColors
 
     const lunaStates : LunaState[] = []
     for (let bot=1; bot<=botCount; bot++) {
-      lunaStates[bot-1] = getLunaState(store.state, 7, MAX_TURN, bot)
+      lunaStates[bot-1] = getLunaState(state, 7, MAX_TURN, bot)
     }
 
     return { t, playerCount, botCount, playerColors, lunaStates }

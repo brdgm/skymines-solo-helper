@@ -1,12 +1,12 @@
-import findMandatory from 'brdgm-commons/src/util/map/findMandatory';
-import Card from './Card';
-import Action from './enum/Action';
-import CardSelection from './enum/CardSelection';
-import CompanySelection from './enum/CompanySelection';
-import Grade from './enum/Grade';
-import ResearchPlanSelection from './enum/ResearchPlanSelection';
-import SectorSelection from './enum/SectorSelection';
-import Slot from './enum/Slot';
+import findMandatory from '@brdgm/brdgm-commons/src/util/map/findMandatory'
+import Card from './Card'
+import Action from './enum/Action'
+import CardSelection from './enum/CardSelection'
+import CompanySelection from './enum/CompanySelection'
+import Grade from './enum/Grade'
+import ResearchPlanSelection from './enum/ResearchPlanSelection'
+import SectorSelection from './enum/SectorSelection'
+import Slot from './enum/Slot'
 
 const cards = [
   {
