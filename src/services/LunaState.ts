@@ -15,11 +15,11 @@ export default class LunaState {
   private static readonly HELIUM_SLOT_A_TRESHOLD = 8
   private static readonly RESEARCH_SLOT_E_TRESHOLD = 4
 
-  private _cardDeck : CardDeck
+  private readonly _cardDeck : CardDeck
   private _heliumCount : number
   private _researchSteps : number
-  private _heliumCardTresholds : number[]
-  private _researchCardTresholds : number[]
+  private readonly _heliumCardTresholds : number[]
+  private readonly _researchCardTresholds : number[]
 
   public constructor(cardDeck : CardDeck, heliumCount : number, researchSteps : number, difficultyLevel : DifficultyLevel) {
     this._cardDeck = cardDeck

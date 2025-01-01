@@ -14,13 +14,13 @@ import Slot from './enum/Slot'
 export default class CardDeck {
 
   private _pile : Card[]
-  private _grade2 : Card[]
+  private readonly _grade2 : Card[]
   private _leftMajoritySlot? : Card
   private _rightMajoritySlot? : Card
   private _slots : CardSlot[]
   private _discard : Card[]
-  private _availableSlots : Slot[]
-  private _difficultyLevel : DifficultyLevel
+  private readonly _availableSlots : Slot[]
+  private readonly _difficultyLevel : DifficultyLevel
 
   public constructor(pile : Card[], grade2 : Card[], leftMajoritySlot : Card|undefined, rightMajoritySlot : Card|undefined,
       slots : CardSlot[], discard : Card[], availableSlots : Slot[], difficultyLevel : DifficultyLevel) {
