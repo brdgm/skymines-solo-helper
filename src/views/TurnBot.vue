@@ -12,6 +12,8 @@
     {{t('action.next')}}
   </button>
 
+  <DebugInfo :botNavigationState="navigationState"/>
+
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
 
@@ -26,6 +28,7 @@ import RouteCalculator from '@/services/RouteCalculator'
 import BotStatus from '@/components/turn/BotStatus.vue'
 import BotActions from '@/components/turn/BotActions.vue'
 import BotNavigationState from '@/util/BotNavigationState'
+import DebugInfo from '@/components/turn/DebugInfo.vue'
 
 export default defineComponent({
   name: 'TurnBot',
@@ -33,7 +36,8 @@ export default defineComponent({
     FooterButtons,
     PlayerColorIcon,
     BotStatus,
-    BotActions
+    BotActions,
+    DebugInfo
   },
   setup() {
     const { t } = useI18n()
