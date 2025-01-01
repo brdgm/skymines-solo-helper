@@ -44,6 +44,9 @@
         <dt>Source Code (Apache-2.0 License)</dt>
         <dd><a href="https://github.com/brdgm/skymines-solo-helper" target="_blank" rel="noopener">https://github.com/brdgm/skymines-solo-helper</a></dd>
       </dl>
+      <div class="form-check small">
+        <label class="form-check-label"><input class="form-check-input" type="checkbox" :value="true" v-model="state.setup.debugMode">Debug Mode</label>
+      </div>
     </template>
   </ModalDialog>
 
