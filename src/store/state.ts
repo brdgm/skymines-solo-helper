@@ -82,6 +82,7 @@ export interface State {
 export interface Setup {
   playerSetup: PlayerSetup
   difficultyLevel: DifficultyLevel
+  debugMode?: boolean
 }
 export interface PlayerSetup {
   playerCount: number
