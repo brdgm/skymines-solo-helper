@@ -11,7 +11,7 @@
     "players": {
       "title": "Spieler",
       "playerCount": "Menschliche Spieler",
-      "playerCountItem": "{count} Spieler",
+      "playerCountItem": "{count} Spieler | {count} Spieler",
       "playerColor": "Spieler-Farbe | Spieler {index} Farbe",
       "playerBonusMarkers": "Jeder menschliche Spieler erhält <b>{count} Bonusmarker</b>.",
       "botCount": "Luna Bots",
