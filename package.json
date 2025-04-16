@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/skymines-solo-helper",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "private": true,
   "description": "Skymines Solo Helper",
   "appDeployName": "skymines",
@@ -17,7 +17,7 @@
     "generate-pwa-assets": "pwa-assets-generator"
   },
   "dependencies": {
-    "@brdgm/brdgm-commons": "^1.6.9",
+    "@brdgm/brdgm-commons": "^1.7.4",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "core-js": "^3.40.0",

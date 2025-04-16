@@ -12,7 +12,7 @@
           {{t('endOfGame.scoring.shareValue')}}
         </th>
         <td>
-          <ScoringTextInput :min="0" :max="15" v-model="astrogoShareValue"/>
+          <NumberInput :min="0" :max="15" v-model="astrogoShareValue"/>
         </td>
       </tr>
       <tr>
@@ -21,7 +21,7 @@
           {{t('endOfGame.scoring.shareValue')}}
         </th>
         <td>
-          <ScoringTextInput :min="0" :max="15" v-model="tawacShareValue"/>
+          <NumberInput :min="0" :max="15" v-model="tawacShareValue"/>
         </td>
       </tr>
       <tr>
@@ -30,7 +30,7 @@
           {{t('endOfGame.scoring.shareValue')}}
         </th>
         <td>
-          <ScoringTextInput :min="0" :max="15" v-model="skymineShareValue"/>
+          <NumberInput :min="0" :max="15" v-model="skymineShareValue"/>
         </td>
       </tr>
       <tr>
@@ -39,7 +39,7 @@
           {{t('endOfGame.scoring.shareValue')}}
         </th>
         <td>
-          <ScoringTextInput :min="0" :max="15" v-model="minervaShareValue"/>
+          <NumberInput :min="0" :max="15" v-model="minervaShareValue"/>
         </td>
       </tr>
     </tbody>
@@ -66,7 +66,7 @@
           {{t('endOfGame.scoring.shareCount')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="20" v-model="astrogoShares[index-1]"/>
+          <NumberInput :min="0" :max="20" v-model="astrogoShares[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -75,7 +75,7 @@
           {{t('endOfGame.scoring.shareCount')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="20" v-model="tawacShares[index-1]"/>
+          <NumberInput :min="0" :max="20" v-model="tawacShares[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -84,7 +84,7 @@
           {{t('endOfGame.scoring.shareCount')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="20" v-model="skymineShares[index-1]"/>
+          <NumberInput :min="0" :max="20" v-model="skymineShares[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -93,7 +93,7 @@
           {{t('endOfGame.scoring.shareCount')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="20" v-model="minervaShares[index-1]"/>
+          <NumberInput :min="0" :max="20" v-model="minervaShares[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -102,7 +102,7 @@
           {{t('endOfGame.scoring.crypCoin')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="999" v-model="coins[index-1]"/>
+          <NumberInput :min="0" :max="999" v-model="coins[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -111,7 +111,7 @@
           {{t('endOfGame.scoring.heliumCoin')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="60" v-model="heliumCoins[index-1]"/>
+          <NumberInput :min="0" :max="60" v-model="heliumCoins[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -120,7 +120,7 @@
           {{t('endOfGame.scoring.researchCoin')}}
         </th>
         <td v-for="index in playerCount+botCount" :key="index">
-          <ScoringTextInput :min="0" :max="60" v-model="researchCoins[index-1]"/>
+          <NumberInput :min="0" :max="60" v-model="researchCoins[index-1]"/>
         </td>
       </tr>
       <tr>
@@ -144,14 +144,15 @@ import AppIcon from '../structure/AppIcon.vue'
 import LunaState from '@/services/LunaState'
 import getLunaState from '@/util/getLunaState'
 import { MAX_TURN } from '@/util/getTurnOrder'
-import ScoringTextInput from '@brdgm/brdgm-commons/src/components/form/ScoringTextInput.vue'
+import NumberInput from '@brdgm/brdgm-commons/src/components/form/NumberInput.vue'
+import toNumber from '@brdgm/brdgm-commons/src/util/form/toNumber'
 
 export default defineComponent({
   name: 'FinalScoring',
   components: {
     PlayerColorIcon,
     AppIcon,
-    ScoringTextInput
+    NumberInput
   },
   setup() {
     const { t } = useI18n()
@@ -188,26 +189,18 @@ export default defineComponent({
     totalCoins() : number[] {
       const result = []
       for (let i=0; i<this.playerCount+this.botCount; i++) {
-        result[i] = this.toNumber(this.coins[i])
-            + (this.toNumber(this.astrogoShares[i]) * this.toNumber(this.astrogoShareValue))
-            + (this.toNumber(this.tawacShares[i]) * this.toNumber(this.tawacShareValue))
-            + (this.toNumber(this.skymineShares[i]) * this.toNumber(this.skymineShareValue))
-            + (this.toNumber(this.minervaShares[i]) * this.toNumber(this.minervaShareValue))
-            + this.toNumber(this.heliumCoins[i])
-            + this.toNumber(this.researchCoins[i])
+        result[i] = toNumber(this.coins[i])
+            + (toNumber(this.astrogoShares[i]) * toNumber(this.astrogoShareValue))
+            + (toNumber(this.tawacShares[i]) * toNumber(this.tawacShareValue))
+            + (toNumber(this.skymineShares[i]) * toNumber(this.skymineShareValue))
+            + (toNumber(this.minervaShares[i]) * toNumber(this.minervaShareValue))
+            + toNumber(this.heliumCoins[i])
+            + toNumber(this.researchCoins[i])
       }
       return result
     }
   },
   methods: {
-    toNumber(value? : number) {
-      if (typeof value == 'string') {
-        return 0
-      }
-      else {
-        return value ?? 0
-      }
-    },
     getInitialHeliumCoinArray() : number[] {
       const result = [] as number[]
       for (let bot=1; bot<=this.botCount; bot++) {
