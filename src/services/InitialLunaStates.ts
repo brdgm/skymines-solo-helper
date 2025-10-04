@@ -36,7 +36,9 @@ export default class InitialLunaStates {
     }
     
     // draw cards for new round
-    lunaStates.forEach(this.drawCards)
+    for (const lunaState of lunaStates) {
+      this.drawCards(lunaState)
+    }
 
     // store round
     const lunaStatesPersistence = lunaStates.map(item => item.toPersistence())
