@@ -6,7 +6,7 @@ import { Turn } from '@/store/state'
  * @param turns Turn list
  * @returns Last turn in turn order
  */
-export default function(turns : Turn[]) : Turn|undefined {
+export default function getLastTurn(turns : Turn[]) : Turn|undefined {
   if (turns.length == 0) {
     return undefined
   }

@@ -2,7 +2,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import LunaState from '@/services/LunaState'
 import mockCardDeck, { MockCardDeckParams } from './mockCardDeck'
 
-export default function (params?: MockLunaStateParams) : LunaState {  
+export default function mockLunaState(params?: MockLunaStateParams) : LunaState {  
   let cardDeckParams = params?.cardDeck
   if (!cardDeckParams) {
     cardDeckParams = {}

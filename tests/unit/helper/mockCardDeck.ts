@@ -3,7 +3,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import Slot from '@/services/enum/Slot'
 import { CardSlotPersistence } from '@/store/state'
 
-export default function (params?: MockCardDeckParams) : CardDeck {  
+export default function mockCardDeck(params?: MockCardDeckParams) : CardDeck {  
   return CardDeck.fromPersistence({
     pile: params?.pile ?? [],
     grade2: params?.grade2 ?? [],
