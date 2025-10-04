@@ -7,7 +7,7 @@ import getLastTurn from './getLastTurn'
  * @param state State
  * @returns Luna state
  */
-export default function(state : State, round : number, turn : number, bot : number) : LunaState {
+export default function getLunaState(state : State, round : number, turn : number, bot : number) : LunaState {
   const difficultyLevel = state.setup.difficultyLevel
   let persistence : LunaStatePersistence|undefined
   const currentRound = state.rounds.find(item => item.round == round)

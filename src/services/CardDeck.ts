@@ -76,7 +76,9 @@ export default class CardDeck {
   public drawAll() : void {
     this._leftMajoritySlot = this.draw()
     this._rightMajoritySlot = this.draw()
-    this._availableSlots.forEach(slot => this._slots.push({slot:slot, card:this.draw(), flipped:false}))
+    for (const slot of this._availableSlots) {
+      this._slots.push({slot:slot, card:this.draw(), flipped:false})
+    }
   }
 
   /**

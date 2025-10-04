@@ -5,7 +5,7 @@
  * @param startPlayer (Human) start player
  * @returns Player order
  */
-export default function(playerCount: number, botCount: number, startPlayer: number) : PlayerOrder[] {
+export default function getPlayerOrder(playerCount: number, botCount: number, startPlayer: number) : PlayerOrder[] {
   const result : PlayerOrder[] = []
   for (let player=startPlayer; player<=playerCount; player++) {
     result.push({player:player})
