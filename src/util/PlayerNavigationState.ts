@@ -17,7 +17,7 @@ export default class PlayerNavigationState extends AbstractNavigationState {
 
   constructor(route : RouteLocation, state : State) {
     super(route, state)
-    this.player = parseInt(route.params['player'] as string)
+    this.player = Number.parseInt(route.params['player'] as string)
     this.playerColor = this.playerColors[this.player - 1] || PlayerColor.RED
 
     const detector = new FirstPlayerDetector(state)

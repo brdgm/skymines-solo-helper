@@ -16,7 +16,7 @@ export default class BotNavigationState extends AbstractNavigationState {
 
   constructor(route : RouteLocation, state : State) {
     super(route, state)
-    this.bot = parseInt(route.params['bot'] as string)
+    this.bot = Number.parseInt(route.params['bot'] as string)
     this.playerColor = this.playerColors[this.playerCount + this.bot - 1] || PlayerColor.RED
     this.lunaState = getLunaState(state, this.round, this.turn, this.bot)
     this.lunaActions = this.getLunaActions()

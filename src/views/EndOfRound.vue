@@ -34,7 +34,7 @@ export default defineComponent({
     const state = useStateStore()
     const route = useRoute()
 
-    const round = parseInt(route.params['round'] as string)
+    const round = Number.parseInt(route.params['round'] as string)
 
     return { t, state, round }
   },
