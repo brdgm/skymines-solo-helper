@@ -93,8 +93,7 @@
         }
       },
       "discardResearchPlan": {
-        "discard": "Luna discards a <b>{plan}-research plan</b>:",
-        "discardFirstCol": "Luna discards a <b>{plan}-research plan</b>; she also gains any CrypCoin on the supplement space:",
+        "discard": "Luna discards a <b>{plan}-research plan</b>; she also gains any CrypCoin on the supplement space:",
         "discardSpecial": "Luna discards the <b>latest face-up special research plan</b>.",
         "help": {
           "title": "Discard Research Plan",

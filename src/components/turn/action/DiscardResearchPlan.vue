@@ -4,8 +4,7 @@
       <span v-html="t('turnBot.action.discardResearchPlan.discardSpecial')"></span>
     </template>
     <template v-else>
-      <span v-if="isFirstCol" v-html="t('turnBot.action.discardResearchPlan.discardFirstCol',{plan:plan})"></span>
-      <span v-else v-html="t('turnBot.action.discardResearchPlan.discard',{plan:plan})"></span>
+      <span v-html="t('turnBot.action.discardResearchPlan.discard',{plan:plan})"></span>
       <div class="selection">
         <AppIcon type="selection" name="research-plan-selection" class="matrix"/>
         <table>
@@ -75,10 +74,6 @@ export default defineComponent({
         default:
           return ''
       }
-    },
-    isFirstCol() : boolean {
-      const row = this.action.researchPlanRow ?? []
-      return row.length > 0 && row[0].includes(this.slot)
     },
     isSpecialPlan() : boolean {
       return this.action.researchPlanSelection == ResearchPlanSelection.SPECIAL_RESEARCH
