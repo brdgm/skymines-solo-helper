@@ -93,8 +93,7 @@
         }
       },
       "discardResearchPlan": {
-        "discard": "Luna entfernt den <b>{plan}-Forschungsplan</b>:",
-        "discardFirstCol": "Luna entfernt den <b>{plan}-Forschungsplan</b>; liegen auf dem Zuschussfeld noch CrypCoin, erhält sie diese:",
+        "discard": "Luna entfernt den <b>{plan}-Forschungsplan</b>; liegen auf dem Zuschussfeld noch CrypCoin, erhält sie diese:",
         "discardSpecial": "Luna entfernt den <b>neuesten offenen Sonder-Forschungsplan</b>.",
         "help": {
           "title": "Forschungsplan entfernen",

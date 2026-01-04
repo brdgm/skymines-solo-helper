@@ -87,8 +87,7 @@
         }
       },
       "discardResearchPlan": {
-        "discard": "Luna défausse un <b>{plan}-plan de recherche</b>:",
-        "discardFirstCol": "Luna défausse un <b>{plan}-plan de recherche</b>; Luna gagne le CrypCoin sur la case de prime",
+        "discard": "Luna défausse un <b>{plan}-plan de recherche</b>; Luna gagne le CrypCoin sur la case de prime",
         "discardSpecial": "Luna défausse le <b>dernier plan de recherche spécial apparu </b>.",
         "help": {
           "title": "Défausse un jeton de recherche",

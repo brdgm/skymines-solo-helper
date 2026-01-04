@@ -19,8 +19,8 @@ export default abstract class AbstractNavigationState {
     this.playerColors = setup.playerSetup.playerColors
     this.botCount = setup.playerSetup.botCount
 
-    this.round = parseInt(route.params['round'] as string)
-    this.turn = parseInt(route.params['turn'] as string)
+    this.round = Number.parseInt(route.params['round'] as string)
+    this.turn = Number.parseInt(route.params['turn'] as string)
   }
 
 }

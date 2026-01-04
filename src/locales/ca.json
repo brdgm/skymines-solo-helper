@@ -87,8 +87,7 @@
         }
       },
       "discardResearchPlan": {
-        "discard": "Luna descarta un <b>pla de recerca {plan}</b>:",
-        "discardFirstCol": "Luna descarta un <b>pla de recerca {plan}</b>; també guanya qualsevol CrypCoin de l'espai suplementari:",
+        "discard": "Luna descarta un <b>pla de recerca {plan}</b>; també guanya qualsevol CrypCoin de l'espai suplementari:",
         "discardSpecial": "Luna descarta <b>l'últim pla especial d'investigació capgirat</b>.",
         "help": {
           "title": "Descarta pla de recerca",
