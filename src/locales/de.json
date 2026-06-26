@@ -98,7 +98,7 @@
         "help": {
           "title": "Forschungsplan entfernen",
           "instruction": "Immer wenn die Aktion einer Lunakarte angibt, dass ich Forschungspläne entferne, musst du die spezifizierten Forschungspläne aus der Forschungsauslage nehmen und sie in die Schachtel zurücklegen. Fülle anschließend jedes leere Buchstabenfeld der Forschungsauslage mit einem offenen Forschungsplan auf, den du vom Forschungsplan-Vorrat des entsprechenden Buchstabens ziehst.",
-          "specialResearchPlan": "Wenn es heißt, dass ich den neuesten offen <b>Sonder-Forschungsplan</b> entferne, bedeutet das: Von den auf der Rundenleiste offenliegenden Sonder-Forschungsplänen, musst du denjenigen in die Schachtel zurücklegen, der zuletzt aufgedeckt wurde. Falls keiner offen auf der Rundenleiste liegt, wird auch keiner entfernt."
+          "specialResearchPlan": "Wenn es heißt, dass ich den neuesten offenen <b>Sonder-Forschungsplan</b> entferne, bedeutet das: Von den auf der Rundenleiste offenliegenden Sonder-Forschungsplänen, musst du denjenigen in die Schachtel zurücklegen, der zuletzt aufgedeckt wurde. Falls keiner offen auf der Rundenleiste liegt, wird auch keiner entfernt."
         }
       },
       "expandCompany": {
@@ -166,7 +166,7 @@
   "endOfRound": {
     "title": "Runde {round} vorbereiten",
     "flipSpecialResearchTile": "Decke den nächsten Sonder-Forschungsplan auf",
-    "returnBonusMarkers": "Nehme die Bonusmarker zurück (inklusive eventueller Bonusplättchen)",
+    "returnBonusMarkers": "Nimm die Bonusmarker zurück (inklusive eventueller Bonusplättchen)",
     "fillUpCardDisplay": "Fülle die Kartenauslage auf dem Spielplan auf",
     "planningPhase": "Führe die Planungsphase durch"
   },
