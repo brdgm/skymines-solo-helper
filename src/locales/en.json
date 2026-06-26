@@ -83,7 +83,7 @@
           "instruction": "Move my track marker this many spaces forward on the company track(s) named on the card <i>(see below)</i>.",
           "rulesHint": "Bear the following rules in mind:",
           "hint1": "Whenever one of my track markers (or any of yours) passes a bonus threshold, its CrypCoin reward is distributed as usual.",
-          "hint2": "Whenever one of my track markers passes a money barrier, its cost must be paid with CrypCoin from my e. If I do not have enough CrypCoin to do so, pay as much as I have and then continue to move my track marker forward.",
+          "hint2": "Whenever one of my track markers passes a money barrier, its cost must be paid with CrypCoin from my reserve. If I do not have enough CrypCoin to do so, pay as much as I have and then continue to move my track marker forward.",
           "hint3": "Once a marker of mine has reached the end of its company track: From now on, for each space that it would normally move forward on this track, I gain 2 CrypCoin instead.",
           "hint4": "All track bonuses that my markers unlock are ignored for me.",
           "mostValuable": "The <b>most valuable company track</b> is the one that has the most visible coin icons in its station.",
